@@ -11,21 +11,50 @@ import {
   Text,
   View
 } from 'react-native';
+import MapView from 'react-native-maps';
 
 export default class Closies extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      region: {
+        latitude: 50.449483,
+        longitude: 30.596962,
+        latitudeDelta: 0.0122,
+        longitudeDelta: 0.0001,
+      },
+      markers: [{
+        latlng: {
+          latitude: 50.449483,
+          longitude: 30.596962,
+        },
+        title: 'tolya bil zdes',
+        description: 'ochen tolstiy tolya'
+      }]
+    };
+  }
+
+  // onRegionChange(region) {
+  //   this.setState({ region });
+  // }
+
   render() {
+    // console.warn(123)
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+        <MapView
+          style={styles.map}
+          region={this.state.region}>
+          {this.state.markers.map(marker => (
+            <MapView.Marker
+              key={marker.title}
+              coordinate={marker.latlng}
+              title={marker.title}
+              description={marker.description}
+            />
+          ))}
+        </MapView>
+        <Text style={{height: 100, fontSize: 30}}>1</Text>
       </View>
     );
   }
@@ -33,20 +62,12 @@ export default class Closies extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'flex-end',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  map: {
+   ...StyleSheet.absoluteFillObject,
   },
 });
 
