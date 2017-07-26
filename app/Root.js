@@ -1,3 +1,4 @@
+//@flow
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import MapView from 'react-native-maps'
@@ -14,24 +15,21 @@ const styles = StyleSheet.create({
 })
 
 export default class Closies extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      region: {
+  state = {
+    region: {
+      latitude: 50.449483,
+      longitude: 30.596962,
+      latitudeDelta: 0.0122,
+      longitudeDelta: 0.0001,
+    },
+    markers: [{
+      latlng: {
         latitude: 50.449483,
         longitude: 30.596962,
-        latitudeDelta: 0.0122,
-        longitudeDelta: 0.0001,
       },
-      markers: [{
-        latlng: {
-          latitude: 50.449483,
-          longitude: 30.596962,
-        },
-        title: 'tolya bil zdes',
-        description: 'ochen tolstiy tolya'
-      }]
-    }
+      title: 'tolya bil zdes',
+      description: 'ochen tolstiy tolya'
+    }]
   }
 
   // onRegionChange(region) {
