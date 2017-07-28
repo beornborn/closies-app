@@ -1,58 +1,28 @@
-//@flow
-import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import MapView from 'react-native-maps'
+// @flow
+import React from 'react'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import Orientation from 'react-native-orientation'
+import { Router, Scene } from 'react-native-router-flux'
 
-const styles = StyleSheet.create({
-  container: {
-    ...StyleSheet.absoluteFillObject,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-  map: {
-    ...StyleSheet.absoluteFillObject,
-  },
-})
+import Home from 'Closies/app/components/Home'
+import AppReducer from 'Closies/app/reducers'
+const store = createStore(AppReducer)
 
-export default class Closies extends Component {
-  state = {
-    region: {
-      latitude: 50.449483,
-      longitude: 30.596962,
-      latitudeDelta: 0.0122,
-      longitudeDelta: 0.0001,
-    },
-    markers: [{
-      latlng: {
-        latitude: 50.449483,
-        longitude: 30.596962,
-      },
-      title: 'tolya bil zdes',
-      description: 'ochen tolstiy tolya'
-    }]
+export default class Root extends React.Component {
+  componentDidMount() {
+    Orientation.lockToPortrait()
   }
 
-  // onRegionChange(region) {
-  //   this.setState({ region })
-  // }
-
   render() {
-    // console.warn(123)
     return (
-      <View style={styles.container}>
-        <MapView
-          style={styles.map}
-          region={this.state.region}>
-          {this.state.markers.map(marker => (
-            <MapView.Marker
-              key={marker.title}
-              coordinate={marker.latlng}
-              title={marker.title}
-              description={marker.description} />
-          ))}
-        </MapView>
-        <Text style={{height: 100, fontSize: 30}}>1</Text>
-      </View>
+      <Provider store={store}>
+        <Router>
+          <Scene key='root' hideNavBar={true} >
+            <Scene key='home' initial={true} component={Home} />
+          </Scene>
+        </Router>
+      </Provider>
     )
   }
 }

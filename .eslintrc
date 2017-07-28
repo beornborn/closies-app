@@ -4,6 +4,9 @@
     amd: true,
     es6: true
   },
+  settings: {
+    'import/resolver': 'reactnative'
+  },
   globals: {
     describe: true,
     expect: true,
