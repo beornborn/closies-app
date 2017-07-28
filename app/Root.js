@@ -9,9 +9,14 @@ import Home from 'Closies/app/containers/Home'
 import Mapp from 'Closies/app/containers/Map'
 import AppReducer from 'Closies/app/reducers'
 import sagas from 'Closies/app/sagas'
+import { createLogger } from 'redux-logger'
 
+const logger = createLogger({
+  collapsed: true,
+  actionTransformer: (action) => ({type: action.type, ...action.payload})
+})
 const sagaMiddleware = createSagaMiddleware()
-const store = createStore(AppReducer, applyMiddleware(sagaMiddleware))
+const store = createStore(AppReducer, applyMiddleware(sagaMiddleware, logger))
 sagaMiddleware.run(sagas, store.dispatch)
 
 export default class Root extends React.Component {
