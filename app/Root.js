@@ -4,9 +4,9 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import Orientation from 'react-native-orientation'
 import { Router, Scene } from 'react-native-router-flux'
-
 import Home from 'Closies/app/components/Home'
 import AppReducer from 'Closies/app/reducers'
+
 const store = createStore(AppReducer)
 
 export default class Root extends React.Component {
