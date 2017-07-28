@@ -15,8 +15,8 @@ export default class Home extends React.Component {
 
     return <View>
       <Text>welcome</Text>
-      <Button onPress={Actions.mapp} title='welcome' />
-      <Button onPress={doTest} title='doTest' />
+      <Button onPress={Actions.mapp} title='go to map' />
+      <Button onPress={doTest} title='do test' />
       {test && <Text>redux works!</Text>}
     </View>
   }

@@ -1,7 +1,10 @@
 //@flow
 import React, { Component } from 'react'
+import pt from 'prop-types'
 import { StyleSheet, Text, View } from 'react-native'
 import MapView from 'react-native-maps'
+import ActionButton from 'react-native-action-button'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 const styles = StyleSheet.create({
   container: {
@@ -12,9 +15,20 @@ const styles = StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject,
   },
+  actionButtonIcon: {
+    fontSize: 20,
+    height: 22,
+    color: 'white',
+  },
 })
 
 export default class Closies extends Component {
+  static propTypes = {
+    checkIns: pt.arrayOf(pt.object).isRequired,
+    doCheckIn: pt.func.isRequired,
+    fetchCheckIns: pt.func.isRequired,
+  }
+
   state = {
     region: {
       latitude: 50.449483,
@@ -22,14 +36,10 @@ export default class Closies extends Component {
       latitudeDelta: 0.0122,
       longitudeDelta: 0.0001,
     },
-    markers: [{
-      latlng: {
-        latitude: 50.449483,
-        longitude: 30.596962,
-      },
-      title: 'tolya bil zdes',
-      description: 'ochen tolstiy tolya'
-    }]
+  }
+
+  componentDidMount() {
+    this.props.fetchCheckIns()
   }
 
   // onRegionChange(region) {
@@ -37,20 +47,25 @@ export default class Closies extends Component {
   // }
 
   render() {
-    // console.warn(123)
+    const { doCheckIn, checkIns } = this.props
+    console.log(checkIns)
     return (
       <View style={styles.container}>
         <MapView
           style={styles.map}
           region={this.state.region}>
-          {this.state.markers.map(marker => (
+          {checkIns.map(checkIn => (
             <MapView.Marker
-              key={marker.title}
-              coordinate={marker.latlng}
-              title={marker.title}
-              description={marker.description} />
+              key={checkIn.title}
+              coordinate={checkIn.latlng}
+              title={checkIn.title}
+              description={checkIn.description} />
           ))}
         </MapView>
+        <ActionButton
+          buttonColor='rgba(231,76,60,1)'
+          icon={<Icon name='location-on' style={styles.actionButtonIcon} />}
+          onPress={doCheckIn} />
         <Text style={{height: 100, fontSize: 30}}>1</Text>
       </View>
     )

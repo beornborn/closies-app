@@ -1,14 +1,18 @@
 // @flow
 import React from 'react'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import Orientation from 'react-native-orientation'
 import { Router, Scene } from 'react-native-router-flux'
+import createSagaMiddleware from 'redux-saga'
 import Home from 'Closies/app/containers/Home'
-import Mapp from 'Closies/app/components/Map'
+import Mapp from 'Closies/app/containers/Map'
 import AppReducer from 'Closies/app/reducers'
+import sagas from 'Closies/app/sagas'
 
-const store = createStore(AppReducer)
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(AppReducer, applyMiddleware(sagaMiddleware))
+sagaMiddleware.run(sagas, store.dispatch)
 
 export default class Root extends React.Component {
   componentDidMount() {

@@ -1,49 +1,53 @@
 {
-	"name": "Closies",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"flow-install": "flow-typed install",
-		"flow": "flow",
-		"eslint": "eslint --format 'node_modules/eslint-friendly-formatter' ./app",
-		"check": "npm run flow && npm run eslint",
-		"test": "jest"
-	},
-	"dependencies": {
-		"immutability-helper": "^2.3.0",
-		"lodash": "^4.17.4",
-		"prop-types": "^15.5.10",
-		"react": "16.0.0-alpha.12",
-		"react-native": "0.46.4",
-		"react-native-maps": "^0.15.3",
-		"react-native-orientation": "^2.1.0",
-		"react-native-router-flux": "^4.0.0-beta.14",
-		"react-redux": "^5.0.5",
-		"redux": "^3.7.2",
-		"redux-actions": "^2.2.1"
-	},
-	"devDependencies": {
-		"babel-eslint": "^7.2.3",
-		"babel-jest": "20.0.3",
-		"babel-preset-react-native": "2.1.0",
-		"eslint": "^4.3.0",
-		"eslint-config-airbnb": "^15.1.0",
-		"eslint-friendly-formatter": "^3.0.0",
-		"eslint-import-resolver-reactnative": "^1.0.2",
-		"eslint-plugin-flowtype": "^2.35.0",
-		"eslint-plugin-import": "^2.7.0",
-		"eslint-plugin-jsx-a11y": "^5.1.1",
-		"eslint-plugin-prettier": "^2.1.2",
-		"eslint-plugin-react": "^7.1.0",
-		"eslint-plugin-react-native": "^3.0.1",
-		"flow-bin": "0.49.1",
-		"flow-typed": "^2.1.5",
-		"jest": "20.0.4",
-		"prettier": "^1.5.3",
-		"react-test-renderer": "16.0.0-alpha.12"
-	},
-	"jest": {
-		"preset": "react-native"
-	}
+  "name": "Closies",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "local": "react-native run-android",
+    "flow-install": "flow-typed install",
+    "flow": "flow",
+    "eslint": "eslint --format 'node_modules/eslint-friendly-formatter' ./app",
+    "check": "npm run flow && npm run eslint",
+    "test": "jest"
+  },
+  "dependencies": {
+    "immutability-helper": "^2.3.0",
+    "lodash": "^4.17.4",
+    "prop-types": "^15.5.10",
+    "react": "16.0.0-alpha.12",
+    "react-native": "0.46.4",
+    "react-native-action-button": "^2.7.2",
+    "react-native-maps": "^0.15.3",
+    "react-native-orientation": "^2.1.0",
+    "react-native-router-flux": "^4.0.0-beta.14",
+    "react-native-vector-icons": "^4.2.0",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.2.1",
+    "redux-saga": "^0.15.6"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "20.0.3",
+    "babel-preset-react-native": "^2.0.0",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-import-resolver-reactnative": "^1.0.2",
+    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-prettier": "^2.1.2",
+    "eslint-plugin-react": "^7.1.0",
+    "eslint-plugin-react-native": "^3.0.1",
+    "flow-bin": "0.49.1",
+    "flow-typed": "^2.1.5",
+    "jest": "20.0.4",
+    "prettier": "^1.5.3",
+    "react-test-renderer": "16.0.0-alpha.12"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
 }
