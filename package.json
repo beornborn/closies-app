@@ -11,6 +11,7 @@
 		"test": "jest"
 	},
 	"dependencies": {
+		"immutability-helper": "^2.3.0",
 		"lodash": "^4.17.4",
 		"prop-types": "^15.5.10",
 		"react": "16.0.0-alpha.12",
@@ -19,7 +20,8 @@
 		"react-native-orientation": "^2.1.0",
 		"react-native-router-flux": "^4.0.0-beta.14",
 		"react-redux": "^5.0.5",
-		"redux": "^3.7.2"
+		"redux": "^3.7.2",
+		"redux-actions": "^2.2.1"
 	},
 	"devDependencies": {
 		"babel-eslint": "^7.2.3",

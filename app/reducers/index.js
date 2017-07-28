@@ -1,13 +1,13 @@
 //@flow
 import { combineReducers } from 'redux'
 import data from 'Closies/app/reducers/Data'
-import view from 'Closies/app/reducers/View'
+import ui from 'Closies/app/reducers/Ui'
 import app from 'Closies/app/reducers/App'
 
 const RootReducer = combineReducers({
   data,
   app,
-  view,
+  ui,
 })
 
 export default RootReducer
