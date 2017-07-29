@@ -1,11 +1,11 @@
 //@flow
 import { put, takeEvery } from 'redux-saga/effects'
-import { SAGA_FETCH_CHECK_INS } from 'Closies/app/reducers/Saga'
+import { SAGA_FETCH_ACTIVITIES } from 'Closies/app/reducers/Saga'
 import { setCheckIns } from 'Closies/app/reducers/Data'
 
 const perform = function* perform(_a) {
   try {
-    const checkIns = [
+    const activities = [
       {
         latlng: {
           latitude: 50.449483,
@@ -23,12 +23,12 @@ const perform = function* perform(_a) {
         description: 'ochen tolstiy tolya'
       },
     ]
-    yield put(setCheckIns(checkIns))
+    yield put(setCheckIns(activities))
   } catch (err) { console.log(err) }
 }
 
 const watch = function* watch(): Generator<*,*,*> {
-  yield takeEvery(SAGA_FETCH_CHECK_INS, perform)
+  yield takeEvery(SAGA_FETCH_ACTIVITIES, perform)
 }
 
 export default watch

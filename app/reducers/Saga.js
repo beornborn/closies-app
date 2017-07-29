@@ -1,8 +1,8 @@
 //@flow
 import { createAction } from 'redux-actions'
 
-export const SAGA_CHECK_IN = 'SAGA_CHECK_IN'
-export const SAGA_FETCH_CHECK_INS = 'SAGA_FETCH_CHECK_INS'
+export const SAGA_ACTIVITY = 'SAGA_ACTIVITY'
+export const SAGA_FETCH_ACTIVITIES = 'SAGA_FETCH_ACTIVITIES'
 
-export const checkIn = () => createAction(SAGA_CHECK_IN)()
-export const fetchCheckIns = () => createAction(SAGA_FETCH_CHECK_INS)()
+export const activity = () => createAction(SAGA_ACTIVITY)()
+export const fetchCheckIns = () => createAction(SAGA_FETCH_ACTIVITIES)()

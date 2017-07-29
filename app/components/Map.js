@@ -9,7 +9,7 @@ import { Container, ActionButtonIconStyle } from './Map.style'
 
 export default class Closies extends Component {
   static propTypes = {
-    checkIns: pt.arrayOf(pt.object).isRequired,
+    activities: pt.arrayOf(pt.object).isRequired,
     doCheckIn: pt.func.isRequired,
     fetchCheckIns: pt.func.isRequired,
   }
@@ -19,7 +19,7 @@ export default class Closies extends Component {
   }
 
   render() {
-    const { doCheckIn, checkIns } = this.props
+    const { doCheckIn, activities } = this.props
 
     const region = {
       latitude: 50.449483,
@@ -33,12 +33,12 @@ export default class Closies extends Component {
         <MapView
           style={StyleSheet.absoluteFillObject}
           region={region}>
-          {checkIns.map(checkIn => (
+          {activities.map(activity => (
             <MapView.Marker
-              key={checkIn.title}
-              coordinate={checkIn.latlng}
-              title={checkIn.title}
-              description={checkIn.description} />
+              key={activity.title}
+              coordinate={activity.latlng}
+              title={activity.title}
+              description={activity.description} />
           ))}
         </MapView>
         <ActionButton

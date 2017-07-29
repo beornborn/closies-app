@@ -7,9 +7,9 @@ export const api = {
 }
 
 export const routes = {
-  check_ins: {
-    index: () => `v1/check_ins`,
-    create: () => `v1/check_ins`,
+  activities: {
+    index: () => `v1/activities`,
+    create: () => `v1/activities`,
   },
 }
 

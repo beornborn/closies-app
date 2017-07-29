@@ -1,6 +1,6 @@
 //@flow
 import { takeEvery } from 'redux-saga/effects'
-import { SAGA_CHECK_IN } from 'Closies/app/reducers/Saga'
+import { SAGA_ACTIVITY } from 'Closies/app/reducers/Saga'
 import * as api from 'Closies/app/api'
 
 const perform = function* perform(_a) {
@@ -14,7 +14,7 @@ const perform = function* perform(_a) {
 }
 
 const watch = function* watch(): Generator<*,*,*> {
-  yield takeEvery(SAGA_CHECK_IN, perform)
+  yield takeEvery(SAGA_ACTIVITY, perform)
 }
 
 export default watch

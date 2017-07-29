@@ -1,2 +1,2 @@
 //@flow
-export const getCheckIns = (state: Object) => state.data.checkIns
+export const getCheckIns = (state: Object) => state.data.activities

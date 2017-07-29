@@ -1,2 +1,2 @@
 //@flow
-export * from './CheckIn'
+export * from './Activity'
