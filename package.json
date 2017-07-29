@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "local": "react-native run-android",
+    "local": "adb reverse tcp:3000 tcp:3000; react-native run-android",
     "flow-install": "flow-typed install",
     "flow": "flow",
     "eslint": "eslint --format 'node_modules/eslint-friendly-formatter' ./app",
