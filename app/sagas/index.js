@@ -1,12 +1,12 @@
 //@flow
 import { all, fork } from 'redux-saga/effects'
-import watchCheckIn from 'Closies/app/sagas/CheckIn'
-import watchFetchCheckIns from 'Closies/app/sagas/FetchCheckIns'
+import watchActivity from 'Closies/app/sagas/CreateActivity'
+import watchFetchActivities from 'Closies/app/sagas/FetchActivities'
 
 const rootSaga = function* rootSaga(): Generator<any,any,any> {
   yield all([
-    fork(watchCheckIn),
-    fork(watchFetchCheckIns),
+    fork(watchActivity),
+    fork(watchFetchActivities),
   ])
 }
 

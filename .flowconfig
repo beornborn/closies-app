@@ -2,6 +2,7 @@
 <PROJECT_ROOT>/node_modules/react-native-router-flux/src/LightboxNavigator.js
 <PROJECT_ROOT>/node_modules/react-native-router-flux/src/OverlayNavigator.js
 <PROJECT_ROOT>/node_modules/react-navigation/.*
+<PROJECT_ROOT>/node_modules/styled-components/.*
 
 ; We fork some components by platform
 .*/*[.]android.js

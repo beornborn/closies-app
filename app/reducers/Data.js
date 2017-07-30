@@ -5,7 +5,7 @@ import { createAction as cA } from 'redux-actions'
 
 const SET_ACTIVITIES = 'data/SET_ACTIVITIES'
 
-export const setCheckIns = (activities: Array<Object>) => cA(SET_ACTIVITIES)({activities})
+export const setActivities = (activities: Array<Object>) => cA(SET_ACTIVITIES)({activities})
 
 const initialState = {
   activities: []

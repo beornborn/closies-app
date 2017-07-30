@@ -10,19 +10,19 @@ import { Container, ActionButtonIconStyle } from './Map.style'
 export default class Closies extends Component {
   static propTypes = {
     activities: pt.arrayOf(pt.object).isRequired,
-    doCheckIn: pt.func.isRequired,
-    fetchCheckIns: pt.func.isRequired,
+    doActivity: pt.func.isRequired,
+    fetchActivities: pt.func.isRequired,
   }
 
   componentDidMount() {
-    this.props.fetchCheckIns()
+    this.props.fetchActivities()
   }
 
   render() {
-    const { doCheckIn, activities } = this.props
+    const { doActivity, activities } = this.props
 
     const region = {
-      latitude: 50.449483,
+      latitude: 50.445483,
       longitude: 30.596962,
       latitudeDelta: 0.0122,
       longitudeDelta: 0.0001,
@@ -35,7 +35,7 @@ export default class Closies extends Component {
           region={region}>
           {activities.map(activity => (
             <MapView.Marker
-              key={activity.title}
+              key={activity.id}
               coordinate={activity.latlng}
               title={activity.title}
               description={activity.description} />
@@ -44,7 +44,7 @@ export default class Closies extends Component {
         <ActionButton
           buttonColor='rgba(231,76,60,1)'
           icon={<Icon name='location-on' style={ActionButtonIconStyle} />}
-          onPress={doCheckIn} />
+          onPress={doActivity} />
         <Text style={{height: 100, fontSize: 30}}>1</Text>
       </Container>
     )

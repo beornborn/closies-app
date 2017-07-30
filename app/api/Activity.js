@@ -2,10 +2,10 @@
 import { routes } from 'Closies/app/__config/Config'
 import { apiGet, apiPost } from 'Closies/app/api/__helpers'
 
-export function fetchCheckIns(user: Object) {
+export function fetchActivities() {
   return apiGet(routes.activities.index())
 }
 
-export function createCheckIn(activity: Object) {
+export function createActivity(activity: Object) {
   return apiPost(routes.activities.create(), {activity})
 }
