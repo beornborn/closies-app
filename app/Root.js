@@ -19,6 +19,8 @@ const sagaMiddleware = createSagaMiddleware()
 const store = createStore(AppReducer, applyMiddleware(sagaMiddleware, logger))
 sagaMiddleware.run(sagas, store.dispatch)
 
+console.disableYellowBox = true
+
 export default class Root extends React.Component {
   componentDidMount() {
     Orientation.lockToPortrait()

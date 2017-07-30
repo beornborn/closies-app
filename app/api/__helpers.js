@@ -2,6 +2,7 @@
 import _ from 'lodash'
 import { api } from 'Closies/app/__config/Config'
 import type { MethodType } from 'Closies/app/Types'
+import AsyncStorage from 'Closies/app/utils/AsyncStorage'
 
 export function checkStatus(response: Object) {
   const status = response.status
@@ -64,11 +65,13 @@ export function apiPostFormData(path: string, files: Array<Object>) {
   return handleResponse(fetch(`${api.url}${path}`, settings))
 }
 
-function request(path: string, payload: Object, method: MethodType) {
+async function request(path: string, payload: Object, method: MethodType) {
+  const authToken = await AsyncStorage.getAuthToken()
   const settings: Object = {
     method,
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'X-API-AUTHTOKEN': authToken,
     }
   }
 

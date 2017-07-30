@@ -6,11 +6,12 @@ import MapView from 'react-native-maps'
 import ActionButton from 'react-native-action-button'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { Container, ActionButtonIconStyle } from './Map.style'
+import BottomNavigation from 'Closies/app/components/BottomNavigation'
 
 export default class Closies extends Component {
   static propTypes = {
     activities: pt.arrayOf(pt.object).isRequired,
-    doActivity: pt.func.isRequired,
+    createActivity: pt.func.isRequired,
     fetchActivities: pt.func.isRequired,
   }
 
@@ -19,7 +20,7 @@ export default class Closies extends Component {
   }
 
   render() {
-    const { doActivity, activities } = this.props
+    const { createActivity, activities } = this.props
 
     const region = {
       latitude: 50.445483,
@@ -44,8 +45,8 @@ export default class Closies extends Component {
         <ActionButton
           buttonColor='rgba(231,76,60,1)'
           icon={<Icon name='location-on' style={ActionButtonIconStyle} />}
-          onPress={doActivity} />
-        <Text style={{height: 100, fontSize: 30}}>1</Text>
+          onPress={createActivity} />
+        <BottomNavigation />
       </Container>
     )
   }

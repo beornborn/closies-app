@@ -11,6 +11,9 @@ export const routes = {
     index: () => `v1/activities`,
     create: () => `v1/activities`,
   },
+  auth: {
+    login: () => `v1/auth/login`,
+  },
 }
 
 const config = { api, routes }

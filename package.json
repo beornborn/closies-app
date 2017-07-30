@@ -21,6 +21,7 @@
     "react-native-action-button": "^2.7.2",
     "react-native-fbsdk": "0.6.0",
     "react-native-maps": "^0.15.3",
+    "react-native-material-bottom-navigation": "^0.5.1",
     "react-native-orientation": "^2.1.0",
     "react-native-router-flux": "^4.0.0-beta.14",
     "react-native-vector-icons": "^4.2.0",
