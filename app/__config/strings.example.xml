@@ -5,4 +5,5 @@ Ask owner about real key
 <resources>
     <string name="app_name">Closies</string>
     <string name="GOOGLE_API_KEY">APP_INITIAL_SETUP_GOOGLE_API_KEY</string>
+    <string name="facebook_app_id">APP_INITIAL_SETUP_FACEBOOK_APP_ID</string>
 </resources>

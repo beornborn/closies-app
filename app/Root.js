@@ -29,8 +29,8 @@ export default class Root extends React.Component {
       <Provider store={store}>
         <Router>
           <Scene key='root' hideNavBar={true} >
-            <Scene key='home' component={Home} />
-            <Scene key='mapp' component={Mapp} initial={true} />
+            <Scene key='home' component={Home} initial={true} />
+            <Scene key='mapp' component={Mapp} />
           </Scene>
         </Router>
       </Provider>
