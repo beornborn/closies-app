@@ -1,5 +1,4 @@
 //@flow
-import type { Action } from 'Closies/app/Types'
 import u from 'immutability-helper'
 import { createAction as cA } from 'redux-actions'
 

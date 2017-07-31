@@ -1,7 +1,6 @@
 //@flow
 import _ from 'lodash'
 import { api } from 'Closies/app/__config/Config'
-import type { MethodType } from 'Closies/app/Types'
 import AsyncStorage from 'Closies/app/utils/AsyncStorage'
 
 export function checkStatus(response: Object) {

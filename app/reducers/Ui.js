@@ -1,6 +1,5 @@
 //@flow
 import u from 'immutability-helper'
-import type { Action } from 'Closies/app/Types'
 import { createAction as cA } from 'redux-actions'
 
 export const DO_TEST = 'ui/DO_TEST'
