@@ -1,12 +1,12 @@
 //@flow
 import React, { Component } from 'react'
 import pt from 'prop-types'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet } from 'react-native'
 import MapView from 'react-native-maps'
 import ActionButton from 'react-native-action-button'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import { Container, ActionButtonIconStyle } from './Map.style'
 import BottomNavigation from 'Closies/app/components/BottomNavigation'
+import { Container, ActionButtonIconStyle } from './Map.style'
 
 export default class Closies extends Component {
   static propTypes = {

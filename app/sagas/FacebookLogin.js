@@ -18,9 +18,9 @@ const perform = function* perform(a) {
     const { error, result } = a.payload
     console.log(error, result)
     if (error) {
-      alert("login has error: " + result.error);
+      console.log('login has error: ' + result.error)
     } else if (result.isCancelled) {
-      alert("login is cancelled.");
+      console.log('login is cancelled.')
     } else {
       const fbToken = yield getFacebookToken()
       const response = yield api.login(fbToken)

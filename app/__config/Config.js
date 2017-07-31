@@ -8,11 +8,11 @@ export const api = {
 
 export const routes = {
   activities: {
-    index: () => `v1/activities`,
-    create: () => `v1/activities`,
+    index: () => 'v1/activities',
+    create: () => 'v1/activities',
   },
   auth: {
-    login: () => `v1/auth/login`,
+    login: () => 'v1/auth/login',
   },
 }
 

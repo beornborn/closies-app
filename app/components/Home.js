@@ -21,11 +21,11 @@ export default class Home extends React.Component {
       <Button onPress={doTest} title='do test' />
       {test && <Text>redux works!</Text>}
       <View style={{justifyContent: 'center', alignItems: 'center'}}>
-      <View style={{height: 100}} />
-      <FBSDK.LoginButton
-        style={{padding: 40}}
-        readPermissions={['public_profile', 'email', 'user_birthday']}
-        onLoginFinished={doLogin} />
+        <View style={{height: 100}} />
+        <FBSDK.LoginButton
+          style={{padding: 40}}
+          readPermissions={['public_profile', 'email', 'user_birthday']}
+          onLoginFinished={doLogin} />
       </View>
     </View>
   }
