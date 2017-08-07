@@ -21,7 +21,7 @@ export default class Authorizer extends React.Component {
     if (!this.isAuthorized()) {
       switch (componentName) {
         case 'WithFooter': return Actions.home()
-        case 'Home': return Actions.mapp()
+        case 'Login': return Actions.mapp()
       }
     }
   }

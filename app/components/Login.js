@@ -4,7 +4,7 @@ import pt from 'prop-types'
 import { View } from 'react-native'
 import FBSDK from 'react-native-fbsdk'
 
-export default class Home extends React.Component {
+export default class Login extends React.Component {
   static propTypes = {
     doLogin: pt.func.isRequired,
   }

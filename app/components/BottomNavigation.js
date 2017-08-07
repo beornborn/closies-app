@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import BottomNavigation, { Tab } from 'react-native-material-bottom-navigation'
 import { palette } from 'Closies/app/__config/Theme'
 
-export default class Home extends React.Component {
+export default class ClosiesBottomNavigation extends React.Component {
   static propTypes = {
 
   }
