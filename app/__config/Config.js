@@ -14,6 +14,9 @@ export const routes = {
   auth: {
     login: () => 'v1/auth/login',
   },
+  users: {
+    current: () => 'v1/users/current',
+  },
 }
 
 const config = { api, routes }

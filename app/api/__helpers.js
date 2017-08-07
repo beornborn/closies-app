@@ -6,7 +6,7 @@ import AsyncStorage from 'Closies/app/utils/AsyncStorage'
 export function checkStatus(response: Object) {
   const status = response.status
 
-  if (_.range(200, 300).concat([401, 422]).includes(status)) {
+  if (_.range(200, 300).includes(status)) {
     return response
   }
 

@@ -1,35 +1,48 @@
 //@flow
 import React from 'react'
-import Icon from 'react-native-vector-icons/MaterialIcons'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import BottomNavigation, { Tab } from 'react-native-material-bottom-navigation'
+import { palette } from 'Closies/app/__config/Theme'
 
 export default class Home extends React.Component {
   static propTypes = {
 
   }
 
+  icons = {
+    map: {
+      active: <Icon size={24} color={'#e74c3c'} name='google-maps' />,
+      default: <Icon size={24} color={palette.mineShaft} name='google-maps' />
+    }
+  }
+
   render() {
     return <BottomNavigation
       labelColor='white'
       rippleColor='white'
-      style={{ height: 56, elevation: 8, position: 'absolute', left: 0, bottom: 0, right: 0 }}
+      activeLabelColor='#e74c3c'
+      style={{ height: 56, elevation: 8, borderTopWidth: 0, position: 'absolute', left: 0, bottom: 0, right: 0 }}
       onTabChange={(newTabIndex) => console.log(`New Tab at position ${newTabIndex}`)}>
       <Tab
-        barBackgroundColor='#37474F'
-        label='Movies & TV'
-        icon={<Icon size={24} color='white' name='tv' />} />
+        barBackgroundColor={'#fff'}
+        label='Map'
+        icon={this.icons.map.default}
+        activeIcon={this.icons.map.active} />
       <Tab
-        barBackgroundColor='#00796B'
-        label='Music'
-        icon={<Icon size={24} color='white' name='music-note' />} />
+        barBackgroundColor={'#fff'}
+        label='Map'
+        icon={this.icons.map.default}
+        activeIcon={this.icons.map.active} />
       <Tab
-        barBackgroundColor='#5D4037'
-        label='Books'
-        icon={<Icon size={24} color='white' name='book' />} />
+        barBackgroundColor={'#fff'}
+        label='Map'
+        icon={this.icons.map.default}
+        activeIcon={this.icons.map.active} />
       <Tab
-        barBackgroundColor='#3E2723'
-        label='Newsstand'
-        icon={<Icon size={24} color='white' name='newspaper' />} />
+        barBackgroundColor={'#fff'}
+        label='Map'
+        icon={this.icons.map.default}
+        activeIcon={this.icons.map.active} />
     </BottomNavigation>
   }
 }

@@ -4,6 +4,7 @@ import { SAGA_FACEBOOK_LOGIN } from 'Closies/app/reducers/Saga'
 import * as api from 'Closies/app/api'
 import FBSDK from 'react-native-fbsdk'
 import AsyncStorage from 'Closies/app/utils/AsyncStorage'
+import { perform as fetchCurrentUser } from 'Closies/app/sagas/FetchCurrentUser'
 
 const getFacebookToken = () => {
   return new Promise(resolve =>
@@ -16,7 +17,7 @@ const getFacebookToken = () => {
 const perform = function* perform(a) {
   try {
     const { error, result } = a.payload
-    console.log(error, result)
+
     if (error) {
       console.log('login has error: ' + result.error)
     } else if (result.isCancelled) {
@@ -25,6 +26,7 @@ const perform = function* perform(a) {
       const fbToken = yield getFacebookToken()
       const response = yield api.login(fbToken)
       yield AsyncStorage.setAuthToken(response.auth_token)
+      yield fetchCurrentUser()
     }
   } catch (err) { console.log(err) }
 }

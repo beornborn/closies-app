@@ -5,7 +5,6 @@ import { StyleSheet } from 'react-native'
 import MapView from 'react-native-maps'
 import ActionButton from 'react-native-action-button'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import BottomNavigation from 'Closies/app/components/BottomNavigation'
 import { Container, ActionButtonIconStyle } from './Map.style'
 
 export default class Closies extends Component {
@@ -46,7 +45,6 @@ export default class Closies extends Component {
           buttonColor='rgba(231,76,60,1)'
           icon={<Icon name='location-on' style={ActionButtonIconStyle} />}
           onPress={createActivity} />
-        <BottomNavigation />
       </Container>
     )
   }
