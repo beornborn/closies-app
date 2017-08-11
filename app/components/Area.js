@@ -5,9 +5,9 @@ import { StyleSheet } from 'react-native'
 import MapView from 'react-native-maps'
 import ActionButton from 'react-native-action-button'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import { Container, ActionButtonIconStyle } from './Map.style'
+import { Container, ActionButtonIconStyle } from './Area.style'
 
-export default class Closies extends Component {
+export default class Area extends Component {
   static propTypes = {
     activities: pt.arrayOf(pt.object).isRequired,
     createActivity: pt.func.isRequired,

@@ -1,28 +1,31 @@
 //@flow
 import React from 'react'
 import pt from 'prop-types'
-import { Actions } from 'react-native-router-flux'
 import Acl from 'Closies/app/components/auth/Acl'
-import _ from 'lodash'
 
 export default class Authorizer extends React.Component {
   static propTypes = {
     Component: pt.oneOfType([pt.element, pt.func]).isRequired,
     user: pt.object.isRequired,
+    navigation: pt.object.isRequired,
   }
+
+  state = {authorized: false}
 
   componentWillMount() { this.authorize() }
   componentDidUpdate() { this.authorize() }
 
   authorize() {
-    const { Component } = this.props
+    const { Component, navigation } = this.props
     const componentName = this.componentName(Component)
 
     if (!this.isAuthorized()) {
       switch (componentName) {
-        case 'WithFooter': return Actions.home()
-        case 'Login': return Actions.mapp()
+        case 'Area': return navigation.navigate('Login')
+        case 'Login': return navigation.navigate('Area')
       }
+    } else if (!this.state.authorized) {
+      this.setState({authorized: true})
     }
   }
 
@@ -43,11 +46,8 @@ export default class Authorizer extends React.Component {
   }
 
   render() {
-    const { Component } = this.props
+    const { Component, navigation } = this.props
 
-    if (this.isAuthorized()) {
-      return <Component {..._.omit(this.props, ['user', 'Component'])} />
-    }
-    return null
+    return <Component navigation={navigation} />
   }
 }

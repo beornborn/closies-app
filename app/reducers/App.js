@@ -6,7 +6,7 @@ const INITIALIZE_APP = 'app/INITIALIZE_APP'
 const SET_AUTH_TOKEN = 'app/SET_AUTH_TOKEN'
 
 export const initializeApp = () => cA(INITIALIZE_APP)()
-export const setAuthToken = (token: string) => cA(SET_AUTH_TOKEN)({token})
+export const setAuthToken = (token: ?string) => cA(SET_AUTH_TOKEN)({token})
 
 const initialState = {
   initialized: false,

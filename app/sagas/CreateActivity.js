@@ -4,7 +4,6 @@ import { SAGA_CREATE_ACTIVITY } from 'Closies/app/reducers/Saga'
 import * as api from 'Closies/app/api'
 import { perform as fetchActivities } from 'Closies/app/sagas/FetchActivities'
 import { handleResponse } from 'Closies/app/utils/ApiHandlers'
-
 // const geolocate = () => new Promise(resolve => navigator.geolocation.getCurrentPosition(resolve))
 
 const perform = function* perform(_a) {

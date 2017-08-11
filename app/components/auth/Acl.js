@@ -2,7 +2,7 @@
 import { guest_only, authenticated_only } from 'Closies/app/components/auth/Roles'
 
 const Acl = {
-  WithFooter: authenticated_only,
+  Area: authenticated_only,
   Login: guest_only,
 }
 

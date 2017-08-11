@@ -1,9 +1,11 @@
 [ignore]
-<PROJECT_ROOT>/node_modules/react-native-router-flux/src/LightboxNavigator.js
-<PROJECT_ROOT>/node_modules/react-native-router-flux/src/OverlayNavigator.js
 <PROJECT_ROOT>/node_modules/react-navigation/.*
 <PROJECT_ROOT>/node_modules/styled-components/src/.*
 <PROJECT_ROOT>/node_modules/react-native-material-bottom-navigation/lib/.*
+<PROJECT_ROOT>/node_modules/react-native-experimental-navigation/.*
+<PROJECT_ROOT>/node_modules/react-static-container/lib/StaticContainer.react.js
+<PROJECT_ROOT>/node_modules/react-native/local-cli/link/link.js
+<PROJECT_ROOT>/node_modules/react-native-tab-view/src/.*
 
 ; We fork some components by platform
 .*/*[.]android.js
@@ -30,6 +32,8 @@ flow-typed/declarations
 flow-typed/npm
 
 [options]
+module.name_mapper='^./link/link$' -> 'emptyObject'
+
 emoji=true
 
 module.system=haste

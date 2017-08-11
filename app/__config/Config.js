@@ -13,6 +13,7 @@ export const routes = {
   },
   auth: {
     login: () => 'v1/auth/login',
+    logout: () => 'v1/auth/logout',
   },
   users: {
     current: () => 'v1/users/current',
