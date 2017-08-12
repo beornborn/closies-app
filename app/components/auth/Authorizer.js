@@ -8,24 +8,23 @@ export default class Authorizer extends React.Component {
     Component: pt.oneOfType([pt.element, pt.func]).isRequired,
     user: pt.object.isRequired,
     navigation: pt.object.isRequired,
+    currentRoute: pt.string.isRequired,
   }
-
-  state = {authorized: false}
 
   componentWillMount() { this.authorize() }
   componentDidUpdate() { this.authorize() }
 
   authorize() {
-    const { Component, navigation } = this.props
+    const { Component, navigation, currentRoute } = this.props
     const componentName = this.componentName(Component)
+    console.log(componentName, this.isAuthorized(), currentRoute)
 
-    if (!this.isAuthorized()) {
+    if (currentRoute === componentName && !this.isAuthorized()) {
       switch (componentName) {
         case 'Area': return navigation.navigate('Login')
+        case 'Settings': return navigation.navigate('Login')
         case 'Login': return navigation.navigate('Area')
       }
-    } else if (!this.state.authorized) {
-      this.setState({authorized: true})
     }
   }
 

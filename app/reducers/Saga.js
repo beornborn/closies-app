@@ -9,6 +9,6 @@ export const SAGA_AUTHENTICATE = 'SAGA_AUTHENTICATE'
 
 export const createActivity = () => createAction(SAGA_CREATE_ACTIVITY)()
 export const fetchActivities = () => createAction(SAGA_FETCH_ACTIVITIES)()
-export const doLogin = (error: Object, result: Object) => createAction(SAGA_FACEBOOK_LOGIN)({error, result})
+export const doLogin = () => createAction(SAGA_FACEBOOK_LOGIN)()
 export const doLogout = () => createAction(SAGA_LOGOUT)()
 export const doAuthenticate = () => createAction(SAGA_AUTHENTICATE)()

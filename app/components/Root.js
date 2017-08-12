@@ -2,7 +2,7 @@
 import React from 'react'
 import pt from 'prop-types'
 import { addNavigationHelpers } from 'react-navigation'
-import { InitialStackNavigator } from 'Closies/app/Router'
+import { AllNavigators } from 'Closies/app/Router'
 
 export default class Root extends React.Component {
   static propTypes = {
@@ -24,7 +24,7 @@ export default class Root extends React.Component {
       state: this.props.nav,
     })
 
-    return (initialized ? <InitialStackNavigator navigation={navHelpers} /> : null)
+    return (initialized ? <AllNavigators navigation={navHelpers} /> : null)
   }
 }
 

@@ -2,32 +2,40 @@
 import { StackNavigator, TabNavigator } from 'react-navigation'
 import Login from 'Closies/app/containers/Login'
 import Area from 'Closies/app/containers/Area'
+import Settings from 'Closies/app/containers/Settings'
 import authorize from 'Closies/app/containers/auth/Authorizer'
 
-export const MainTabNavigator = TabNavigator({
+const UserNavigator = TabNavigator({
   Area: {
     screen: authorize(Area),
     navigationOptions: {
       tabBarLabel: 'Area',
     }
+  },
+  Settings: {
+    screen: authorize(Settings),
+    navigationOptions: {
+      tabBarLabel: 'Settings',
+    }
   }
-}, {tabBarPosition: 'bottom'})
+}, {tabBarPosition: 'bottom', animationEnabled: false})
 
-
-export const InitialStackNavigator = StackNavigator({
+const GuestNavigator = StackNavigator({
   Login: {
     screen: authorize(Login),
     navigationOptions: {
       title: 'Login',
     }
   },
-  Main: {
-    screen: MainTabNavigator,
-  },
 }, {
   headerMode: 'none'
 })
 
-const LoginAction = InitialStackNavigator.router.getActionForPathAndParams('Login')
-const initialState = InitialStackNavigator.router.getStateForAction(LoginAction)
-export const navReducer = (state: Object = initialState, action: Action) => InitialStackNavigator.router.getStateForAction(action, state)
+export const AllNavigators = StackNavigator({
+  Guest: {screen: GuestNavigator},
+  User: {screen: UserNavigator},
+}, {headerMode: 'none'})
+
+const InitialAction = UserNavigator.router.getActionForPathAndParams('Area')
+const initialState = AllNavigators.router.getStateForAction(InitialAction)
+export const navReducer = (state: Object = initialState, action: Action) => AllNavigators.router.getStateForAction(action, state)

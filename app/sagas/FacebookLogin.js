@@ -14,14 +14,13 @@ const getFacebookToken = () => {
   )
 }
 
-const perform = function* perform(a) {
+const perform = function* perform(_a) {
   try {
-    const { error, result } = a.payload
+    const permissions = ['public_profile', 'email', 'user_birthday']
+    const result = yield FBSDK.LoginManager.logInWithReadPermissions(permissions)
 
-    if (error) {
-      console.log('login has error: ' + result.error)
-    } else if (result.isCancelled) {
-      console.log('login is cancelled.')
+    if (result.isCancelled) {
+      console.log('Login cancelled');
     } else {
       const fbToken = yield getFacebookToken()
       const response = yield api.login(fbToken)
@@ -36,5 +35,3 @@ const watch = function* watch(): Generator<*,*,*> {
 }
 
 export default watch
-
-

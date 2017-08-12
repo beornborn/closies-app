@@ -2,12 +2,14 @@
 import { connect } from 'react-redux'
 import Authorizer from 'Closies/app/components/auth/Authorizer'
 import { getCurrentUser } from 'Closies/app/reducers/selectors/Data'
+import { getCurrentRoute } from 'Closies/app/reducers/selectors/App'
 
 const authorize = (Component: Object) => {
   const mapStateToProps = (state: Object): Object => {
     return {
       Component,
       user: getCurrentUser(state),
+      currentRoute: getCurrentRoute(state),
     }
   }
 
