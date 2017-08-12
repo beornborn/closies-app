@@ -3871,12 +3871,6 @@ react-devtools-core@2.3.1:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
-react-native-action-button@^2.7.2:
-  version "2.7.2"
-  resolved "https://registry.yarnpkg.com/react-native-action-button/-/react-native-action-button-2.7.2.tgz#06f1188e8fe1d18d03fc9060d4b604c9b81bb6ca"
-  dependencies:
-    prop-types "^15.5.10"
-
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
@@ -3900,10 +3894,6 @@ react-native-fbsdk@0.6.0:
 react-native-maps@^0.16.0:
   version "0.16.0"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.16.0.tgz#e5fada6ef1e3304e94c509fa7b4a43e88152c24f"
-
-react-native-material-bottom-navigation@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/react-native-material-bottom-navigation/-/react-native-material-bottom-navigation-0.5.1.tgz#50339df7243ae1fdbea6f89d6457908f92b90c83"
 
 react-native-material-design-styles@^0.2.6:
   version "0.2.6"

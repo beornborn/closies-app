@@ -1,8 +1,6 @@
 //@flow
 import styled from 'styled-components/native'
-import { css } from 'styled-components'
 import { absoluteFill } from 'Closies/app/components/shared/Common.style'
-import { View, Text } from 'react-native'
 
 export const Container = styled.View`
   ${absoluteFill}
@@ -14,3 +12,19 @@ export const Container = styled.View`
 export const Title = styled.Text`
   font-size: 30px;
 `
+export const ButtonStyle = {
+  container: {
+    backgroundColor: '#3B5998',
+    width: '100%',
+    height: 50,
+  },
+  text: {
+    color: '#fff',
+    fontSize: 20,
+  }
+}
+export const IconStyle = {
+  color: '#fff',
+  fontSize: 30,
+  marginRight: 15,
+}

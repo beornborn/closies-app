@@ -20,7 +20,7 @@ const perform = function* perform(_a) {
     const result = yield FBSDK.LoginManager.logInWithReadPermissions(permissions)
 
     if (result.isCancelled) {
-      console.log('Login cancelled');
+      console.log('Login cancelled')
     } else {
       const fbToken = yield getFacebookToken()
       const response = yield api.login(fbToken)

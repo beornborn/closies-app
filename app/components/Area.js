@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 import pt from 'prop-types'
 import { StyleSheet } from 'react-native'
 import MapView from 'react-native-maps'
-import ActionButton from 'react-native-action-button'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import { Container, ActionButtonIconStyle } from './Area.style'
+import { ActionButton } from 'react-native-material-ui'
+import { Container, ActionButtonIconStyle, ActionButtonStyle } from './Area.style'
 
 export default class Area extends Component {
   static propTypes = {
@@ -42,7 +42,7 @@ export default class Area extends Component {
           ))}
         </MapView>
         <ActionButton
-          buttonColor='rgba(231,76,60,1)'
+          style={ActionButtonStyle}
           icon={<Icon name='location-on' style={ActionButtonIconStyle} />}
           onPress={createActivity} />
       </Container>

@@ -17,7 +17,6 @@ export default class Authorizer extends React.Component {
   authorize() {
     const { Component, navigation, currentRoute } = this.props
     const componentName = this.componentName(Component)
-    console.log(componentName, this.isAuthorized(), currentRoute)
 
     if (currentRoute === componentName && !this.isAuthorized()) {
       switch (componentName) {
