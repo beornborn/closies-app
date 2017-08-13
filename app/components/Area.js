@@ -5,6 +5,7 @@ import { StyleSheet } from 'react-native'
 import MapView from 'react-native-maps'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { ActionButton } from 'react-native-material-ui'
+import ActivityMarker from 'Closies/app/containers/ActivityMarker'
 import { Container, ActionButtonIconStyle, ActionButtonStyle } from './Area.style'
 
 export default class Area extends Component {
@@ -24,22 +25,21 @@ export default class Area extends Component {
     const region = {
       latitude: 50.445483,
       longitude: 30.596962,
-      latitudeDelta: 0.0122,
-      longitudeDelta: 0.0001,
+      latitudeDelta: 0.0152,
+      longitudeDelta: 0.0002,
     }
 
     return (
       <Container>
         <MapView
+          zoomEnabled={false}
+          scrollEnabled={false}
+          pitchEnabled={false}
+          cacheEnabled={true}
+          moveOnMarkerPress={false}
           style={StyleSheet.absoluteFillObject}
           region={region}>
-          {activities.map(activity => (
-            <MapView.Marker
-              key={activity.id}
-              coordinate={activity.latlng}
-              title={activity.title}
-              description={activity.description} />
-          ))}
+          {activities.map(a => <ActivityMarker key={a.id} activity={a} />)}
         </MapView>
         <ActionButton
           style={ActionButtonStyle}

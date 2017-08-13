@@ -1,9 +1,9 @@
 //@flow
-import { put, takeEvery } from 'redux-saga/effects'
+import { put, takeLatest } from 'redux-saga/effects'
 import { SAGA_FETCH_ACTIVITIES } from 'Closies/app/reducers/Saga'
 import * as api from 'Closies/app/api'
 import { setEntities } from 'Closies/app/reducers/Data'
-import { handleActivity, handleResponse } from 'Closies/app/utils/ApiHandlers'
+import { handleResponse } from 'Closies/app/utils/ApiHandlers'
 import { normalize } from 'normalizr'
 import schemas from 'Closies/app/schemas/Normalizers'
 
@@ -19,7 +19,7 @@ export const perform = function* perform(_a?: Object): Generator<*,*,*> {
 }
 
 const watch = function* watch(): Generator<*,*,*> {
-  yield takeEvery(SAGA_FETCH_ACTIVITIES, perform)
+  yield takeLatest(SAGA_FETCH_ACTIVITIES, perform)
 }
 
 export default watch

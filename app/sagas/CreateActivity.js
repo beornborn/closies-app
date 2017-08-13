@@ -1,17 +1,21 @@
 //@flow
-import { takeEvery } from 'redux-saga/effects'
+import { takeEvery, select } from 'redux-saga/effects'
 import { SAGA_CREATE_ACTIVITY } from 'Closies/app/reducers/Saga'
 import * as api from 'Closies/app/api'
 import { perform as fetchActivities } from 'Closies/app/sagas/FetchActivities'
 import { handleResponse } from 'Closies/app/utils/ApiHandlers'
+import { getCurrentUser } from 'Closies/app/reducers/selectors/Data'
 // const geolocate = () => new Promise(resolve => navigator.geolocation.getCurrentPosition(resolve))
 
 const perform = function* perform(_a) {
   try {
     // const location = yield geolocate()
+    const user = yield select(getCurrentUser)
     const response = yield api.createActivity({
       latitude: 50.4414 + Math.random() * (50.4495 - 50.4414),//location.coords.latitude,
       longitude: 30.593 + Math.random() * (30.602 - 30.593),//location.coords.longitude,
+      user_id: user.id,
+      description: Math.random()
     })
     const result = yield handleResponse(response)
     if (result.status === 'Ok') {

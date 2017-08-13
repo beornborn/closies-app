@@ -20,9 +20,8 @@ export default class Authorizer extends React.Component {
 
     if (currentRoute === componentName && !this.isAuthorized()) {
       switch (componentName) {
-        case 'Area': return navigation.navigate('Login')
-        case 'Settings': return navigation.navigate('Login')
         case 'Login': return navigation.navigate('Area')
+        default: return navigation.navigate('Login')
       }
     }
   }

@@ -2,12 +2,28 @@
 import { StackNavigator, TabNavigator } from 'react-navigation'
 import Login from 'Closies/app/containers/Login'
 import Area from 'Closies/app/containers/Area'
+import Activity from 'Closies/app/containers/Activity'
 import Settings from 'Closies/app/containers/Settings'
 import authorize from 'Closies/app/containers/auth/Authorizer'
 
-const UserNavigator = TabNavigator({
+const AreaNavigator = StackNavigator({
   Area: {
     screen: authorize(Area),
+    navigationOptions: {
+      header: null
+    }
+  },
+  Activity: {
+    screen: authorize(Activity),
+    navigationOptions: {
+      title: 'Activity'
+    }
+  }
+})
+
+const UserNavigator = TabNavigator({
+  Activities: {
+    screen: AreaNavigator,
     navigationOptions: {
       tabBarLabel: 'Area',
     }
@@ -23,9 +39,6 @@ const UserNavigator = TabNavigator({
 const GuestNavigator = StackNavigator({
   Login: {
     screen: authorize(Login),
-    navigationOptions: {
-      title: 'Login',
-    }
   },
 }, {
   headerMode: 'none'
@@ -36,6 +49,6 @@ export const AllNavigators = StackNavigator({
   User: {screen: UserNavigator},
 }, {headerMode: 'none'})
 
-const InitialAction = UserNavigator.router.getActionForPathAndParams('Area')
+const InitialAction = AreaNavigator.router.getActionForPathAndParams('Area')
 const initialState = AllNavigators.router.getStateForAction(InitialAction)
 export const navReducer = (state: Object = initialState, action: Action) => AllNavigators.router.getStateForAction(action, state)

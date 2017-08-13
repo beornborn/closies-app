@@ -14,13 +14,6 @@ export default class Settings extends React.Component {
 
     return <Container>
       <ListItem centerElement='Log Out' divider={true} onPress={doLogout} />
-      <ListItem centerElement='Settings' divider={true} onPress={() => {}} />
-      <ListItem centerElement='Settings' divider={true} onPress={() => {}} />
-      <ListItem centerElement='Settings' divider={true} onPress={() => {}} />
-      <ListItem centerElement='Settings' divider={true} onPress={() => {}} />
-      <ListItem centerElement='Settings' divider={true} onPress={() => {}} />
-      <ListItem centerElement='Settings' divider={true} onPress={() => {}} />
-      <ListItem centerElement='Settings' divider={true} onPress={() => {}} />
     </Container>
   }
 }
