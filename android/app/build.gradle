@@ -144,7 +144,10 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-fbsdk')
+    compile(project(':react-native-fbsdk')){
+        exclude(group: 'com.facebook.android', module: 'facebook-android-sdk')
+    }
+    compile "com.facebook.android:facebook-android-sdk:4.22.1"
     compile project(':react-native-vector-icons')
     compile project(':react-native-orientation')
     compile project(':react-native-maps')
