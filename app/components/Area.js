@@ -11,6 +11,7 @@ import { Container, ActionButtonIconStyle, ActionButtonStyle } from './Area.styl
 export default class Area extends Component {
   static propTypes = {
     activities: pt.arrayOf(pt.object).isRequired,
+    region: pt.object.isRequired,
     createActivity: pt.func.isRequired,
     fetchActivities: pt.func.isRequired,
   }
@@ -20,14 +21,7 @@ export default class Area extends Component {
   }
 
   render() {
-    const { createActivity, activities } = this.props
-
-    const region = {
-      latitude: 50.445483,
-      longitude: 30.596962,
-      latitudeDelta: 0.0152,
-      longitudeDelta: 0.0002,
-    }
+    const { createActivity, activities, region } = this.props
 
     return (
       <Container>

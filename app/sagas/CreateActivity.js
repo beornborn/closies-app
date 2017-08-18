@@ -12,8 +12,8 @@ const perform = function* perform(_a) {
     // const location = yield geolocate()
     const user = yield select(getCurrentUser)
     const response = yield api.createActivity({
-      latitude: 50.4414 + Math.random() * (50.4495 - 50.4414),//location.coords.latitude,
-      longitude: 30.593 + Math.random() * (30.602 - 30.593),//location.coords.longitude,
+      latitude: 50.4414 + Math.random() * (50.4995 - 50.4014),//location.coords.latitude,
+      longitude: 30.493 + Math.random() * (30.6920 - 30.5030),//location.coords.longitude,
       user_id: user.id,
       description: Math.random()
     })

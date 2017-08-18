@@ -4,6 +4,7 @@ import { denormalizedActivities } from 'Closies/app/schemas/Denormalizers'
 import { activitiesSchema } from 'Closies/app/schemas/relations/Activity'
 
 export const getInitialized = (state: Object) => state.app.initialized
+export const getRegion = (state: Object) => state.app.region
 export const getCurrentRoute = (state: Object) => {
   const findCurrentRoute = (navState: Object) => {
     if (navState.index !== undefined) {

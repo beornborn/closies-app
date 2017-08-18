@@ -2,6 +2,7 @@
 import React from 'react'
 import pt from 'prop-types'
 import { View, Text } from 'react-native'
+import moment from 'moment'
 import { Container, Avatar, AvatarContainer } from './Activity.style'
 
 export default class Activity extends React.Component {
@@ -16,6 +17,8 @@ export default class Activity extends React.Component {
       <AvatarContainer>
         <Avatar source={{uri: activity.user.picture}} />
       </AvatarContainer>
+      <View style={{height: 40}} />
+      <Text>{moment(activity.created_at).fromNow()}</Text>
       <View style={{height: 40}} />
       <Text>{activity.description}</Text>
     </Container>
