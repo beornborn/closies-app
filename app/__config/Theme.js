@@ -2,13 +2,14 @@
 
 // use http://chir.ag/projects/name-that-color to name colors
 export const palette = {
-  lochmara: '#0288d1',   // dark primary
-  cerulean: '#03a9f4',   // primary
-  frenchPass: '#b3e5fc', // light primary
-  orange: '#fe9700',     // accent
-  mineShaft: '#212121',  // primary text
+  // lochmara: '#0288d1',   // dark primary
+  white: '#ffffff',      // primary
+  // frenchPass: '#b3e5fc', // light primary
+  cerulean: '#03a9f4',   // accent
+  mineshaft: '#212121',  // primary text
   boulder: '#757575',    // secondary text
   silver: '#bdbdbd',     // divider
+  facebook: '#3b5998'
 }
 
 // export const format = {

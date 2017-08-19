@@ -5,6 +5,7 @@ import Area from 'Closies/app/containers/Area'
 import Activity from 'Closies/app/containers/Activity'
 import Settings from 'Closies/app/containers/Settings'
 import authorize from 'Closies/app/containers/auth/Authorizer'
+import { palette } from 'Closies/app/__config/Theme'
 
 const AreaNavigator = StackNavigator({
   Area: {
@@ -34,7 +35,24 @@ const UserNavigator = TabNavigator({
       tabBarLabel: 'Settings',
     }
   }
-}, {tabBarPosition: 'bottom', animationEnabled: false})
+}, {
+  tabBarPosition: 'bottom',
+  animationEnabled: false,
+  swipeEnabled: false,
+  tabBarOptions: {
+    activeTintColor: palette.cerulean,
+    inactiveTintColor: palette.boulder,
+    showLabel: true,
+    style: {
+      backgroundColor: palette.white,
+      borderTopWidth: 1,
+      borderColor: palette.cerulean,
+    },
+    indicatorStyle: {
+      backgroundColor: 'transparent',
+    }
+  },
+})
 
 const GuestNavigator = StackNavigator({
   Login: {

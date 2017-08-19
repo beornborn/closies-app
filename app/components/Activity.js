@@ -1,8 +1,9 @@
 //@flow
 import React from 'react'
 import pt from 'prop-types'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import moment from 'moment'
+import { Text } from 'Closies/app/components/shared'
 import { Container, Avatar, AvatarContainer } from './Activity.style'
 
 export default class Activity extends React.Component {

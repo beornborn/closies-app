@@ -1,6 +1,7 @@
 //@flow
 import styled from 'styled-components/native'
 import { absoluteFill } from 'Closies/app/components/shared/Common.style'
+import { palette } from 'Closies/app/__config/Theme'
 
 export const Container = styled.View`
   ${absoluteFill}
@@ -11,13 +12,13 @@ export const Container = styled.View`
 export const ActionButtonIconStyle = {
   fontSize: 20,
   height: 22,
-  color: '#039be5',
+  color: palette.cerulean,
 }
 
 export const ActionButtonStyle = {
   container: {
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderWidth: 2,
-    borderColor: '#039be5',
+    borderColor: palette.cerulean,
   }
 }

@@ -1,6 +1,7 @@
 //@flow
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
+import { Text } from 'Closies/app/components/shared'
 
 export default class Component extends React.Component {
   render() {
