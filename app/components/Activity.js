@@ -18,6 +18,7 @@ export default class Activity extends React.Component {
         <Avatar source={{uri: activity.user.picture}} />
       </AvatarContainer>
       <View style={{height: 40}} />
+      <Text>{activity.id}</Text>
       <Text>{moment(activity.created_at).fromNow()}</Text>
       <View style={{height: 40}} />
       <Text>{activity.description}</Text>

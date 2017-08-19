@@ -3,10 +3,12 @@ import { put, takeLatest } from 'redux-saga/effects'
 import { SAGA_FETCH_ACTIVITIES } from 'Closies/app/reducers/Saga'
 import * as api from 'Closies/app/api'
 import { setEntities } from 'Closies/app/reducers/Data'
+import { doForceRerender } from 'Closies/app/reducers/Ui'
 import { setRegion } from 'Closies/app/reducers/App'
 import { handleResponse } from 'Closies/app/utils/ApiHandlers'
 import { calculateRegion } from 'Closies/app/utils/AreaCalculation'
 import { normalize } from 'normalizr'
+import { sleep } from 'Closies/app/utils/Common'
 import schemas from 'Closies/app/schemas/Normalizers'
 
 export const perform = function* perform(_a?: Object): Generator<*,*,*> {
@@ -15,7 +17,7 @@ export const perform = function* perform(_a?: Object): Generator<*,*,*> {
     const result = yield handleResponse(response)
     if (result.status === 'Ok') {
       const region = calculateRegion(result.data.activities)
-      console.log(region)
+
       yield put(setRegion(region))
 
       // {
@@ -28,6 +30,8 @@ export const perform = function* perform(_a?: Object): Generator<*,*,*> {
 
       const data = normalize(result.data.activities, [schemas.activity]).entities
       yield put(setEntities(data))
+      yield sleep(100)
+      yield put(doForceRerender())
     }
   } catch (err) { console.log(err) }
 }

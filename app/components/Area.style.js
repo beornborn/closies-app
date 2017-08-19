@@ -11,13 +11,13 @@ export const Container = styled.View`
 export const ActionButtonIconStyle = {
   fontSize: 20,
   height: 22,
-  color: '#039BE5',
+  color: '#039be5',
 }
 
 export const ActionButtonStyle = {
   container: {
     backgroundColor: '#ffffff',
     borderWidth: 2,
-    borderColor: '#039BE5',
+    borderColor: '#039be5',
   }
 }

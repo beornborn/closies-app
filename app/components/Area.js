@@ -14,6 +14,7 @@ export default class Area extends Component {
     region: pt.object.isRequired,
     createActivity: pt.func.isRequired,
     fetchActivities: pt.func.isRequired,
+    forceRerender: pt.bool.isRequired,
   }
 
   componentDidMount() {
@@ -21,10 +22,10 @@ export default class Area extends Component {
   }
 
   render() {
-    const { createActivity, activities, region } = this.props
+    const { createActivity, activities, region, forceRerender } = this.props
 
     return (
-      <Container>
+      <Container style={{opacity: forceRerender ? 0.999 : 1}}>
         <MapView
           zoomEnabled={false}
           scrollEnabled={false}
