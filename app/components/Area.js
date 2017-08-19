@@ -6,6 +6,7 @@ import MapView from 'react-native-maps'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { ActionButton } from 'react-native-material-ui'
 import ActivityMarker from 'Closies/app/containers/ActivityMarker'
+import { mapStyle } from 'Closies/app/__config/Theme'
 import { Container, ActionButtonIconStyle, ActionButtonStyle } from './Area.style'
 
 export default class Area extends Component {
@@ -33,6 +34,7 @@ export default class Area extends Component {
           cacheEnabled={true}
           moveOnMarkerPress={false}
           style={StyleSheet.absoluteFillObject}
+          customMapStyle={mapStyle}
           region={region}>
           {activities.map(a => <ActivityMarker key={a.id} activity={a} />)}
         </MapView>
