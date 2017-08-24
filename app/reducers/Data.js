@@ -10,7 +10,8 @@ export const setCurrentUser = (user: Object) => ca(SET_CURRENT_USER)({user})
 
 const initialState = {
   currentUser: {},
-  activities: []
+  activities: {},
+  users: {},
 }
 
 export default function reducer(state: Object = initialState, action: Action) {

@@ -1,10 +1,12 @@
 //@flow
-import { getActivities } from 'Closies/app/reducers/selectors/Data'
+import { getActivities, getActivitiesValues, getActivitiesDenormalized } from 'Closies/app/reducers/selectors/Data'
+import { getFilterSelectedActivityIds } from 'Closies/app/reducers/selectors/Ui'
 import { denormalizedActivities } from 'Closies/app/schemas/Denormalizers'
 import { activitiesSchema } from 'Closies/app/schemas/relations/Activity'
+import { calculateRegion, calculateFocus, calculateClusterAreas, calculateClusters } from 'Closies/app/utils/AreaCalculation'
+import _ from 'lodash'
 
 export const getInitialized = (state: Object) => state.app.initialized
-export const getRegion = (state: Object) => state.app.region
 export const getCurrentRoute = (state: Object) => {
   const findCurrentRoute = (navState: Object) => {
     if (navState.index !== undefined) {
@@ -22,4 +24,19 @@ export const getSelectedActivity = (state: Object) => {
 
 export const getSelectedActivityDenormalized = (state: Object) => {
   return denormalizedActivities([getSelectedActivityId(state)], state.data, activitiesSchema)[0]
+}
+export const getFilteredActivities = (state: Object) => {
+  const activities = getActivitiesValues(state)
+  const selectedActivityIds = getFilterSelectedActivityIds(state)
+  return selectedActivityIds ? activities.filter(a => _.includes(selectedActivityIds, a.id)) : activities
+}
+
+export const getAreaData = (state: Object) => {
+  const activities = getFilteredActivities(state)
+  const denormActivities = getActivitiesDenormalized(state, activities.map(x => x.id))
+  const focus = calculateFocus(activities)
+  const clusterAreas = calculateClusterAreas(focus)
+  const region = calculateRegion(activities)
+  const clusters = calculateClusters(denormActivities, clusterAreas)
+  return { clusters, region }
 }

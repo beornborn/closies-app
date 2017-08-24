@@ -5,14 +5,17 @@ import { StyleSheet } from 'react-native'
 import MapView from 'react-native-maps'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { ActionButton } from 'react-native-material-ui'
+import ClusterMarker from 'Closies/app/containers/ClusterMarker'
 import ActivityMarker from 'Closies/app/containers/ActivityMarker'
 import { mapStyle } from 'Closies/app/__config/Theme'
 import { Container, ActionButtonIconStyle, ActionButtonStyle } from './Area.style'
 
 export default class Area extends Component {
   static propTypes = {
-    activities: pt.arrayOf(pt.object).isRequired,
-    region: pt.object.isRequired,
+    area: pt.shape({
+      clusters: pt.arrayOf(pt.object).isRequired,
+      region: pt.object.isRequired,
+    }).isRequired,
     createActivity: pt.func.isRequired,
     fetchActivities: pt.func.isRequired,
     forceRerender: pt.bool.isRequired,
@@ -22,8 +25,20 @@ export default class Area extends Component {
     this.props.fetchActivities()
   }
 
+  renderCluster(cluster: Object) {
+    return <ClusterMarker
+      key={`${cluster.longitude} ${cluster.latitude}`}
+      cluster={cluster} />
+  }
+
+  renderActivity(activity: Object) {
+    return <ActivityMarker
+      key={`${activity.longitude} ${activity.latitude}`}
+      activity={activity} />
+  }
+
   render() {
-    const { createActivity, activities, region, forceRerender } = this.props
+    const { createActivity, area: { region, clusters }, forceRerender } = this.props
 
     return (
       <Container style={{opacity: forceRerender ? 0.999 : 1}}>
@@ -36,7 +51,7 @@ export default class Area extends Component {
           style={StyleSheet.absoluteFillObject}
           customMapStyle={mapStyle}
           region={region}>
-          {activities.map(a => <ActivityMarker key={a.id} activity={a} />)}
+          {clusters.map(c => c.id ? this.renderActivity(c) : this.renderCluster(c))}
         </MapView>
         <ActionButton
           style={ActionButtonStyle}

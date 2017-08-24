@@ -1,6 +1,8 @@
 //@flow
 import styled from 'styled-components/native'
 import moment from 'moment'
+import { palette } from 'Closies/app/__config/Theme'
+import { Text } from 'react-native'
 
 const getOpacity = (createdAt: string): number => {
   const secondsNow = Math.round(Date.now() / 1000)
@@ -17,17 +19,25 @@ const getOpacity = (createdAt: string): number => {
 export const NotificationContainer = styled.View`
   padding: 2px;
   border-width: ${props => props.newEvents ? '2px' : 0};
-  border-color: ${props => props.color};
+  border-color: ${palette.cerulean};
   border-style: dashed;
   opacity: ${props => getOpacity(props.createdAt)};
   border-radius: 20px;
 `
-
-export const Avatar = styled.Image`
+export const Cluster = styled.View`
   width: 40px;
   height: 40px;
   border-radius: 20px;
   border-width: 4px;
-  border-color: ${props => props.color};
+  background-color: ${palette.white};
+  border-color: ${palette.cerulean};
+  opacity: ${props => getOpacity(props.createdAt)};
+  justify-content: center;
+  align-items: center;
+`
+export const ChildrenNumber = styled(Text)`
+  color: ${palette.cerulean};
+  font-size: 14px;
+  font-weight: bold;
   opacity: ${props => getOpacity(props.createdAt)};
 `

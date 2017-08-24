@@ -1,7 +1,6 @@
 //@flow
 import React from 'react'
 import pt from 'prop-types'
-import { Image, View } from 'react-native'
 import MapView from 'react-native-maps'
 import { NotificationContainer, Avatar } from 'Closies/app/components/ActivityMarker.style'
 
