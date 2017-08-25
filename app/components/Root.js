@@ -3,6 +3,8 @@ import React from 'react'
 import pt from 'prop-types'
 import { addNavigationHelpers } from 'react-navigation'
 import { AllNavigators } from 'Closies/app/Router'
+import BackButton from 'Closies/app/containers/BackButton'
+import { Container } from './Root.style'
 
 export default class Root extends React.Component {
   static propTypes = {
@@ -24,7 +26,12 @@ export default class Root extends React.Component {
       state: this.props.nav,
     })
 
-    return (initialized ? <AllNavigators navigation={navHelpers} /> : null)
+    if (!initialized) return null
+
+    return <Container>
+      <BackButton />
+      <AllNavigators navigation={navHelpers} />
+    </Container>
   }
 }
 

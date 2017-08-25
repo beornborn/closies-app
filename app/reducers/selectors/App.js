@@ -12,7 +12,7 @@ export const getCurrentRoute = (state: Object) => {
     if (navState.index !== undefined) {
       return findCurrentRoute(navState.routes[navState.index])
     }
-    return navState.routeName
+    return navState
   }
   return findCurrentRoute(state.nav)
 }
@@ -28,7 +28,7 @@ export const getSelectedActivityDenormalized = (state: Object) => {
 export const getFilteredActivities = (state: Object) => {
   const activities = getActivitiesValues(state)
   const selectedActivityIds = getFilterSelectedActivityIds(state)
-  return selectedActivityIds ? activities.filter(a => _.includes(selectedActivityIds, a.id)) : activities
+  return !_.isEmpty(selectedActivityIds) ? activities.filter(a => _.includes(selectedActivityIds, a.id)) : activities
 }
 
 export const getAreaData = (state: Object) => {
