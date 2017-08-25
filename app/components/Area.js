@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import pt from 'prop-types'
 import { StyleSheet } from 'react-native'
 import MapView from 'react-native-maps'
-import Icon from 'react-native-vector-icons/MaterialIcons'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { ActionButton } from 'react-native-material-ui'
 import ClusterMarker from 'Closies/app/containers/ClusterMarker'
 import ActivityMarker from 'Closies/app/containers/ActivityMarker'
@@ -55,7 +55,7 @@ export default class Area extends Component {
         </MapView>
         <ActionButton
           style={ActionButtonStyle}
-          icon={<Icon name='location-on' style={ActionButtonIconStyle} />}
+          icon={<Icon name='plus' style={ActionButtonIconStyle} />}
           onPress={createActivity} />
       </Container>
     )

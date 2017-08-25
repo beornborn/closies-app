@@ -10,8 +10,8 @@ export const Container = styled.View`
 `
 
 export const ActionButtonIconStyle = {
-  fontSize: 20,
-  height: 22,
+  fontSize: 30,
+  height: 32,
   color: palette.cerulean,
 }
 

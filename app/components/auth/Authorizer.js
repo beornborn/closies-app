@@ -43,8 +43,8 @@ export default class Authorizer extends React.Component {
   }
 
   render() {
-    const { Component, navigation } = this.props
+    const { Component } = this.props
 
-    return <Component navigation={navigation} />
+    return <Component />
   }
 }
