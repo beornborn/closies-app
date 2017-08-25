@@ -3,6 +3,7 @@ import { StackNavigator, TabNavigator } from 'react-navigation'
 import Login from 'Closies/app/containers/Login'
 import Area from 'Closies/app/containers/Area'
 import Activity from 'Closies/app/containers/Activity'
+import NewActivity from 'Closies/app/containers/NewActivity'
 import Settings from 'Closies/app/containers/Settings'
 import authorize from 'Closies/app/containers/auth/Authorizer'
 import { palette } from 'Closies/app/__config/Theme'
@@ -18,6 +19,12 @@ const AreaNavigator = StackNavigator({
     screen: authorize(Activity),
     navigationOptions: {
       title: 'Activity'
+    }
+  },
+  NewActivity: {
+    screen: authorize(NewActivity),
+    navigationOptions: {
+      header: null
     }
   }
 })

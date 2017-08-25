@@ -5,6 +5,7 @@ const Acl = {
   Area: authenticated_only,
   Settings: authenticated_only,
   Activity: authenticated_only,
+  NewActivity: authenticated_only,
   Login: guest_only,
 }
 

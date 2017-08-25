@@ -16,7 +16,7 @@ export default class Area extends Component {
       clusters: pt.arrayOf(pt.object).isRequired,
       region: pt.object.isRequired,
     }).isRequired,
-    createActivity: pt.func.isRequired,
+    newActivity: pt.func.isRequired,
     fetchActivities: pt.func.isRequired,
     forceRerender: pt.bool.isRequired,
   }
@@ -38,7 +38,7 @@ export default class Area extends Component {
   }
 
   render() {
-    const { createActivity, area: { region, clusters }, forceRerender } = this.props
+    const { newActivity, area: { region, clusters }, forceRerender } = this.props
 
     return (
       <Container style={{opacity: forceRerender ? 0.999 : 1}}>
@@ -56,7 +56,7 @@ export default class Area extends Component {
         <ActionButton
           style={ActionButtonStyle}
           icon={<Icon name='plus' style={ActionButtonIconStyle} />}
-          onPress={createActivity} />
+          onPress={newActivity} />
       </Container>
     )
   }
