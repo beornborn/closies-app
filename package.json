@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "REACT_DEBUGGER=\"rndebugger-open --open --port 8081\" node node_modules/react-native/local-cli/cli.js start",
     "local": "adb reverse tcp:3000 tcp:3000; react-native run-android",
     "prod": "react-native run-android --variant=release",
     "flow-install": "flow-typed install",
@@ -30,6 +30,7 @@
     "react-redux": "^5.0.5",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
+    "redux-form": "^7.0.3",
     "redux-saga": "^0.15.6",
     "styled-components": "^2.1.1"
   },
@@ -51,6 +52,7 @@
     "flow-typed": "^2.1.5",
     "jest": "20.0.4",
     "prettier": "^1.5.3",
+    "react-native-debugger-open": "^0.3.12",
     "react-test-renderer": "16.0.0-alpha.12",
     "redux-logger": "^3.0.6"
   },

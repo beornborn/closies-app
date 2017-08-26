@@ -9,16 +9,13 @@ export const Container = styled.View`
   align-items: center;
 `
 
-export const ActionButtonIconStyle = {
-  fontSize: 30,
-  height: 32,
-  color: palette.cerulean,
-}
-
 export const ActionButtonStyle = {
   container: {
     backgroundColor: palette.white,
     borderWidth: 2,
     borderColor: palette.cerulean,
+  },
+  icon: {
+    color: palette.cerulean,
   }
 }

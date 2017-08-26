@@ -9,11 +9,11 @@ import { NavigationActions } from 'react-navigation'
 
 const perform = function* perform(a) {
   try {
-    const { description } = a.payload // coords
+    const { description, longitude, latitude } = a.payload.formData
     const user = yield select(getCurrentUser)
     const response = yield api.createActivity({
-      latitude: 50.4414 + Math.random() * (50.4995 - 50.4014),//coords.latitude,
-      longitude: 30.493 + Math.random() * (30.6920 - 30.5030),//coords.longitude,
+      latitude,//: 50.4414 + Math.random() * (50.4995 - 50.4014),
+      longitude,//: 30.493 + Math.random() * (30.6920 - 30.5030),
       user_id: user.id,
       description
     })

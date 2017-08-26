@@ -1,13 +1,21 @@
 //@flow
 import { connect } from 'react-redux'
+import { reduxForm } from 'redux-form'
 import NewActivity from 'Closies/app/components/NewActivity'
+import { getCurrentLocation } from 'Closies/app/reducers/selectors/App'
+import { fetchCurrentLocation, createActivity } from 'Closies/app/reducers/Saga'
+import { bindActionCreators } from 'redux'
 
-export const mapStateToProps = (_state: Object): Object => ({
+const form = {
+  form: 'area/activity/new'
+}
 
+export const mapStateToProps = (state: Object): Object => ({
+  location: getCurrentLocation(state),
 })
 
-export const mapDispatchToProps = (_dispatch: Function): Object => ({
+export const mapDispatchToProps = (dispatch: Function): Object => bindActionCreators({
+  fetchCurrentLocation, createActivity
+}, dispatch)
 
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(NewActivity)
+export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(form)(NewActivity))
