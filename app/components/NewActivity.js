@@ -12,6 +12,7 @@ export default class NewActivity extends React.Component {
     location: pt.object.isRequired,
     fetchCurrentLocation: pt.func.isRequired,
     createActivity: pt.func.isRequired,
+    handleSubmit: pt.func.isRequired,
   }
 
   componentDidMount() {

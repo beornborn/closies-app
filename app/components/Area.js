@@ -1,7 +1,7 @@
 //@flow
 import React, { Component } from 'react'
 import pt from 'prop-types'
-import { StyleSheet, Keyboard } from 'react-native'
+import { StyleSheet } from 'react-native'
 import MapView from 'react-native-maps'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { ActionButton } from 'react-native-material-ui'
