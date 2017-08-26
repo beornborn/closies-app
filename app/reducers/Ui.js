@@ -12,7 +12,7 @@ const initialState = {
   forceRerender: false,
   area: {
     filter: {
-      selectedActivityIds: null
+      selectedActivityIds: []
     }
   }
 }

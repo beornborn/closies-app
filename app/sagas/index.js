@@ -5,6 +5,7 @@ import watchFetchActivities from 'Closies/app/sagas/FetchActivities'
 import watchFacebookLogin from 'Closies/app/sagas/FacebookLogin'
 import watchLogout from 'Closies/app/sagas/Logout'
 import watchAuthenticate from 'Closies/app/sagas/Authenticate'
+import watchFetchCurrentLocation from 'Closies/app/sagas/FetchCurrentLocation'
 
 const rootSaga = function* rootSaga(): Generator<any,any,any> {
   yield all([
@@ -13,6 +14,7 @@ const rootSaga = function* rootSaga(): Generator<any,any,any> {
     fork(watchFacebookLogin),
     fork(watchLogout),
     fork(watchAuthenticate),
+    fork(watchFetchCurrentLocation),
   ])
 }
 

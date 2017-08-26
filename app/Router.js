@@ -24,7 +24,8 @@ const AreaNavigator = StackNavigator({
   NewActivity: {
     screen: authorize(NewActivity),
     navigationOptions: {
-      header: null
+      header: null,
+      tabBarVisible: false
     }
   }
 })

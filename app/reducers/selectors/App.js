@@ -21,6 +21,7 @@ export const getSelectedActivityId = (state: Object) => state.app.selectedActivi
 export const getSelectedActivity = (state: Object) => {
   return getActivities(state)[getSelectedActivityId(state)]
 }
+export const getCurrentLocation = (state: Object) => state.app.currentLocation
 
 export const getSelectedActivityDenormalized = (state: Object) => {
   return denormalizedActivities([getSelectedActivityId(state)], state.data, activitiesSchema)[0]
