@@ -2,15 +2,15 @@
 import _ from 'lodash'
 import { Dimensions } from 'react-native'
 
-export const calculateRegion = (activities: Array<Object>): Object => {
+export const calculateRegion = (activities: Array<Object>, defaultCoords: Object): Object => {
   const focus = calculateFocus(activities)
   const { minLat, minLong, maxLat, maxLong } = focus
 
   return {
-    latitude: (minLat + maxLat) / 2.0 || 0,
-    longitude: (minLong + maxLong) / 2.0 || 0,
-    latitudeDelta: (maxLat - minLat) * 1.2 || 0.05,
-    longitudeDelta: (maxLong - minLong) * 1.2 || 0.05,
+    latitude: (minLat + maxLat) / 2.0 || defaultCoords.latitude,
+    longitude: (minLong + maxLong) / 2.0 || defaultCoords.longitude,
+    latitudeDelta: _.max([(maxLat - minLat) * 1.2, 0.005]),
+    longitudeDelta: _.max([(maxLong - minLong) * 1.2, 0.005]),
   }
 }
 export const calculateFocus = (activities: Array<Object>): Object => {
@@ -33,8 +33,8 @@ export const calculateClusterAreas = (focus: Object): Array<Object> => {
   const widthAmount = Math.floor(width / clusterWidth)
 
   const { minLat, minLong, maxLat, maxLong } = focus
-  const latDelta = maxLat - minLat
-  const longDelta = maxLong - minLong
+  const latDelta =  _.max([maxLat - minLat, 0.0006])
+  const longDelta = _.max([maxLong - minLong, 0.0006])
   const latStep = latDelta / heightAmount
   const longStep = longDelta / widthAmount
 
@@ -84,7 +84,7 @@ export const calculateClusters = (activities: Array<Object>, clusterAreas: Array
       bounds: c.bounds,
       longitude: centralActivity.longitude,
       latitude: centralActivity.latitude,
-      activity_ids: c.activities.map(x => x.id),
+      activities: c.activities,
     }
     return cluster
   })

@@ -18,11 +18,13 @@ export default class Area extends Component {
     }).isRequired,
     newActivity: pt.func.isRequired,
     fetchActivities: pt.func.isRequired,
+    fetchCurrentLocation: pt.func.isRequired,
     forceRerender: pt.bool.isRequired,
   }
 
   componentDidMount() {
     this.props.fetchActivities()
+    this.props.fetchCurrentLocation()
   }
 
   renderCluster(cluster: Object) {

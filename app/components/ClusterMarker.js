@@ -14,12 +14,12 @@ export default class ClusterMarker extends React.Component {
     const { cluster, goToCluster } = this.props
 
     return <MapView.Marker
-      onPress={() => goToCluster(cluster.activity_ids)}
+      onPress={() => goToCluster(cluster.activities)}
       coordinate={{longitude: cluster.longitude, latitude: cluster.latitude}}>
       <NotificationContainer newEvents={false} createdAt={new Date()} >
         <Cluster createdAt={new Date()} >
           <ChildrenNumber createdAt={new Date()}>
-            {cluster.activity_ids.length}
+            {cluster.activities.length}
           </ChildrenNumber>
         </Cluster>
       </NotificationContainer>

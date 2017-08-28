@@ -15,7 +15,7 @@ const perform = function* perform(a) {
       latitude,//: 50.4414 + Math.random() * (50.4995 - 50.4014),
       longitude,//: 30.493 + Math.random() * (30.6920 - 30.5030),
       user_id: user.id,
-      description
+      description: description.value
     })
     const result = yield handleResponse(response)
     if (result.status === 'Ok') {

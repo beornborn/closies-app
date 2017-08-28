@@ -4,6 +4,7 @@ import Login from 'Closies/app/containers/Login'
 import Area from 'Closies/app/containers/Area'
 import Activity from 'Closies/app/containers/Activity'
 import NewActivity from 'Closies/app/containers/NewActivity'
+import ActivityList from 'Closies/app/containers/ActivityList'
 import Settings from 'Closies/app/containers/Settings'
 import authorize from 'Closies/app/containers/auth/Authorizer'
 import { palette } from 'Closies/app/__config/Theme'
@@ -27,7 +28,14 @@ const AreaNavigator = StackNavigator({
       header: null,
       tabBarVisible: false
     }
-  }
+  },
+  ActivityList: {
+    screen: authorize(ActivityList),
+    navigationOptions: {
+      header: null,
+      tabBarVisible: false
+    }
+  },
 })
 
 const UserNavigator = TabNavigator({

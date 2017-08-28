@@ -16,7 +16,12 @@ const initialState = {
   initialized: false,
   authToken: null,
   selectedActivityId: null,
-  currentLocation: {coords: {}}
+  currentLocation: {
+    coords: {
+      latitude: 0,
+      longitude: 0,
+    }
+  }
 }
 
 export default function reducer(state: Object = initialState, action: Action) {

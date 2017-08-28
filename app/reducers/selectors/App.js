@@ -37,7 +37,8 @@ export const getAreaData = (state: Object) => {
   const denormActivities = getActivitiesDenormalized(state, activities.map(x => x.id))
   const focus = calculateFocus(activities)
   const clusterAreas = calculateClusterAreas(focus)
-  const region = calculateRegion(activities)
+  const currentLocation = getCurrentLocation(state)
+  const region = calculateRegion(activities, currentLocation.coords)
   const clusters = calculateClusters(denormActivities, clusterAreas)
   return { clusters, region }
 }
