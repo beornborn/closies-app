@@ -1,5 +1,5 @@
 //@flow
-const serverUrl = process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:3000' : 'https://closies.herokuapp.com'
+const serverUrl = process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:3000' : 'http://api.closies.co'
 
 export const api = {
   serverUrl,
