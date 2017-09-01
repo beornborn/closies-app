@@ -6,17 +6,18 @@ import { TextInput as NativeInput } from 'react-native'
 export default class TextInput extends React.Component {
   static propTypes = {
     input: pt.shape({
-      value: pt.string.isRequired,
+      value: pt.oneOfType([pt.string, pt.object]).isRequired,
       onChange: pt.func.isRequired,
     }).isRequired
   }
 
   render() {
     const { input, ...other } = this.props
+    const value = (typeof input.value === 'object') ? input.value.value : input.value
 
     return <NativeInput
       {...other}
-      value={input.value.value}
+      value={value}
       onChangeText={(v: string) => input.onChange({value: v})} />
   }
 }

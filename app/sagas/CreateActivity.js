@@ -6,6 +6,7 @@ import { perform as fetchActivities } from 'Closies/app/sagas/FetchActivities'
 import { handleResponse } from 'Closies/app/utils/ApiHandlers'
 import { getCurrentUser } from 'Closies/app/reducers/selectors/Data'
 import { NavigationActions } from 'react-navigation'
+import { reset } from 'redux-form'
 
 const perform = function* perform(a) {
   try {
@@ -20,6 +21,8 @@ const perform = function* perform(a) {
     const result = yield handleResponse(response)
     if (result.status === 'Ok') {
       yield fetchActivities()
+      // $FlowFixMe
+      yield put(reset('area/activity/new'))
       yield put(NavigationActions.navigate({routeName: 'Area'}))
     }
   } catch (err) { console.log(err) }
