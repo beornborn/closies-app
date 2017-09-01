@@ -11,7 +11,8 @@
     "flow": "flow",
     "eslint": "eslint --format 'node_modules/eslint-friendly-formatter' ./app",
     "check": "npm run flow && npm run eslint",
-    "release": "cd android && ./gradlew assembleRelease && cd .. && cp android/app/build/outputs/apk/app-release.apk ~/Desktop",
+    "release": "cd android && bundle exec fastlane alpha && cd ..",
+    "get-release-apk": "cd android && ./gradlew assembleRelease && cd .. && cp android/app/build/outputs/apk/app-release.apk ~/Desktop",
     "test": "jest"
   },
   "dependencies": {
