@@ -9,8 +9,8 @@ export const calculateRegion = (activities: Array<Object>, defaultCoords: Object
   return {
     latitude: (minLat + maxLat) / 2.0 || defaultCoords.latitude,
     longitude: (minLong + maxLong) / 2.0 || defaultCoords.longitude,
-    latitudeDelta: _.max([(maxLat - minLat) * 1.2, 0.005]),
-    longitudeDelta: _.max([(maxLong - minLong) * 1.2, 0.005]),
+    latitudeDelta: _.max([(maxLat - minLat) * 1.2, 0.002]),
+    longitudeDelta: _.max([(maxLong - minLong) * 1.2, 0.002]),
   }
 }
 export const calculateFocus = (activities: Array<Object>): Object => {
