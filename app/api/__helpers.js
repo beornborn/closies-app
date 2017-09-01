@@ -25,7 +25,7 @@ export function checkStatus(response: Object) {
 }
 
 export function logResponse(response: Object) {
-  console.log(response)
+  console.log('----------------------', response)
   return response
 }
 
@@ -45,7 +45,7 @@ function handleResponse(response: Object) {
     .then(parseJSON)
     .catch(e => {
       if (e.response) throw e
-      console.log(e)
+      console.log('------------------', e)
       const error = new Error('Bad Connection')
       error.message = 'Check your internet connection'
       throw error

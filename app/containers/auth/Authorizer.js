@@ -3,17 +3,17 @@ import { connect } from 'react-redux'
 import Authorizer from 'Closies/app/components/auth/Authorizer'
 import { getCurrentUser } from 'Closies/app/reducers/selectors/Data'
 import { getCurrentRoute } from 'Closies/app/reducers/selectors/App'
+import { NavigationActions } from 'react-navigation'
 
-const authorize = (Component: Object) => {
-  const mapStateToProps = (state: Object): Object => {
-    return {
-      Component,
-      user: getCurrentUser(state),
-      currentRoute: getCurrentRoute(state),
-    }
+const mapStateToProps = (state: Object): Object => {
+  return {
+    user: getCurrentUser(state),
+    currentRoute: getCurrentRoute(state),
   }
-
-  return connect(mapStateToProps, null)(Authorizer)
 }
 
-export default authorize
+export const mapDispatchToProps = (dispatch: Function): Object => ({
+  navigate: (routeName: string) => dispatch(NavigationActions.navigate({routeName}))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Authorizer)

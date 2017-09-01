@@ -33,7 +33,7 @@ export const calculateClusterAreas = (focus: Object): Array<Object> => {
   const widthAmount = Math.floor(width / clusterWidth)
 
   const { minLat, minLong, maxLat, maxLong } = focus
-  const latDelta =  _.max([maxLat - minLat, 0.0006])
+  const latDelta = _.max([maxLat - minLat, 0.0006])
   const longDelta = _.max([maxLong - minLong, 0.0006])
   const latStep = latDelta / heightAmount
   const longStep = longDelta / widthAmount

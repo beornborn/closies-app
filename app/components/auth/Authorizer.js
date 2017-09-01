@@ -5,46 +5,32 @@ import Acl from 'Closies/app/components/auth/Acl'
 
 export default class Authorizer extends React.Component {
   static propTypes = {
-    Component: pt.oneOfType([pt.element, pt.func]).isRequired,
     user: pt.object.isRequired,
-    navigation: pt.object.isRequired,
     currentRoute: pt.object.isRequired,
+    navigate: pt.func.isRequired,
   }
 
-  componentWillMount() { this.authorize() }
-  componentDidUpdate() { this.authorize() }
+  shouldComponentUpdate(nextProps: Object) {
+    const userChanged = nextProps.user.id !== this.props.user.id
+    const routeChanged = nextProps.currentRoute.routeName !== this.props.currentRoute.routeName
+    return userChanged || routeChanged
+  }
 
-  authorize() {
-    const { Component, navigation, currentRoute } = this.props
-    const componentName = this.componentName(Component)
+  authorize = () => {
+    const { user, currentRoute, navigate } = this.props
 
-    if (currentRoute.routeName === componentName && !this.isAuthorized()) {
-      switch (componentName) {
-        case 'Login': return navigation.navigate('Area')
-        default: return navigation.navigate('Login')
+    const authorizer = Acl[currentRoute.routeName]
+
+    if (!authorizer(user)) {
+      switch (currentRoute.routeName) {
+        case 'Login': return navigate('Area')
+        default: return navigate('Login')
       }
     }
   }
 
-  componentName(Component: Object) {
-    if (Component.WrappedComponent) {
-      return Component.WrappedComponent.name
-    }
-
-    return Component.name
-  }
-
-  isAuthorized() {
-    const { user, Component } = this.props
-    const componentName = this.componentName(Component)
-    const authorizer = Acl[componentName]
-
-    return authorizer(user)
-  }
-
   render() {
-    const { Component } = this.props
-
-    return <Component />
+    this.authorize()
+    return null
   }
 }

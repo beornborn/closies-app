@@ -6,31 +6,30 @@ import Activity from 'Closies/app/containers/Activity'
 import NewActivity from 'Closies/app/containers/NewActivity'
 import ActivityList from 'Closies/app/containers/ActivityList'
 import Settings from 'Closies/app/containers/Settings'
-import authorize from 'Closies/app/containers/auth/Authorizer'
 import { palette } from 'Closies/app/__config/Theme'
 
 const AreaNavigator = StackNavigator({
   Area: {
-    screen: authorize(Area),
+    screen: Area,
     navigationOptions: {
       header: null
     }
   },
   Activity: {
-    screen: authorize(Activity),
+    screen: Activity,
     navigationOptions: {
       title: 'Activity'
     }
   },
   NewActivity: {
-    screen: authorize(NewActivity),
+    screen: NewActivity,
     navigationOptions: {
       header: null,
       tabBarVisible: false
     }
   },
   ActivityList: {
-    screen: authorize(ActivityList),
+    screen: ActivityList,
     navigationOptions: {
       header: null,
       tabBarVisible: false
@@ -46,7 +45,7 @@ const UserNavigator = TabNavigator({
     }
   },
   Settings: {
-    screen: authorize(Settings),
+    screen: Settings,
     navigationOptions: {
       tabBarLabel: 'Settings',
     }
@@ -72,7 +71,7 @@ const UserNavigator = TabNavigator({
 
 const GuestNavigator = StackNavigator({
   Login: {
-    screen: authorize(Login),
+    screen: Login,
   },
 }, {
   headerMode: 'none'

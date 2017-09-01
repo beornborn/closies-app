@@ -8,7 +8,7 @@ export const handleActivity = (activity: Object) => {
 
 export const handleResponse = function* handleResponse(response: Object): Object {
   if (response.error === 'not_authenticated') {
-    console.log('not_authenticated')
+    console.log('--------------------- not_authenticated')
     yield clearAuthData()
     return {status: 'Fail'}
   }

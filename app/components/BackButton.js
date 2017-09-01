@@ -19,7 +19,7 @@ export default class BackButton extends React.Component {
 
     if (currentRoute.routeName === 'Area' && activityIds.length > 0) {
       goToCluster([])
-    } else if (currentRoute.routeName === 'Area') {
+    } else if (currentRoute.routeName === 'Area' || currentRoute.routeName === 'Login') {
       if (new Date().getTime() - this.lastBackButtonPress < 2000) {
         BackHandler.exitApp()
       }

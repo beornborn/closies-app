@@ -4,6 +4,7 @@ import pt from 'prop-types'
 import { addNavigationHelpers } from 'react-navigation'
 import { AllNavigators } from 'Closies/app/Router'
 import BackButton from 'Closies/app/containers/BackButton'
+import Authorizer from 'Closies/app/containers/auth/Authorizer'
 import { Container } from './Root.style'
 
 export default class Root extends React.Component {
@@ -30,6 +31,7 @@ export default class Root extends React.Component {
 
     return <Container>
       <BackButton />
+      <Authorizer />
       <AllNavigators navigation={navHelpers} />
     </Container>
   }
