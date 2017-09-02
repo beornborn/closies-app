@@ -38,6 +38,3 @@ export const Content = styled(Text)`
   margin-top: 10px;
   font-size: 18px;
 `
-export const Place = styled(Text)`
-  color: ${palette.boulder};
-`

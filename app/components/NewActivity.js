@@ -3,7 +3,6 @@ import React from 'react'
 import pt from 'prop-types'
 import { Button, View, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import { TextInput } from 'Closies/app/components/shared'
-import { Text } from 'Closies/app/components/shared/Common.style'
 import { Container } from 'Closies/app/components/shared/Common.style'
 import { palette } from 'Closies/app/__config/Theme'
 import { Field } from 'redux-form'
@@ -14,6 +13,8 @@ export default class NewActivity extends React.Component {
     fetchCurrentLocation: pt.func.isRequired,
     createActivity: pt.func.isRequired,
     handleSubmit: pt.func.isRequired,
+    submitting: pt.bool.isRequired,
+    valid: pt.bool.isRequired,
   }
 
   componentDidMount() {

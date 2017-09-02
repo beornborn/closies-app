@@ -27,6 +27,7 @@
     "react-native-maps": "^0.16.0",
     "react-native-material-ui": "^1.12.0",
     "react-native-orientation": "^2.1.0",
+    "react-native-splash-screen": "^3.0.0",
     "react-native-vector-icons": "^4.2.0",
     "react-navigation": "^1.0.0-beta.11",
     "react-redux": "^5.0.5",

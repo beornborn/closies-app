@@ -1,5 +1,6 @@
 //@flow
-import { takeEvery, put } from 'redux-saga/effects'
+import { takeEvery, put, call } from 'redux-saga/effects'
+import SplashScreen from 'react-native-splash-screen'
 import AsyncStorage from 'Closies/app/utils/AsyncStorage'
 import { SAGA_AUTHENTICATE } from 'Closies/app/reducers/Saga'
 import { initializeApp, setAuthToken } from 'Closies/app/reducers/App'
@@ -14,6 +15,7 @@ const perform = function* perform(_a) {
       yield fetchCurrentUser()
     }
     yield put(initializeApp())
+    yield call(SplashScreen.hide)
   } catch (err) { console.log(err) }
 }
 
