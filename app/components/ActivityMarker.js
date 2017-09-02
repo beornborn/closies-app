@@ -1,5 +1,6 @@
 //@flow
 import React from 'react'
+import { Animated, Easing } from 'react-native'
 import pt from 'prop-types'
 import MapView from 'react-native-maps'
 import { NotificationContainer, Avatar } from 'Closies/app/components/ActivityMarker.style'
@@ -10,14 +11,24 @@ export default class ActivityMarker extends React.Component {
     goToActivity: pt.func.isRequired,
   }
 
-  state = { initialRender: 'false' }
+  state = { fadeAnim: new Animated.Value(0) }
 
-  showMarker = () => setTimeout(() => this.setState({initialRender: 'true'}), 400)
+  componentDidMount() {
+    Animated.timing(
+      this.state.fadeAnim,
+      {
+        toValue: 1,
+        easing: Easing.ease,
+        duration: 1000,
+      }
+    ).start();
+  }
 
   render() {
     const { activity, goToActivity } = this.props
 
-    return <MapView.Marker
+    return <MapView.Marker.Animated
+      style={{opacity: this.state.fadeAnim}}
       key={activity.id}
       coordinate={activity.latlng}
       onPress={() => goToActivity(activity.id)}>
@@ -25,10 +36,8 @@ export default class ActivityMarker extends React.Component {
         <Avatar
           color={activity.color}
           createdAt={activity.created_at}
-          onLayout={this.showMarker}
-          key={this.state.initialRender}
           source={{uri: activity.user.picture}} />
       </NotificationContainer>
-    </MapView.Marker>
+    </MapView.Marker.Animated>
   }
 }
