@@ -21,7 +21,7 @@ export default class ActivityMarker extends React.Component {
         easing: Easing.ease,
         duration: 1000,
       }
-    ).start();
+    ).start()
   }
 
   render() {

@@ -40,24 +40,22 @@ export default class Area extends Component {
   render() {
     const { newActivity, area: { region, clusters }, forceRerender } = this.props
 
-    return (
-      <Container style={{opacity: forceRerender ? 0.999 : 1}}>
-        <MapView
-          zoomEnabled={false}
-          scrollEnabled={false}
-          pitchEnabled={false}
-          cacheEnabled={true}
-          moveOnMarkerPress={false}
-          style={StyleSheet.absoluteFillObject}
-          customMapStyle={mapStyle}
-          region={region}>
-          {clusters.map(c => c.id ? this.renderActivity(c) : this.renderCluster(c))}
-        </MapView>
-        <ActionButton
-          style={ActionButtonStyle}
-          actions={[<Icon name='plus' />]}
-          onPress={newActivity} />
-      </Container>
-    )
+    return <Container style={{opacity: forceRerender ? 0.999 : 1}}>
+      <MapView
+        zoomEnabled={false}
+        scrollEnabled={false}
+        pitchEnabled={false}
+        cacheEnabled={true}
+        moveOnMarkerPress={false}
+        style={StyleSheet.absoluteFillObject}
+        customMapStyle={mapStyle}
+        region={region}>
+        {clusters.map(c => c.id ? this.renderActivity(c) : this.renderCluster(c))}
+      </MapView>
+      <ActionButton
+        style={ActionButtonStyle}
+        actions={[<Icon name='plus' />]}
+        onPress={newActivity} />
+    </Container>
   }
 }

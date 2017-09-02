@@ -7,6 +7,7 @@ export const Container = styled.View`
   ${absoluteFill}
   justify-content: flex-end;
   align-items: center;
+  background-color: ${palette.white};
 `
 
 export const ActionButtonStyle = {
