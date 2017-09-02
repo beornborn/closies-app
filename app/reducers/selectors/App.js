@@ -28,8 +28,9 @@ export const getSelectedActivityDenormalized = (state: Object) => {
 }
 export const getFilteredActivities = (state: Object) => {
   const activities = getActivitiesValues(state)
+  const sortedActivities = _.orderBy(activities, ['created_at'], ['desc'])
   const selectedActivityIds = getFilterSelectedActivityIds(state)
-  return !_.isEmpty(selectedActivityIds) ? activities.filter(a => _.includes(selectedActivityIds, a.id)) : activities
+  return !_.isEmpty(selectedActivityIds) ? sortedActivities.filter(a => _.includes(selectedActivityIds, a.id)) : sortedActivities
 }
 
 export const getAreaData = (state: Object) => {

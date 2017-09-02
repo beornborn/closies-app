@@ -10,14 +10,17 @@ export default class ActivityList extends React.Component {
     activities: pt.arrayOf(pt.object).isRequired
   }
 
-  renderActivity = ({item}: Object) => <ActivityListItem key={item.id} activity={item} />
+  renderActivity = ({item}: Object) => <ActivityListItem activity={item} />
 
   render() {
     const { activities } = this.props
 
     return <Container>
       <View style={{height: 10}} />
-      <FlatList data={activities} renderItem={this.renderActivity} />
+      <FlatList
+        data={activities}
+        renderItem={this.renderActivity}
+        keyExtractor={a => a.id} />
     </Container>
   }
 }

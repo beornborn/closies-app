@@ -16,7 +16,7 @@ export const mapDispatchToProps = (dispatch: Function): Object => {
       const longs = activities.map(x => x.longitude)
       const latDiff = _.max(lats) - _.min(lats)
       const longDiff = _.max(longs) - _.min(longs)
-      console.log(latDiff, longDiff)
+
       if (latDiff > 0.0006 && longDiff > 0.0006) {
         dispatch(setSelectedActivitiesFilter(activities.map(x => x.id)))
       } else {

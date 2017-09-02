@@ -31,8 +31,8 @@ const AreaNavigator = StackNavigator({
   ActivityList: {
     screen: ActivityList,
     navigationOptions: {
-      header: null,
-      tabBarVisible: false
+      tabBarVisible: false,
+      title: 'Activities',
     }
   },
 })
