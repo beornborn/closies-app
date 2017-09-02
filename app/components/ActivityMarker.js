@@ -12,6 +12,8 @@ export default class ActivityMarker extends React.Component {
 
   state = { initialRender: 'false' }
 
+  showMarker = () => setTimeout(() => this.setState({initialRender: 'true'}), 400)
+
   render() {
     const { activity, goToActivity } = this.props
 
@@ -23,7 +25,7 @@ export default class ActivityMarker extends React.Component {
         <Avatar
           color={activity.color}
           createdAt={activity.created_at}
-          onLayout={() => this.setState({initialRender: 'true'})}
+          onLayout={this.showMarker}
           key={this.state.initialRender}
           source={{uri: activity.user.picture}} />
       </NotificationContainer>

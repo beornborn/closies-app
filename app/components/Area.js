@@ -34,9 +34,7 @@ export default class Area extends Component {
   }
 
   renderActivity(activity: Object) {
-    return <ActivityMarker
-      key={`${activity.longitude} ${activity.latitude}`}
-      activity={activity} />
+    return <ActivityMarker key={activity.id} activity={activity} />
   }
 
   render() {
