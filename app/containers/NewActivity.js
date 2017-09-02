@@ -7,7 +7,14 @@ import { fetchCurrentLocation, createActivity } from 'Closies/app/reducers/Saga'
 import { bindActionCreators } from 'redux'
 
 const form = {
-  form: 'area/activity/new'
+  form: 'area/activity/new',
+  validate: values => {
+    const errors = {}
+    if (!values.description || values.description.value === '') {
+      errors.description = 'Required'
+    }
+    return errors
+  }
 }
 
 export const mapStateToProps = (state: Object): Object => ({

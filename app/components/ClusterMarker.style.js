@@ -2,7 +2,6 @@
 import styled from 'styled-components/native'
 import moment from 'moment'
 import { palette } from 'Closies/app/__config/Theme'
-import { Text } from 'react-native'
 
 const getOpacity = (createdAt: string): number => {
   const secondsNow = Math.round(Date.now() / 1000)
@@ -35,7 +34,7 @@ export const Cluster = styled.View`
   justify-content: center;
   align-items: center;
 `
-export const ChildrenNumber = styled(Text)`
+export const ChildrenNumber = styled.Text`
   color: ${palette.cerulean};
   font-size: 14px;
   font-weight: bold;

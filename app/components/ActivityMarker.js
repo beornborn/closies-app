@@ -19,7 +19,7 @@ export default class ActivityMarker extends React.Component {
       key={activity.id}
       coordinate={activity.latlng}
       onPress={() => goToActivity(activity.id)}>
-      <NotificationContainer color={activity.color} newEvents={Math.random() < 0.4} createdAt={activity.created_at} >
+      <NotificationContainer color={activity.color} newEvents={false} createdAt={activity.created_at} >
         <Avatar
           color={activity.color}
           createdAt={activity.created_at}

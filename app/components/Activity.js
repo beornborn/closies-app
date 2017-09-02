@@ -2,9 +2,9 @@
 import React from 'react'
 import pt from 'prop-types'
 import { View } from 'react-native'
-import moment from 'moment'
-import { Text } from 'Closies/app/components/shared'
-import { Container, Avatar, AvatarContainer } from './Activity.style'
+import { humanDate } from 'Closies/app/utils/ViewDecorators'
+import { Text } from 'Closies/app/components/shared/Common.style'
+import { Container, Avatar, HeaderContainer, Header, Name, Created, Content, Place } from './Activity.style'
 
 export default class Activity extends React.Component {
   static propTypes = {
@@ -15,14 +15,14 @@ export default class Activity extends React.Component {
     const { activity } = this.props
 
     return <Container>
-      <AvatarContainer>
+      <HeaderContainer>
         <Avatar source={{uri: activity.user.picture}} />
-      </AvatarContainer>
-      <View style={{height: 40}} />
-      <Text>{activity.id}</Text>
-      <Text>{moment(activity.created_at).fromNow()}</Text>
-      <View style={{height: 40}} />
-      <Text>{activity.description}</Text>
+        <Header>
+          <Name>{activity.user.full_name}</Name>
+          <Created>{humanDate(activity.created_at)} &bull; at {activity.latitude}</Created>
+        </Header>
+      </HeaderContainer>
+      <Content>{activity.description}</Content>
     </Container>
   }
 }

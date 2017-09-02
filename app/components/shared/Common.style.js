@@ -14,3 +14,7 @@ export const Container = styled.View`
   ${absoluteFill}
   background-color: ${palette.white};
 `
+export const Text = styled.Text`
+  color: ${palette.mineshaft};
+  font-size: 16px;
+`

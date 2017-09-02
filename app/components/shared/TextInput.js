@@ -18,6 +18,6 @@ export default class TextInput extends React.Component {
     return <NativeInput
       {...other}
       value={value}
-      onChangeText={(v: string) => input.onChange({value: v})} />
+      onChangeText={v => input.onChange({value: v})} />
   }
 }
