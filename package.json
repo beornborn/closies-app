@@ -5,7 +5,7 @@
   "scripts": {
     "start": "REACT_DEBUGGER=\"rndebugger-open --open --port 8081\" node node_modules/react-native/local-cli/cli.js start",
     "local": "adb reverse tcp:3000 tcp:3000; react-native run-android",
-    "prod": "react-native run-android --variant=release",
+    "prod": "adb reverse tcp:3000 tcp:3000; react-native run-android --variant=release",
     "flow-install": "flow-typed install",
     "flow-update": "flow-typed update",
     "flow": "flow",

@@ -94,7 +94,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.closies"
+        applicationId "co.closies"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
@@ -102,7 +102,6 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
-        manifestPlaceholders = [HOCKEYAPP_APP_ID: "2284bbdede344e509f1018888a42da2a"]
     }
     signingConfigs {
         release {

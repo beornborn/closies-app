@@ -1,0 +1,7 @@
+Ask owner about real keys
+
+/android/app/src/main/res/values/.config.json
+
+{
+  "HOCKEYAPP_API_TOKEN": "HOCKEYAPP_API_TOKEN"
+}

@@ -1,4 +1,4 @@
-package com.closies;
+package co.closies;
 
 import android.app.Application;
 
