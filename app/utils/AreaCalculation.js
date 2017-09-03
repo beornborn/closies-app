@@ -3,9 +3,6 @@ import _ from 'lodash'
 import { Dimensions } from 'react-native'
 
 export const calculateRegion = (activities: Array<Object>, defaultCoords: Object): Object => {
-  if (_.isEmpty(activities)) {
-    return {latitude: 0, longitude: 0, latitudeDelta: 0, longitudeDelta: 0}
-  }
   const focus = calculateFocus(activities)
   const { minLat, minLong, maxLat, maxLong } = focus
 
