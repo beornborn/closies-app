@@ -33,9 +33,7 @@ export default class BackButton extends React.Component {
   }
 
   componentDidMount() {
-    if (Platform.OS === 'android') {
-      this.backButtonListener = BackHandler.addEventListener('hardwareBackPress', () => this.handleBack())
-    }
+    this.backButtonListener = BackHandler.addEventListener('hardwareBackPress', () => this.handleBack())
   }
 
   componentWillUnmount() {

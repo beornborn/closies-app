@@ -27,6 +27,11 @@ export default class Area extends Component {
     this.props.fetchCurrentLocation()
   }
 
+  shouldComponentUpdate(nextPops: Object) {
+    // console.log('props', this.props, nextPops)
+    return true
+  }
+
   renderCluster(cluster: Object) {
     return <ClusterMarker
       key={`${cluster.longitude} ${cluster.latitude}`}

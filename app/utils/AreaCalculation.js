@@ -1,6 +1,7 @@
 //@flow
 import _ from 'lodash'
 import { Dimensions } from 'react-native'
+import AreaConfig from 'Closies/app/__config/Area'
 
 export const calculateRegion = (activities: Array<Object>, defaultCoords: Object): Object => {
   const focus = calculateFocus(activities)
@@ -9,8 +10,8 @@ export const calculateRegion = (activities: Array<Object>, defaultCoords: Object
   return {
     latitude: (minLat + maxLat) / 2.0 || defaultCoords.latitude,
     longitude: (minLong + maxLong) / 2.0 || defaultCoords.longitude,
-    latitudeDelta: _.max([(maxLat - minLat) * 1.2, 0.002]),
-    longitudeDelta: _.max([(maxLong - minLong) * 1.2, 0.002]),
+    latitudeDelta: _.max([(maxLat - minLat) * AreaConfig.EXPAND_VISIBLE_AREA_COEFF, AreaConfig.MIN_VISIBLE_DISTANCE]),
+    longitudeDelta: _.max([(maxLong - minLong) * AreaConfig.EXPAND_VISIBLE_AREA_COEFF, AreaConfig.MIN_VISIBLE_DISTANCE]),
   }
 }
 export const calculateFocus = (activities: Array<Object>): Object => {
@@ -27,14 +28,14 @@ export const calculateFocus = (activities: Array<Object>): Object => {
 
 export const calculateClusterAreas = (focus: Object): Array<Object> => {
   const { height, width } = Dimensions.get('window')
-  const clusterWidth = 120
+  const clusterWidth = AreaConfig.CLUSTER_WIDTH
   const clusterHeight = clusterWidth * height / width
   const heightAmount = Math.floor(height / clusterHeight)
   const widthAmount = Math.floor(width / clusterWidth)
 
   const { minLat, minLong, maxLat, maxLong } = focus
-  const latDelta = _.max([maxLat - minLat, 0.0006])
-  const longDelta = _.max([maxLong - minLong, 0.0006])
+  const latDelta = _.max([maxLat - minLat, AreaConfig.MIN_VISIBLE_DISTANCE])
+  const longDelta = _.max([maxLong - minLong, AreaConfig.MIN_VISIBLE_DISTANCE])
   const latStep = latDelta / heightAmount
   const longStep = longDelta / widthAmount
 

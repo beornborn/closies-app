@@ -22,8 +22,9 @@ https://microsoft.github.io/code-push/
 https://github.com/oblador/react-native-animatable
 https://icomoon.io/
 We use Sentry for JS errors and Crashlytics for native errors
+https://github.com/reactjs/redux/issues/911#issuecomment-149361073
 
 
 
 
-
+вынести ареа цифры в конфиг!

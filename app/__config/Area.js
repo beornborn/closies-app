@@ -1,0 +1,10 @@
+//@flow
+
+const config = {
+  MIN_CLOSEST_DISTANCE_BETWEEN_ACTIVITIES: 0.0006,
+  MIN_VISIBLE_DISTANCE: 0.002,
+  CLUSTER_WIDTH: 120,
+  EXPAND_VISIBLE_AREA_COEFF: 1.2,
+}
+
+export default config
