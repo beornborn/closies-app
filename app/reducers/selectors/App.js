@@ -3,7 +3,7 @@ import { getActivities, getActivitiesValues, getActivitiesDenormalized } from 'C
 import { getFilterSelectedActivityIds } from 'Closies/app/reducers/selectors/Ui'
 import { denormalizedActivities } from 'Closies/app/schemas/Denormalizers'
 import { activitiesSchema } from 'Closies/app/schemas/relations/Activity'
-import { calculateRegion, calculateFocus, calculateClusterAreas, calculateClusters } from 'Closies/app/utils/AreaCalculation'
+import { calculateAreaData } from 'Closies/app/utils/area'
 import _ from 'lodash'
 
 export const getInitialized = (state: Object) => state.app.initialized
@@ -36,10 +36,6 @@ export const getFilteredActivities = (state: Object) => {
 export const getAreaData = (state: Object) => {
   const activities = getFilteredActivities(state)
   const denormActivities = getActivitiesDenormalized(state, activities.map(x => x.id))
-  const focus = calculateFocus(activities)
-  const clusterAreas = calculateClusterAreas(focus)
   const currentLocation = getCurrentLocation(state)
-  const region = calculateRegion(activities, currentLocation.coords)
-  const clusters = calculateClusters(denormActivities, clusterAreas)
-  return { clusters, region }
+  return calculateAreaData(denormActivities, currentLocation)
 }
