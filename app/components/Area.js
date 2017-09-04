@@ -44,7 +44,7 @@ export default class Area extends Component {
 
   render() {
     const { newActivity, area: { region, clusters }, forceRerender } = this.props
-    console.log(this.props.area)
+
     return <Container style={{opacity: forceRerender ? 0.999 : 1}}>
       <MapView
         zoomEnabled={false}

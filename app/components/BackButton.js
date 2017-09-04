@@ -6,7 +6,7 @@ import { Platform, BackHandler, ToastAndroid } from 'react-native'
 export default class BackButton extends React.Component {
   static propTypes = {
     goBack: pt.func.isRequired,
-    goToCluster: pt.func.isRequired,
+    goReset: pt.func.isRequired,
     currentRoute: pt.object.isRequired,
     activityIds: pt.arrayOf(pt.number).isRequired,
   }
@@ -15,10 +15,10 @@ export default class BackButton extends React.Component {
   lastBackButtonPress = 0
 
   handleBack() {
-    const { goBack, currentRoute, goToCluster, activityIds } = this.props
+    const { goBack, currentRoute, goReset, activityIds } = this.props
 
     if (currentRoute.routeName === 'Area' && activityIds.length > 0) {
-      goToCluster([])
+      goReset()
     } else if (currentRoute.routeName === 'Area' || currentRoute.routeName === 'Login') {
       if (new Date().getTime() - this.lastBackButtonPress < 2000) {
         BackHandler.exitApp()
