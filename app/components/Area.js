@@ -54,6 +54,7 @@ export default class Area extends Component {
         pitchEnabled={false}
         cacheEnabled={true}
         moveOnMarkerPress={false}
+        rotateEnabled={false}
         style={StyleSheet.absoluteFillObject}
         customMapStyle={mapStyle}
         region={region}>

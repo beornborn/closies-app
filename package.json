@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "immutability-helper": "^2.3.0",
+    "instabug-reactnative": "^2.0.2",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "normalizr": "^3.2.3",

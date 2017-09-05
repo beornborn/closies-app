@@ -32,6 +32,12 @@ build and upload to Hockeyapp
 https://fabric.io/features/distribution?utm_campaign=fastlane.tools
 
 
+# Instabug
+
+testers to report bugs
+https://dashboard.instabug.com/applications/closies/beta/bugs/2?status=New
+
+
 # Heroku
 
 https://dashboard.heroku.com/apps/closies-api

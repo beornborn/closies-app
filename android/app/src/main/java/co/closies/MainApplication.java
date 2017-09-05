@@ -3,6 +3,7 @@ package co.closies;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.instabug.reactlibrary.RNInstabugReactnativePackage;
 import com.cboy.rn.splashscreen.SplashScreenReactPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -37,11 +38,17 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new SplashScreenReactPackage(),
-            new FBSDKPackage(mCallbackManager),
-            new VectorIconsPackage(),
-            new OrientationPackage(),
-            new MapsPackage()
+          new RNInstabugReactnativePackage.Builder(getResources().getString(R.string.INSTABUG_TOKEN), MainApplication.this)
+						.setInvocationEvent("button")
+						.setPrimaryColor("#1D82DC")
+						.setFloatingEdge("left")
+						.setFloatingButtonOffsetFromTop(250)
+						.build(),
+          new SplashScreenReactPackage(),
+          new FBSDKPackage(mCallbackManager),
+          new VectorIconsPackage(),
+          new OrientationPackage(),
+          new MapsPackage()
       );
     }
   };

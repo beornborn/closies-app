@@ -102,6 +102,7 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        multiDexEnabled true
     }
     signingConfigs {
         release {
@@ -144,6 +145,7 @@ android {
 }
 
 dependencies {
+    compile project(':instabug-reactnative')
     compile project(':react-native-splash-screen')
     compile(project(':react-native-fbsdk')){
         exclude(group: 'com.facebook.android', module: 'facebook-android-sdk')
