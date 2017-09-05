@@ -5,6 +5,7 @@ import AsyncStorage from 'Closies/app/utils/AsyncStorage'
 import { SAGA_AUTHENTICATE } from 'Closies/app/reducers/Saga'
 import { initializeApp, setAuthToken } from 'Closies/app/reducers/App'
 import { perform as fetchCurrentUser } from 'Closies/app/sagas/FetchCurrentUser'
+import { perform as fetchCurrentLocation } from 'Closies/app/sagas/FetchCurrentLocation'
 
 const perform = function* perform(_a) {
   try {
@@ -13,6 +14,7 @@ const perform = function* perform(_a) {
     if (token) {
       yield put(setAuthToken(token))
       yield fetchCurrentUser()
+      yield fetchCurrentLocation()
     }
     yield put(initializeApp())
     yield call(SplashScreen.hide)
