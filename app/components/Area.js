@@ -8,6 +8,7 @@ import { ActionButton } from 'react-native-material-ui'
 import ClusterMarker from 'Closies/app/containers/ClusterMarker'
 import ActivityMarker from 'Closies/app/containers/ActivityMarker'
 import { mapStyle } from 'Closies/app/__config/Theme'
+import _ from 'lodash'
 import { Container, ActionButtonStyle } from './Area.style'
 
 export default class Area extends Component {
@@ -38,8 +39,9 @@ export default class Area extends Component {
       cluster={cluster} />
   }
 
-  renderActivity(activity: Object) {
-    return <ActivityMarker key={activity.id} activity={activity} />
+  renderActivity(cluster: Object) {
+    const activity = cluster.activities[0]
+    return <ActivityMarker key={activity.id} activity={activity} {..._.pick(cluster, ['latitude', 'longitude'])} />
   }
 
   render() {
@@ -55,7 +57,7 @@ export default class Area extends Component {
         style={StyleSheet.absoluteFillObject}
         customMapStyle={mapStyle}
         region={region}>
-        {clusters.map(c => c.id ? this.renderActivity(c) : this.renderCluster(c))}
+        {clusters.map(c => c.activities.length === 1 ? this.renderActivity(c) : this.renderCluster(c))}
       </MapView>
       <ActionButton
         style={ActionButtonStyle}

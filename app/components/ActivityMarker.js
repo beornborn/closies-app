@@ -9,6 +9,8 @@ export default class ActivityMarker extends React.Component {
   static propTypes = {
     activity: pt.object.isRequired,
     goToActivity: pt.func.isRequired,
+    latitude: pt.number.isRequired,
+    longitude: pt.number.isRequired,
   }
 
   state = { fadeAnim: new Animated.Value(0) }
@@ -25,12 +27,12 @@ export default class ActivityMarker extends React.Component {
   }
 
   render() {
-    const { activity, goToActivity } = this.props
+    const { activity, goToActivity, latitude, longitude } = this.props
 
     return <MapView.Marker.Animated
       style={{opacity: this.state.fadeAnim}}
       key={activity.id}
-      coordinate={activity.latlng}
+      coordinate={{latitude, longitude}}
       onPress={() => goToActivity(activity.id)}>
       <NotificationContainer color={activity.color} newEvents={false} createdAt={activity.created_at} >
         <Avatar

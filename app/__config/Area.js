@@ -10,9 +10,9 @@ const config = {
       empty: 2,
       dashed: 2
     },
-    totalDiameter: undefined
+    totalDiameter: 0
   },
-  EXPAND_VISIBLE_AREA_COEFF: 1.2,
+  EXPAND_VISIBLE_AREA_COEFF: 1.1,
 }
 
 config.CIRCLE.totalDiameter = config.CIRCLE.diameter +

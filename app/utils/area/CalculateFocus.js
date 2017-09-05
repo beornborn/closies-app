@@ -6,12 +6,14 @@ import AreaConfig from 'Closies/app/__config/Area'
 const calculateFocus = (activities: Array<Object>, defaultCoords: Object): Object => {
   const { height, width } = Dimensions.get('window')
   const availableWidth = width / AreaConfig.EXPAND_VISIBLE_AREA_COEFF
-  const availableHeight = height - 50
+  const availableHeight = (height / AreaConfig.EXPAND_VISIBLE_AREA_COEFF) - 50
 
-  const clusterWidthPx = AreaConfig.CLUSTER_WIDTH
-  const clusterHeightPx = clusterWidthPx * availableHeight / availableWidth
-  const clusterWidthAmount = Math.floor(availableWidth / clusterWidthPx)
-  const clusterHeightAmount = Math.floor(availableHeight / clusterHeightPx)
+  const approxClusterWidthPx = AreaConfig.CLUSTER_WIDTH
+  const approxClusterHeightPx = approxClusterWidthPx * availableHeight / availableWidth
+  const clusterWidthAmount = Math.floor(availableWidth / approxClusterWidthPx)
+  const clusterHeightAmount = Math.floor(availableHeight / approxClusterHeightPx)
+  const clusterWidthPx = availableWidth / clusterWidthAmount
+  const clusterHeightPx = availableHeight / clusterHeightAmount
 
   const allLats = activities.map(x => x.latitude)
   const allLongs = activities.map(x => x.longitude)
@@ -25,10 +27,14 @@ const calculateFocus = (activities: Array<Object>, defaultCoords: Object): Objec
   const availableLongDelta = _.max([maxLong - minLong, AreaConfig.MIN_VISIBLE_DISTANCE])
   const latStep = availableLatDelta / clusterHeightAmount
   const longStep = availableLongDelta / clusterWidthAmount
-  const pxInLat = availableLatDelta / availableWidth
-  const pxInLong = availableLongDelta / availableHeight
+  const pxInLat = availableLatDelta / availableHeight
+  const pxInLong = availableLongDelta / availableWidth
 
   return {
+    widthScreen: width,
+    heightScreen: height,
+    availableWidth,
+    availableHeight,
     clusterWidthPx,
     clusterHeightPx,
     clusterWidthAmount,
@@ -41,6 +47,8 @@ const calculateFocus = (activities: Array<Object>, defaultCoords: Object): Objec
     availableLongDelta,
     latStep,
     longStep,
+    pxInLat,
+    pxInLong,
     region: {
       latitude: (minLat + maxLat) / 2.0 || defaultCoords.latitude,
       longitude: (minLong + maxLong) / 2.0 || defaultCoords.longitude,

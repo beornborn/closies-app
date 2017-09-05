@@ -1,19 +1,18 @@
 //@flow
 import _ from 'lodash'
 import AreaConfig from 'Closies/app/__config/Area'
-import handleClustersOverlap from 'Closies/app/utils/area/HandleClustersOverlap'
 import calculateClusterAreas from 'Closies/app/utils/area/CalculateClusterAreas'
 import calculateFocus from 'Closies/app/utils/area/CalculateFocus'
 import handleClustersNature from 'Closies/app/utils/area/HandleClustersNature'
 
 export const calculateAreaData = (activities: Array<Object>, location: Object) => {
   const focus = calculateFocus(activities, location.coords)
-  const clusterAreas = calculateClusterAreas(focus)
-  const clusters = calculateClusters(activities, clusterAreas)
+  const clusters = calculateClusters(activities, focus)
   return { clusters, region: focus.region }
 }
 
-export const calculateClusters = (activities: Array<Object>, clusterAreas: Array<Object>) => {
+export const calculateClusters = (activities: Array<Object>, focus: Object) => {
+  const clusterAreas = calculateClusterAreas(focus)
   const clusters = clusterAreas.map(ca => ({
     activities: [],
     longitude: null,
@@ -35,8 +34,7 @@ export const calculateClusters = (activities: Array<Object>, clusterAreas: Array
     }
   }
 
-  let handledCLusters = handleClustersNature(clusters)
-  handledCLusters = handleClustersOverlap(_.compact(handledCLusters))
-  console.log('handledCLusters', handledCLusters)
-  return handledCLusters
+  const handledClusters = handleClustersNature(_.compact(clusters), focus)
+
+  return _.compact(handledClusters)
 }
