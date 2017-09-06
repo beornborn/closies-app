@@ -1,7 +1,7 @@
 //@flow
 import React from 'react'
 import pt from 'prop-types'
-import { Platform, BackHandler, ToastAndroid } from 'react-native'
+import { BackHandler, ToastAndroid } from 'react-native'
 
 export default class BackButton extends React.Component {
   static propTypes = {

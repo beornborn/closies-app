@@ -1,11 +1,12 @@
 //@flow
-import { takeEvery, put, call } from 'redux-saga/effects'
+import { takeEvery, put, call, fork } from 'redux-saga/effects'
 import SplashScreen from 'react-native-splash-screen'
 import AsyncStorage from 'Closies/app/utils/AsyncStorage'
 import { SAGA_AUTHENTICATE } from 'Closies/app/reducers/Saga'
 import { initializeApp, setAuthToken } from 'Closies/app/reducers/App'
 import { perform as fetchCurrentUser } from 'Closies/app/sagas/FetchCurrentUser'
 import { perform as fetchCurrentLocation } from 'Closies/app/sagas/FetchCurrentLocation'
+import { perform as pollActivities } from 'Closies/app/sagas/PollActivities'
 
 const perform = function* perform(_a) {
   try {
@@ -15,6 +16,7 @@ const perform = function* perform(_a) {
       yield put(setAuthToken(token))
       yield fetchCurrentUser()
       yield fetchCurrentLocation()
+      yield fork(pollActivities)
     }
     yield put(initializeApp())
     yield call(SplashScreen.hide)

@@ -1,6 +1,5 @@
 //@flow
 import _ from 'lodash'
-import AreaConfig from 'Closies/app/__config/Area'
 import calculateClusterAreas from 'Closies/app/utils/area/CalculateClusterAreas'
 import calculateFocus from 'Closies/app/utils/area/CalculateFocus'
 import handleClustersNature from 'Closies/app/utils/area/HandleClustersNature'

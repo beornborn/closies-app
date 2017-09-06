@@ -18,17 +18,11 @@ export default class Area extends Component {
       region: pt.object.isRequired,
     }).isRequired,
     newActivity: pt.func.isRequired,
-    fetchActivities: pt.func.isRequired,
     fetchCurrentLocation: pt.func.isRequired,
     forceRerender: pt.bool.isRequired,
   }
 
-  componentDidMount() {
-    this.props.fetchActivities()
-    this.props.fetchCurrentLocation()
-  }
-
-  shouldComponentUpdate(nextPops: Object) {
+  shouldComponentUpdate() {
     // console.log('props', this.props, nextPops)
     return true
   }
