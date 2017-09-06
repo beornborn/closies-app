@@ -1,11 +1,11 @@
 //@flow
 import { getActivities, getActivitiesValues, getActivitiesDenormalized } from 'Closies/app/reducers/selectors/Data'
-import { getFilterSelectedActivityIds } from 'Closies/app/reducers/selectors/Ui'
 import { denormalizedActivities } from 'Closies/app/schemas/Denormalizers'
 import { activitiesSchema } from 'Closies/app/schemas/relations/Activity'
 import { calculateAreaData } from 'Closies/app/utils/area'
 import _ from 'lodash'
 
+export const getFilterSelectedActivityIds = (state: Object) => state.app.area.filter.selectedActivityIds
 export const getInitialized = (state: Object) => state.app.initialized
 export const getCurrentRoute = (state: Object) => {
   const findCurrentRoute = (navState: Object) => {

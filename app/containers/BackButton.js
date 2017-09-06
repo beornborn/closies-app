@@ -2,9 +2,8 @@
 import { connect } from 'react-redux'
 import BackButton from 'Closies/app/components/BackButton'
 import { NavigationActions } from 'react-navigation'
-import { getCurrentRoute } from 'Closies/app/reducers/selectors/App'
-import { getFilterSelectedActivityIds } from 'Closies/app/reducers/selectors/Ui'
-import { setSelectedActivitiesFilter } from 'Closies/app/reducers/Ui'
+import { getFilterSelectedActivityIds, getCurrentRoute } from 'Closies/app/reducers/selectors/App'
+import { setSelectedActivitiesFilter } from 'Closies/app/reducers/App'
 import { batchActions } from 'redux-batched-actions'
 
 export const mapStateToProps = (state: Object): Object => ({
