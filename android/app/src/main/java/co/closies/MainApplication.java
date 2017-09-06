@@ -39,7 +39,7 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
           new RNInstabugReactnativePackage.Builder(getResources().getString(R.string.INSTABUG_TOKEN), MainApplication.this)
-						.setInvocationEvent("button")
+						.setInvocationEvent("shake")
 						.setPrimaryColor("#1D82DC")
 						.setFloatingEdge("left")
 						.setFloatingButtonOffsetFromTop(250)
