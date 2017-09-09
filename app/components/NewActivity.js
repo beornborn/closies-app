@@ -1,11 +1,13 @@
 //@flow
 import React from 'react'
 import pt from 'prop-types'
-import { Button, View, TouchableWithoutFeedback, Keyboard } from 'react-native'
+import { Button, View, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native'
 import { TextInput } from 'Closies/app/components/shared'
-import { Container } from 'Closies/app/components/shared/Common.style'
+import { Container, Spacer } from 'Closies/app/components/shared/Common.style'
 import { palette } from 'Closies/app/__config/Theme'
 import { Field } from 'redux-form'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import { Toolbar, IconStyle } from './NewActivity.style'
 
 export default class NewActivity extends React.Component {
   static propTypes = {
@@ -41,10 +43,16 @@ export default class NewActivity extends React.Component {
           selectionColor={palette.cerulean}
           style={{fontSize: 25, padding: 25, textAlignVertical: 'top'}} />
         <View style={{flex: 1}} />
-        <Button
-          title='Post'
-          onPress={handleSubmit(this.submit)}
-          disabled={!valid || submitting} />
+        <Toolbar>
+          <TouchableOpacity onPress={() => { console.log('123123') }}>
+            <Icon name='image' style={IconStyle} />
+          </TouchableOpacity>
+          <Spacer />
+          <Button
+            title='Post'
+            onPress={handleSubmit(this.submit)}
+            disabled={!valid || submitting} />
+        </Toolbar>
       </Container>
     </TouchableWithoutFeedback>
   }

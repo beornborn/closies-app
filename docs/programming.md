@@ -24,7 +24,7 @@ https://icomoon.io/
 We use Sentry for JS errors and Crashlytics for native errors
 https://github.com/reactjs/redux/issues/911#issuecomment-149361073
 
+https://github.com/lwansbrough/react-native-camera
+https://github.com/benjreinhart/react-native-aws3
 
-
-
-вынести ареа цифры в конфиг!
+https://github.com/react-community/react-native-image-picker

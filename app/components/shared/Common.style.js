@@ -18,3 +18,6 @@ export const Text = styled.Text`
   color: ${palette.mineshaft};
   font-size: 16px;
 `
+export const Spacer = styled.View`
+  flex: 1;
+`

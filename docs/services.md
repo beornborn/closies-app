@@ -41,3 +41,8 @@ https://dashboard.instabug.com/applications/closies/beta/bugs/2?status=New
 # Heroku
 
 https://dashboard.heroku.com/apps/closies-api
+
+
+# Facebook page
+
+https://www.facebook.com/Closies-1805062849804157/

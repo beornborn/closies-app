@@ -10,7 +10,7 @@ const form = {
   form: 'area/activity/new',
   validate: values => {
     const errors = {}
-    if (!values.description || values.description.value === '') {
+    if (!values.description || values.description.value.trim() === '') {
       errors.description = 'Required'
     }
     return errors
