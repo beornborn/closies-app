@@ -8,7 +8,7 @@ import { perform as fetchCurrentUser } from 'Closies/app/sagas/FetchCurrentUser'
 import { perform as fetchCurrentLocation } from 'Closies/app/sagas/FetchCurrentLocation'
 import { perform as pollActivities } from 'Closies/app/sagas/PollActivities'
 
-const perform = function* perform(_a) {
+export const perform = function* perform(): Generator<*,*,*> {
   try {
     const token = yield AsyncStorage.getAuthToken()
 

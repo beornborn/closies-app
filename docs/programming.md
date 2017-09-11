@@ -24,7 +24,17 @@ https://icomoon.io/
 We use Sentry for JS errors and Crashlytics for native errors
 https://github.com/reactjs/redux/issues/911#issuecomment-149361073
 
-https://github.com/lwansbrough/react-native-camera
-https://github.com/benjreinhart/react-native-aws3
 
-https://github.com/react-community/react-native-image-picker
+
+
+
+
+0. bug with initial rendering
+1. refactoring
+3. groups table, link table, group_id to activity
+4. seeds
+5. endpoint groups with users
+6. endpoint create group
+7. create invites table
+8. add user by invite code
+9. show user info in app separate screen
