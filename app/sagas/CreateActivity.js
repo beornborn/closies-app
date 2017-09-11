@@ -8,24 +8,37 @@ import { getCurrentUser } from 'Closies/app/reducers/selectors/Data'
 import { NavigationActions } from 'react-navigation'
 import { reset } from 'redux-form'
 
-const perform = function* perform(a) {
-  try {
-    const { description, image, longitude, latitude } = a.payload.formData
-    const { resolve, reject } = a.payload
+const prepareParams = function* prepareParams(formData: Object): Generator<*,*,*> {
+  const { description, image, longitude, latitude } = formData
+  const user = yield select(getCurrentUser)
 
-    const user = yield select(getCurrentUser)
-    const response = yield api.createActivity({
-      latitude,//: 50.4414 + Math.random() * (50.4995 - 50.4014),
-      longitude,//: 30.493 + Math.random() * (30.6920 - 30.5030),
-      user_id: user.id,
-      description: description ? description.value : '',
+  let params = {
+    latitude,//: 50.4414 + Math.random() * (50.4995 - 50.4014),
+    longitude,//: 30.493 + Math.random() * (30.6920 - 30.5030),
+    user_id: user.id,
+  }
+  if (description && description.value) {
+    params = {...params, description: description.value}
+  }
+  if (image && image.uri) {
+    params = {
+      ...params,
       image: {
         type: image.type,
         uri: image.uri,
         name: image.fileName,
       }
-    })
+    }
+  }
+  return params
+}
 
+const perform = function* perform(a) {
+  try {
+    const { resolve, reject, formData } = a.payload
+
+    const params = yield prepareParams(formData)
+    const response = yield api.createActivity(params)
     const result = yield handleResponse(response)
     if (result.status === 'Ok') {
       yield fetchActivities()

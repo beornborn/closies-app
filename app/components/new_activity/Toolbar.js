@@ -17,7 +17,7 @@ export default class Toolbar extends React.Component {
 
   render() {
     const { launchImageLibrary, launchCamera, submit, valid, submitting } = this.props
-    console.log('submitting', submitting)
+
     return <Container>
       <TouchableOpacity onPress={launchImageLibrary}>
         <Icon name='image' style={IconStyle} />
