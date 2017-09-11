@@ -1,10 +1,10 @@
 //@flow
 import { StackNavigator, TabNavigator } from 'react-navigation'
 import Login from 'Closies/app/containers/Login'
-import Area from 'Closies/app/containers/Area'
+import Area from 'Closies/app/containers/area/Area'
 import Activity from 'Closies/app/containers/Activity'
 import NewActivity from 'Closies/app/containers/new_activity/NewActivity'
-import ActivityList from 'Closies/app/containers/ActivityList'
+import ActivityList from 'Closies/app/containers/activity_list/ActivityList'
 import Settings from 'Closies/app/containers/Settings'
 import { palette } from 'Closies/app/__config/Theme'
 

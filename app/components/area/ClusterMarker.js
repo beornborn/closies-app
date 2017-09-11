@@ -2,7 +2,7 @@
 import React from 'react'
 import pt from 'prop-types'
 import MapView from 'react-native-maps'
-import { NotificationContainer, Cluster, ChildrenNumber } from 'Closies/app/components/ClusterMarker.style'
+import { NotificationContainer, Cluster, ChildrenNumber } from './ClusterMarker.style'
 
 export default class ClusterMarker extends React.Component {
   static propTypes = {

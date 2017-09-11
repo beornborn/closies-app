@@ -3,7 +3,7 @@ import React from 'react'
 import { Animated, Easing } from 'react-native'
 import pt from 'prop-types'
 import MapView from 'react-native-maps'
-import { NotificationContainer, Avatar } from 'Closies/app/components/ActivityMarker.style'
+import { NotificationContainer, Avatar } from './ActivityMarker.style'
 
 export default class ActivityMarker extends React.Component {
   static propTypes = {

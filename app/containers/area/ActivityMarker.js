@@ -1,6 +1,6 @@
 //@flow
 import { connect } from 'react-redux'
-import ActivityMarker from 'Closies/app/components/ActivityMarker'
+import ActivityMarker from 'Closies/app/components/area/ActivityMarker'
 import { setSelectedActivityId } from 'Closies/app/reducers/App'
 import { NavigationActions } from 'react-navigation'
 

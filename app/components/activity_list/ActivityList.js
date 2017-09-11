@@ -3,7 +3,7 @@ import React from 'react'
 import pt from 'prop-types'
 import { View, ScrollView } from 'react-native'
 import { Container } from 'Closies/app/components/shared/Common.style'
-import ActivityListItem from 'Closies/app/containers/ActivityListItem'
+import ActivityListItem from 'Closies/app/containers/activity_list/ActivityListItem'
 
 export default class ActivityList extends React.Component {
   static propTypes = {

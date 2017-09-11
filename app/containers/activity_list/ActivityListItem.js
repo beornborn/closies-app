@@ -1,6 +1,6 @@
 //@flow
 import { connect } from 'react-redux'
-import ActivityListItem from 'Closies/app/components/ActivityListItem'
+import ActivityListItem from 'Closies/app/components/activity_list/ActivityListItem'
 import { setSelectedActivityId } from 'Closies/app/reducers/App'
 import { NavigationActions } from 'react-navigation'
 

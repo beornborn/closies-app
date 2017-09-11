@@ -1,6 +1,6 @@
 //@flow
 import { connect } from 'react-redux'
-import ClusterMarker from 'Closies/app/components/ClusterMarker'
+import ClusterMarker from 'Closies/app/components/area/ClusterMarker'
 import { setSelectedActivitiesFilter } from 'Closies/app/reducers/App'
 import _ from 'lodash'
 import { NavigationActions } from 'react-navigation'

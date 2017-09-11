@@ -1,6 +1,6 @@
 //@flow
 import { connect } from 'react-redux'
-import ActivityList from 'Closies/app/components/ActivityList'
+import ActivityList from 'Closies/app/components/activity_list/ActivityList'
 import { getFilteredActivities } from 'Closies/app/reducers/selectors/App'
 import { getActivitiesDenormalized } from 'Closies/app/reducers/selectors/Data'
 

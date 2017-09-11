@@ -1,6 +1,6 @@
 //@flow
 import { connect } from 'react-redux'
-import Area from 'Closies/app/components/Area'
+import Area from 'Closies/app/components/area/Area'
 import { getAreaData } from 'Closies/app/reducers/selectors/App'
 import { getForceRerender } from 'Closies/app/reducers/selectors/Ui'
 import { fetchCurrentLocation } from 'Closies/app/reducers/Saga'

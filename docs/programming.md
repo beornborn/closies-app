@@ -29,7 +29,6 @@ https://github.com/reactjs/redux/issues/911#issuecomment-149361073
 
 
 
-0. bug with initial rendering
 1. refactoring
 3. groups table, link table, group_id to activity
 4. seeds
