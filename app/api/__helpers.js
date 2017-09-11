@@ -52,12 +52,16 @@ function handleResponse(response: Object) {
     })
 }
 
-export function apiPostFormData(path: string, files: Array<Object>) {
+export async function apiPostFormData(path: string, params: Object) {
+  const authToken = await AsyncStorage.getAuthToken()
   const formData = new FormData()
-  files.map((file) => formData.append('files[]', file))
+  // files.map((file) => formData.append('files[]', file))
+  _.keys(params).forEach(key => formData.append(key, params[key]))
 
   const settings: Object = {
     method: 'POST',
+    'Content-Type': 'multipart/form-data',
+    headers: {'X-API-AUTHTOKEN': authToken},
     body: formData
   }
 

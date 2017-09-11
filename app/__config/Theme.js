@@ -4,6 +4,7 @@
 export const palette = {
   // lochmara: '#0288d1',   // dark primary
   white: '#ffffff',      // primary
+  black: '#000000',      // primary
   // frenchPass: '#b3e5fc', // light primary
   cerulean: '#03a9f4',   // accent
   mineshaft: '#212121',  // primary text

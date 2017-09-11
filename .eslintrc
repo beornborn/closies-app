@@ -33,7 +33,7 @@
     'linebreak-style': [2, 'unix'],
     'jsx-quotes': [2, 'prefer-single'],
     'quotes': [2, 'single'],
-    'quote-props': [2, 'consistent'],
+    'quote-props': [2, 'as-needed'],
     'semi': [2, 'never'],
     'no-unused-vars': [2, { 'vars': 'all', 'args': 'after-used', 'argsIgnorePattern': '^_' }],
     'comma-spacing': 0,

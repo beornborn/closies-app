@@ -11,6 +11,7 @@ export const Container = styled.View`
 export const HeaderContainer = styled.View`
   flex-direction: row;
   justify-content: flex-start;
+  margin-bottom: 10px;
 `
 export const Header = styled.View`
   flex-direction: column;

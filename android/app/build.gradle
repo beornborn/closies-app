@@ -145,6 +145,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-image-picker')
     compile project(':instabug-reactnative')
     compile project(':react-native-splash-screen')
     compile(project(':react-native-fbsdk')){
