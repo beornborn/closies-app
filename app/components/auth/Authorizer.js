@@ -10,10 +10,14 @@ export default class Authorizer extends React.Component {
     navigate: pt.func.isRequired,
   }
 
-  shouldComponentUpdate(nextProps: Object) {
-    const userChanged = nextProps.user.id !== this.props.user.id
-    const routeChanged = nextProps.currentRoute.routeName !== this.props.currentRoute.routeName
-    return userChanged || routeChanged
+  componentDidMount() {
+    this.authorize()
+  }
+
+  componentDidUpdate(prevProps: Object) {
+    const userChanged = prevProps.user.id !== this.props.user.id
+    const routeChanged = prevProps.currentRoute.routeName !== this.props.currentRoute.routeName
+    if (userChanged || routeChanged) this.authorize()
   }
 
   authorize = () => {
@@ -30,7 +34,6 @@ export default class Authorizer extends React.Component {
   }
 
   render() {
-    this.authorize()
     return null
   }
 }

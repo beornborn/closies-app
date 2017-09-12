@@ -11,7 +11,7 @@ export const perform = function* perform(_a?: Object): Generator<*,*,*> {
 
     if (result.status === 'Ok') {
       yield put(setCurrentUser(response.user))
-      return response.current_user
+      return response.user
     }
   } catch (err) { console.log(err) }
 }

@@ -14,9 +14,11 @@ export const perform = function* perform(): Generator<*,*,*> {
 
     if (token) {
       yield put(setAuthToken(token))
-      yield fetchCurrentUser()
-      yield fetchCurrentLocation()
-      yield fork(pollActivities)
+      const user = yield fetchCurrentUser()
+      if (user) {
+        yield fetchCurrentLocation()
+        yield fork(pollActivities)
+      }
     }
     yield put(initializeApp())
     yield call(SplashScreen.hide)
