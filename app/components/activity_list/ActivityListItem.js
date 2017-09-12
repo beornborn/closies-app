@@ -17,10 +17,10 @@ export default class ActivityListItem extends React.Component {
 
     return <TouchableNativeFeedback onPress={goToActivity}>
       <Container>
-        <Avatar color={activity.color} source={{uri: activity.user.picture}} />
+        <Avatar color={activity.user_in_group.color} source={{uri: activity.user_in_group.user.picture}} />
         <Content>
           <Header>
-            <Name>{activity.user.full_name}</Name>
+            <Name>{activity.user_in_group.user.full_name}</Name>
             <CreatedAt>{moment(activity.created_at).calendar(null, {sameDay: 'h:mm a'})}</CreatedAt>
           </Header>
           <View style={{height: 8}} />

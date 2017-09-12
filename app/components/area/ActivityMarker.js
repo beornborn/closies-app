@@ -34,11 +34,11 @@ export default class ActivityMarker extends React.Component {
       key={activity.id}
       coordinate={{latitude, longitude}}
       onPress={() => goToActivity(activity.id)}>
-      <NotificationContainer color={activity.color} newEvents={false} createdAt={activity.created_at} >
+      <NotificationContainer color={activity.user_in_group.color} newEvents={false} createdAt={activity.created_at} >
         <Avatar
-          color={activity.color}
+          color={activity.user_in_group.color}
           createdAt={activity.created_at}
-          source={{uri: activity.user.picture}} />
+          source={{uri: activity.user_in_group.user.picture}} />
       </NotificationContainer>
     </MapView.Marker.Animated>
   }

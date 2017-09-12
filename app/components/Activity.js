@@ -16,9 +16,9 @@ export default class Activity extends React.Component {
 
     return <Container>
       <HeaderContainer>
-        <Avatar source={{uri: activity.user.picture}} />
+        <Avatar source={{uri: activity.user_in_group.user.picture}} />
         <Header>
-          <Name>{activity.user.full_name}</Name>
+          <Name>{activity.user_in_group.user.full_name}</Name>
           <Created>{humanDate(activity.created_at)} &bull; at {activity.latitude}</Created>
         </Header>
       </HeaderContainer>
