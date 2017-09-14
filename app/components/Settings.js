@@ -7,12 +7,14 @@ import { Container } from './Settings.style'
 export default class Settings extends React.Component {
   static propTypes = {
     doLogout: pt.func.isRequired,
+    goToEditProfile: pt.func.isRequired,
   }
 
   render() {
-    const { doLogout } = this.props
+    const { doLogout, goToEditProfile } = this.props
 
     return <Container>
+      <ListItem centerElement='Edit Profile' divider={true} onPress={goToEditProfile} />
       <ListItem centerElement='Log Out' divider={true} onPress={doLogout} />
     </Container>
   }

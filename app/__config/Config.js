@@ -17,6 +17,7 @@ export const routes = {
   },
   users: {
     current: () => 'v1/users/current',
+    update: () => 'v1/users',
   },
 }
 

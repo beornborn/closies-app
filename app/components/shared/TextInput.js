@@ -2,6 +2,7 @@
 import React from 'react'
 import pt from 'prop-types'
 import { TextInput as NativeInput } from 'react-native'
+import { palette } from 'Closies/app/__config/Theme'
 
 export default class TextInput extends React.Component {
   static propTypes = {
@@ -16,8 +17,9 @@ export default class TextInput extends React.Component {
     const value = (typeof input.value === 'object') ? input.value.value : input.value
 
     return <NativeInput
+      selectionColor={palette.cerulean}
       {...other}
       value={value}
-      onChangeText={v => input.onChange({value: v})} />
+      onChangeText={v => input.onChange({value: v.trim()})} />
   }
 }

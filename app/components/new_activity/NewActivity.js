@@ -3,11 +3,10 @@ import React from 'react'
 import pt from 'prop-types'
 import { TouchableWithoutFeedback, Keyboard, ScrollView, View } from 'react-native'
 import { TextInput } from 'Closies/app/components/shared'
-import { palette } from 'Closies/app/__config/Theme'
 import { Field } from 'redux-form'
 import Toolbar from 'Closies/app/containers/new_activity/Toolbar'
 import AttachedImage from 'Closies/app/containers/new_activity/AttachedImage'
-import { AbsoluteContainer } from './NewActivity.style'
+import { AbsoluteContainer, InputStyle } from './NewActivity.style'
 
 export default class NewActivity extends React.Component {
   static propTypes = {
@@ -42,8 +41,7 @@ export default class NewActivity extends React.Component {
             numberOfLines={4}
             autoFocus={true}
             underlineColorAndroid='transparent'
-            selectionColor={palette.cerulean}
-            style={{fontSize: 25, padding: 25, textAlignVertical: 'top'}} />
+            style={InputStyle} />
           {image && image.uri && <AttachedImage />}
           <View style={{height: 50}} />
         </ScrollView>

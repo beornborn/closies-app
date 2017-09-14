@@ -1,9 +1,9 @@
 //@flow
-import { takeEvery, select, put, call } from 'redux-saga/effects'
+import { takeEvery, put, call } from 'redux-saga/effects'
 import { SAGA_CREATE_ACTIVITY } from 'Closies/app/reducers/Saga'
 import * as api from 'Closies/app/api'
 import { perform as fetchActivities } from 'Closies/app/sagas/FetchActivities'
-import { handleResponse } from 'Closies/app/utils/ApiHandlers'
+import { apiCallWrapper } from 'Closies/app/utils/ApiHandlers'
 import { NavigationActions } from 'react-navigation'
 import { reset } from 'redux-form'
 
@@ -36,9 +36,8 @@ const perform = function* perform(a) {
     const { resolve, reject, formData } = a.payload
 
     const params = yield prepareParams(formData)
-    const response = yield api.createActivity(params)
-    const result = yield handleResponse(response)
-    if (result.status === 'Ok') {
+    const response = yield apiCallWrapper(() => api.createActivity(params))
+    if (response.status === 'Success') {
       yield fetchActivities()
       yield call(resolve)
       // $FlowFixMe

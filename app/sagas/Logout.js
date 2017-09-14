@@ -5,6 +5,7 @@ import { setAuthToken } from 'Closies/app/reducers/App'
 import { setCurrentUser } from 'Closies/app/reducers/Data'
 import AsyncStorage from 'Closies/app/utils/AsyncStorage'
 import * as api from 'Closies/app/api'
+import { apiCallWrapper } from 'Closies/app/utils/ApiHandlers'
 
 export const clearAuthData = function* clearAuthData(): Generator<*,*,*> {
   yield put(setCurrentUser({}))
@@ -14,8 +15,10 @@ export const clearAuthData = function* clearAuthData(): Generator<*,*,*> {
 
 export const perform = function* perform(_a?: Object): Generator<*,*,*> {
   try {
-    yield api.logout()
-    yield clearAuthData()
+    const response = yield apiCallWrapper(() => api.logout())
+    if (response.status === 'Success') {
+      yield clearAuthData()
+    }
   } catch (err) { console.log(err) }
 }
 

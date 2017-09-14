@@ -1,4 +1,5 @@
 //@flow
+import React from 'react'
 import { StackNavigator, TabNavigator } from 'react-navigation'
 import Login from 'Closies/app/containers/Login'
 import Area from 'Closies/app/containers/area/Area'
@@ -6,6 +7,8 @@ import Activity from 'Closies/app/containers/Activity'
 import NewActivity from 'Closies/app/containers/new_activity/NewActivity'
 import ActivityList from 'Closies/app/containers/activity_list/ActivityList'
 import Settings from 'Closies/app/containers/Settings'
+import EditProfile from 'Closies/app/containers/profile/EditProfile'
+import EditProfileSaveButton from 'Closies/app/containers/profile/EditProfileSaveButton'
 import { palette } from 'Closies/app/__config/Theme'
 
 const AreaNavigator = StackNavigator({
@@ -37,6 +40,23 @@ const AreaNavigator = StackNavigator({
   },
 })
 
+const SettingsNavigator = StackNavigator({
+  Settings: {
+    screen: Settings,
+    navigationOptions: {
+      header: null
+    }
+  },
+  EditProfile: {
+    screen: EditProfile,
+    navigationOptions: {
+      tabBarVisible: false,
+      title: 'Edit Profile',
+      headerRight: <EditProfileSaveButton />,
+    }
+  },
+})
+
 const UserNavigator = TabNavigator({
   Activities: {
     screen: AreaNavigator,
@@ -45,7 +65,7 @@ const UserNavigator = TabNavigator({
     }
   },
   Settings: {
-    screen: Settings,
+    screen: SettingsNavigator,
     navigationOptions: {
       tabBarLabel: 'Settings',
     }
