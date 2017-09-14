@@ -8,6 +8,7 @@ const Acl = {
   NewActivity: authenticated_only,
   ActivityList: authenticated_only,
   EditProfile: authenticated_only,
+  ViewProfile: authenticated_only,
   Login: guest_only,
 }
 

@@ -18,7 +18,7 @@ export const perform = function* perform(_a?: Object): Generator<*,*,*> {
       if (storedActivities.length !== response.data.activities.length) {
         const data = normalize(response.data.activities, [schemas.activity]).entities
         yield put(setEntities(data))
-        yield sleep(100)
+        yield sleep(200)
         yield put(doForceRerender())
       }
     }

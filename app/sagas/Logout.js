@@ -1,14 +1,13 @@
 //@flow
 import { put, takeEvery } from 'redux-saga/effects'
 import { SAGA_LOGOUT } from 'Closies/app/reducers/Saga'
-import { setAuthToken } from 'Closies/app/reducers/App'
-import { setCurrentUser } from 'Closies/app/reducers/Data'
+import { setAuthToken, setCurrentUserId } from 'Closies/app/reducers/App'
 import AsyncStorage from 'Closies/app/utils/AsyncStorage'
 import * as api from 'Closies/app/api'
 import { apiCallWrapper } from 'Closies/app/utils/ApiHandlers'
 
 export const clearAuthData = function* clearAuthData(): Generator<*,*,*> {
-  yield put(setCurrentUser({}))
+  yield put(setCurrentUserId(null))
   yield put(setAuthToken(null))
   yield AsyncStorage.setAuthToken(null)
 }

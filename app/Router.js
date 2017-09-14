@@ -9,6 +9,8 @@ import ActivityList from 'Closies/app/containers/activity_list/ActivityList'
 import Settings from 'Closies/app/containers/Settings'
 import EditProfile from 'Closies/app/containers/profile/EditProfile'
 import EditProfileSaveButton from 'Closies/app/containers/profile/EditProfileSaveButton'
+import ViewProfile from 'Closies/app/containers/profile/ViewProfile'
+import ViewProfileEditButton from 'Closies/app/containers/profile/ViewProfileEditButton'
 import { palette } from 'Closies/app/__config/Theme'
 
 const AreaNavigator = StackNavigator({
@@ -38,13 +40,12 @@ const AreaNavigator = StackNavigator({
       title: 'Activities',
     }
   },
-})
-
-const SettingsNavigator = StackNavigator({
-  Settings: {
-    screen: Settings,
+  ViewProfile: {
+    screen: ViewProfile,
     navigationOptions: {
-      header: null
+      tabBarVisible: false,
+      title: 'Profile',
+      headerRight: <ViewProfileEditButton />,
     }
   },
   EditProfile: {
@@ -53,6 +54,15 @@ const SettingsNavigator = StackNavigator({
       tabBarVisible: false,
       title: 'Edit Profile',
       headerRight: <EditProfileSaveButton />,
+    }
+  },
+})
+
+const SettingsNavigator = StackNavigator({
+  Settings: {
+    screen: Settings,
+    navigationOptions: {
+      header: null
     }
   },
 })

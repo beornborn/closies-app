@@ -3,10 +3,11 @@ import { connect } from 'react-redux'
 import EditProfile from 'Closies/app/components/profile/EditProfile'
 import { reduxForm } from 'redux-form'
 import { updateProfile } from 'Closies/app/reducers/Saga'
-import { getCurrentUser } from 'Closies/app/reducers/selectors/Data'
+import { getCurrentUser } from 'Closies/app/reducers/selectors/App'
 
 export const form = {
   form: 'profile/edit',
+  enableReinitialize: true,
   validate: (values: Object) => {
     const errors = {}
     const fn = values.full_name

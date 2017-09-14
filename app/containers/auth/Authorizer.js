@@ -1,8 +1,7 @@
 //@flow
 import { connect } from 'react-redux'
 import Authorizer from 'Closies/app/components/auth/Authorizer'
-import { getCurrentUser } from 'Closies/app/reducers/selectors/Data'
-import { getCurrentRoute } from 'Closies/app/reducers/selectors/App'
+import { getCurrentUser, getCurrentRoute } from 'Closies/app/reducers/selectors/App'
 import { NavigationActions } from 'react-navigation'
 
 const mapStateToProps = (state: Object): Object => {

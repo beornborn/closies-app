@@ -1,5 +1,5 @@
 //@flow
-import { getActivities, getActivitiesValues, getActivitiesDenormalized } from 'Closies/app/reducers/selectors/Data'
+import { getActivities, getUsers, getActivitiesValues, getActivitiesDenormalized } from 'Closies/app/reducers/selectors/Data'
 import { denormalizedActivities } from 'Closies/app/schemas/Denormalizers'
 import { activitiesSchema } from 'Closies/app/schemas/relations/Activity'
 import { calculateAreaData } from 'Closies/app/utils/area'
@@ -20,6 +20,14 @@ export const getCurrentRoute = (state: Object) => {
 export const getSelectedActivityId = (state: Object) => state.app.selectedActivityId
 export const getSelectedActivity = (state: Object) => {
   return getActivities(state)[getSelectedActivityId(state)]
+}
+export const getSelectedUserId = (state: Object) => state.app.selectedUserId
+export const getSelectedUser = (state: Object) => {
+  return getUsers(state)[getSelectedUserId(state)] || {}
+}
+export const getCurrentUserId = (state: Object) => state.app.currentUserId
+export const getCurrentUser = (state: Object): Object => {
+  return getUsers(state)[getCurrentUserId(state)] || {}
 }
 export const getCurrentLocation = (state: Object) => state.app.currentLocation
 

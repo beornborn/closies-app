@@ -20,6 +20,6 @@ export default class TextInput extends React.Component {
       selectionColor={palette.cerulean}
       {...other}
       value={value}
-      onChangeText={v => input.onChange({value: v.trim()})} />
+      onChangeText={v => input.onChange({value: v})} />
   }
 }

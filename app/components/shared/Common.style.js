@@ -10,6 +10,9 @@ export const absoluteFill = css`
   right: 0;
   left: 0;
 `
+export const debug = css`
+  border: 1px solid #000;
+`
 export const Container = styled.View`
   ${absoluteFill}
   background-color: ${palette.white};
