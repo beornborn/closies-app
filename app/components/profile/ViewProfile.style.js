@@ -20,6 +20,11 @@ export const Contact = styled.View`
   align-items: center;
   height: 50px;
 `
+export const Messengers = styled.View`
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+`
 export const Avatar = styled.Image`
   width: 120px;
   height: 120px;
@@ -32,6 +37,21 @@ export const Name = styled(Text)`
 export const ContactAddress = styled(Text)`
   font-size: 16px;
   margin-left: 20px;
+`
+export const Viber = styled.Image`
+  width: 40px;
+  height: 40px;
+  margin-top: 20px;
+  margin-right: 25px;
+  margin-bottom: 20px;
+`
+export const Telegram = styled(Viber)`
+`
+export const Messenger = styled(Viber)`
+`
+export const Whatsapp = styled(Viber)`
+  width: 50px;
+  height: 50px;
 `
 export const IconStyle = {
   color: palette.cerulean,

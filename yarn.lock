@@ -3972,6 +3972,10 @@ react-native-orientation@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/react-native-orientation/-/react-native-orientation-2.1.0.tgz#1bd820ad96d93c05431f3d473bcc7dce9728a1f7"
 
+react-native-send-intent@^1.0.20:
+  version "1.0.20"
+  resolved "https://registry.yarnpkg.com/react-native-send-intent/-/react-native-send-intent-1.0.20.tgz#9e05ea3d081c86e9669789169fc98d68ee3df0c7"
+
 react-native-splash-screen@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-native-splash-screen/-/react-native-splash-screen-3.0.0.tgz#44ac95f84b9bf58d800af1ab9ff52093fa3efcb9"

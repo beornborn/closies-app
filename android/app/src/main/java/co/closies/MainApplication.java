@@ -3,6 +3,7 @@ package co.closies;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.burnweb.rnsendintent.RNSendIntentPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.instabug.reactlibrary.RNInstabugReactnativePackage;
 import com.cboy.rn.splashscreen.SplashScreenReactPackage;
@@ -39,9 +40,10 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNSendIntentPackage(),
           new ImagePickerPackage(),
           new RNInstabugReactnativePackage.Builder(getResources().getString(R.string.INSTABUG_TOKEN), MainApplication.this)
-						.setInvocationEvent("shake")
+						.setInvocationEvent("none")
 						.setPrimaryColor("#1D82DC")
 						.setFloatingEdge("left")
 						.setFloatingButtonOffsetFromTop(250)

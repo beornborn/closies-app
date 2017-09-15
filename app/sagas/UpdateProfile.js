@@ -14,8 +14,9 @@ const prepareParams = function* prepareParams(formData: Object): Generator<*,*,*
   const full_name = (fn && typeof fn === 'object') ? fn.value.trim() : fn
   let phone_number = (pn && typeof pn === 'object') ? pn.value.trim() : pn
   phone_number = phone_number === '' ? null : phone_number
+  const messengers = formData.messengers.map(v => v.value)
 
-  return { full_name, phone_number }
+  return { full_name, phone_number, messengers }
 }
 
 

@@ -10,7 +10,8 @@ export const palette = {
   mineshaft: '#212121',  // primary text
   boulder: '#757575',    // secondary text
   silver: '#bdbdbd',     // divider
-  facebook: '#3b5998'
+  alto: '#dadada',     // divider
+  facebook: '#3b5998',
 }
 
 // export const format = {

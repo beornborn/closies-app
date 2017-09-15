@@ -3,7 +3,13 @@ import React from 'react'
 import { Linking, TouchableOpacity } from 'react-native'
 import pt from 'prop-types'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import { Container, HeaderContainer, Avatar, Name, Body, Contact, IconStyle, ContactAddress } from './ViewProfile.style'
+import SendIntentAndroid from 'react-native-send-intent'
+import MessengerImage from 'Closies/app/assets/images/messenger.png'
+import WhatsappImage from 'Closies/app/assets/images/whatsapp.png'
+import ViberImage from 'Closies/app/assets/images/viber.png'
+import TelegramImage from 'Closies/app/assets/images/telegram.png'
+import { Container, HeaderContainer, Avatar, Name, Body, Contact, Viber, IconStyle,
+  ContactAddress, Messengers, Whatsapp, Telegram, Messenger } from './ViewProfile.style'
 
 export default class ViewProfile extends React.Component {
   static propTypes = {
@@ -43,6 +49,24 @@ export default class ViewProfile extends React.Component {
       <Body>
         {user.email && this.renderEmail()}
         {user.phone_number && this.renderPhone()}
+        <Messengers>
+          {user.messengers.includes('messenger') && <TouchableOpacity
+            onPress={() => SendIntentAndroid.openApp('com.facebook.orca')}>
+            <Messenger source={MessengerImage} />
+          </TouchableOpacity>}
+          {user.messengers.includes('whatsapp') && <TouchableOpacity
+            onPress={() => SendIntentAndroid.openApp('com.whatsapp')}>
+            <Whatsapp source={WhatsappImage} />
+          </TouchableOpacity>}
+          {user.messengers.includes('viber') && <TouchableOpacity
+            onPress={() => SendIntentAndroid.openApp('com.viber.voip')}>
+            <Viber source={ViberImage} />
+          </TouchableOpacity>}
+          {user.messengers.includes('telegram') && <TouchableOpacity
+            onPress={() => SendIntentAndroid.openApp('org.telegram.messenger')}>
+            <Telegram source={TelegramImage} />
+          </TouchableOpacity>}
+        </Messengers>
       </Body>
     </Container>
   }

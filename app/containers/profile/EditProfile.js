@@ -24,6 +24,7 @@ export const mapStateToProps = (state: Object): Object => {
   const user = getCurrentUser(state)
   return {
     initialValues: {
+      messengers: user.messengers.map(m => ({value: m})),
       full_name: user.full_name,
       phone_number: user.phone_number,
     }
