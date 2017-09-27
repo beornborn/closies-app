@@ -13,7 +13,7 @@ const prepareParams = function* prepareParams(formData: Object): Generator<*,*,*
   let params = {
     latitude,//: 50.4414 + Math.random() * (50.4995 - 50.4014),
     longitude,//: 30.493 + Math.random() * (30.6920 - 30.5030),
-    user_in_group_id: 1, // TODO
+    user_in_group_id: 34, // TODO
   }
   if (description && description.value) {
     params = {...params, description: description.value}

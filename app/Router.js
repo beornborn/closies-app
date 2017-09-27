@@ -11,6 +11,8 @@ import EditProfile from 'Closies/app/containers/profile/EditProfile'
 import EditProfileSaveButton from 'Closies/app/containers/profile/EditProfileSaveButton'
 import ViewProfile from 'Closies/app/containers/profile/ViewProfile'
 import ViewProfileEditButton from 'Closies/app/containers/profile/ViewProfileEditButton'
+import Groups from 'Closies/app/containers/groups/Groups'
+import GroupView from 'Closies/app/containers/group_view/GroupView'
 import { palette } from 'Closies/app/__config/Theme'
 
 const AreaNavigator = StackNavigator({
@@ -67,7 +69,28 @@ const SettingsNavigator = StackNavigator({
   },
 })
 
+const ClosiesNavigator = StackNavigator({
+  Groups: {
+    screen: Groups,
+    navigationOptions: {
+      header: null
+    }
+  },
+  GroupView: {
+    screen: GroupView,
+    navigationOptions: {
+      header: null
+    }
+  },
+})
+
 const UserNavigator = TabNavigator({
+  Closies: {
+    screen: ClosiesNavigator,
+    navigationOptions: {
+      tabBarLabel: 'Closies',
+    }
+  },
   Activities: {
     screen: AreaNavigator,
     navigationOptions: {
@@ -112,6 +135,6 @@ export const AllNavigators = StackNavigator({
   User: {screen: UserNavigator},
 }, {headerMode: 'none'})
 
-const InitialAction = AreaNavigator.router.getActionForPathAndParams('Area')
+const InitialAction = ClosiesNavigator.router.getActionForPathAndParams('Groups')
 const initialState = AllNavigators.router.getStateForAction(InitialAction)
 export const navReducer = (state: Object = initialState, action: Action) => AllNavigators.router.getStateForAction(action, state)

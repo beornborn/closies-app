@@ -4,6 +4,9 @@ import { guest_only, authenticated_only } from 'Closies/app/components/auth/Role
 const Acl = {
   Area: authenticated_only,
   Settings: authenticated_only,
+  Closies: authenticated_only,
+  Groups: authenticated_only,
+  GroupView: authenticated_only,
   Activity: authenticated_only,
   NewActivity: authenticated_only,
   ActivityList: authenticated_only,

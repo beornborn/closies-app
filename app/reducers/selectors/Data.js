@@ -9,3 +9,5 @@ export const getActivitiesValues = (state: Object) => _.values(getActivities(sta
 export const getActivitiesDenormalized = (state: Object, activity_ids: Array<number>) => {
   return denormalizedActivities(activity_ids, state.data, activitiesSchema)
 }
+export const getGroups = (state: Object) => state.data.groups
+export const getGroupsValues = (state: Object) => _.values(state.data.groups)

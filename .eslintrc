@@ -69,6 +69,7 @@
     'import/extensions': [2, 'never'],
     'import/prefer-default-export': 0,
     'import/no-extraneous-dependencies': 0, // TODO: uncomment before production
+    'react/no-unescaped-entities': 0,
     'react/jsx-max-props-per-line': [2, {maximum: 2, when: 'multiline'}],
     'react/prefer-es6-class': 0,
     'react/prefer-stateless-function': 0,

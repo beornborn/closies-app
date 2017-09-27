@@ -8,12 +8,14 @@ const SET_SELECTED_ACTIVITY_ID = 'app/SET_SELECTED_ACTIVITY_ID'
 const SET_CURRENT_LOCATION = 'app/SET_CURRENT_LOCATION'
 const SET_SELECTED_ACTIVITIES_FILTER = 'ui/SET_SELECTED_ACTIVITIES_FILTER'
 const SET_SELECTED_USER_ID = 'ui/SET_SELECTED_USER_ID'
+const SET_SELECTED_GROUP_ID = 'ui/SET_SELECTED_GROUP_ID'
 const SET_CURRENT_USER_ID = 'app/SET_CURRENT_USER_ID'
 
 export const initializeApp = () => ca(INITIALIZE_APP)()
 export const setAuthToken = (token: ?string) => ca(SET_AUTH_TOKEN)({token})
 export const setSelectedActivityId = (activityId: string | number) => ca(SET_SELECTED_ACTIVITY_ID)({activityId})
 export const setSelectedUserId = (userId: string | number) => ca(SET_SELECTED_USER_ID)({userId})
+export const setSelectedGroupId = (groupId: string | number) => ca(SET_SELECTED_GROUP_ID)({groupId})
 export const setCurrentLocation = (location: Object) => ca(SET_CURRENT_LOCATION)({location})
 export const setSelectedActivitiesFilter = (selectedActivityIds: Array<number>) => ca(SET_SELECTED_ACTIVITIES_FILTER)({selectedActivityIds})
 export const setCurrentUserId = (userId: ?number) => ca(SET_CURRENT_USER_ID)({userId})
@@ -23,6 +25,7 @@ const initialState = {
   authToken: null,
   selectedActivityId: null,
   selectedUserId: null,
+  selectedGroupId: null,
   currentUserId: null,
   currentLocation: {
     coords: {
@@ -48,6 +51,8 @@ export default function reducer(state: Object = initialState, action: Action) {
       return u(state, {selectedActivityId: {$set: p.activityId}})
     case SET_SELECTED_USER_ID:
       return u(state, {selectedUserId: {$set: p.userId}})
+    case SET_SELECTED_GROUP_ID:
+      return u(state, {selectedGroupId: {$set: p.groupId}})
     case SET_CURRENT_USER_ID:
       return u(state, {currentUserId: {$set: p.userId}})
     case SET_CURRENT_LOCATION:

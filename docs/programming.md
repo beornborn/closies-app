@@ -26,6 +26,6 @@ https://github.com/reactjs/redux/issues/911#issuecomment-149361073
 
 https://github.com/rails-api/active_model_serializers/issues/1849
 
-opacity for clusters
+extract-files
 
 9. show user info in app separate screen
