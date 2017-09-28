@@ -7,6 +7,9 @@ export const api = {
 }
 
 export const routes = {
+  config: {
+    index: () => 'v1/config',
+  },
   activities: {
     index: () => 'v1/activities',
     create: () => 'v1/activities',
@@ -18,6 +21,10 @@ export const routes = {
   users: {
     current: () => 'v1/users/current',
     update: () => 'v1/users',
+  },
+  groups: {
+    create: () => 'v1/groups',
+    index: () => 'v1/groups',
   },
 }
 

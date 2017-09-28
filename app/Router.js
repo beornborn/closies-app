@@ -11,8 +11,11 @@ import EditProfile from 'Closies/app/containers/profile/EditProfile'
 import EditProfileSaveButton from 'Closies/app/containers/profile/EditProfileSaveButton'
 import ViewProfile from 'Closies/app/containers/profile/ViewProfile'
 import ViewProfileEditButton from 'Closies/app/containers/profile/ViewProfileEditButton'
+import AddGroupButton from 'Closies/app/containers/groups/AddGroupButton'
+import SaveNewGroupButton from 'Closies/app/containers/add_group/SaveNewGroupButton'
 import Groups from 'Closies/app/containers/groups/Groups'
 import GroupView from 'Closies/app/containers/group_view/GroupView'
+import AddGroup from 'Closies/app/containers/add_group/AddGroup'
 import { palette } from 'Closies/app/__config/Theme'
 
 const AreaNavigator = StackNavigator({
@@ -73,13 +76,22 @@ const ClosiesNavigator = StackNavigator({
   Groups: {
     screen: Groups,
     navigationOptions: {
-      header: null
+      headerLeft: null,
+      title: 'Closies',
+      headerRight: <AddGroupButton />,
     }
   },
   GroupView: {
     screen: GroupView,
     navigationOptions: {
-      header: null
+      header: null,
+    }
+  },
+  AddGroup: {
+    screen: AddGroup,
+    navigationOptions: {
+      title: 'Add Group',
+      headerRight: <SaveNewGroupButton />,
     }
   },
 })

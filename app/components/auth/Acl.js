@@ -7,6 +7,7 @@ const Acl = {
   Closies: authenticated_only,
   Groups: authenticated_only,
   GroupView: authenticated_only,
+  AddGroup: authenticated_only,
   Activity: authenticated_only,
   NewActivity: authenticated_only,
   ActivityList: authenticated_only,

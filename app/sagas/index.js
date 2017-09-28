@@ -1,6 +1,7 @@
 //@flow
 import { all, fork } from 'redux-saga/effects'
-import watchActivity from 'Closies/app/sagas/CreateActivity'
+import watchCreateActivity from 'Closies/app/sagas/CreateActivity'
+import watchCreateGroup from 'Closies/app/sagas/CreateGroup'
 import watchFetchActivities from 'Closies/app/sagas/FetchActivities'
 import watchFacebookLogin from 'Closies/app/sagas/FacebookLogin'
 import watchLogout from 'Closies/app/sagas/Logout'
@@ -10,7 +11,8 @@ import watchUpdateProfile from 'Closies/app/sagas/UpdateProfile'
 
 const rootSaga = function* rootSaga(): Generator<any,any,any> {
   yield all([
-    fork(watchActivity),
+    fork(watchCreateActivity),
+    fork(watchCreateGroup),
     fork(watchFetchActivities),
     fork(watchFacebookLogin),
     fork(watchLogout),
