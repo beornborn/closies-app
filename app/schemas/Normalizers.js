@@ -11,5 +11,8 @@ e.user_in_group.define({
   user: e.user,
   group: e.group,
 })
+e.group.define({
+  user_in_groups: [e.user_in_group]
+})
 
 export default e

@@ -22,7 +22,7 @@ export const form = {
 export const mapStateToProps = (state: Object): Object => {
   const groupsCounts = getGroupsCounts(state)
   const config = getConfig(state)
-  const size_type = _.keys(groupsCounts).find(st => groupsCounts[st] < config.st_counts[size_type])
+  const size_type = _.keys(groupsCounts).find(st => groupsCounts[st] < config.size_type_counts[st])
 
   return {
     groupsCounts,

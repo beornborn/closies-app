@@ -18,7 +18,7 @@ export default class GroupItem extends React.Component {
       <Container>
         <Text>{group.name}</Text>
         <View style={{flex: 1}} />
-        <Text>{5}</Text>
+        <Text>{group.user_in_groups.length}</Text>
         <View style={{width: 20}} />
         <Type>{group.size_type}</Type>
       </Container>
