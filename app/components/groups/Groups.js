@@ -8,14 +8,17 @@ import { Container, Centered } from './Groups.style'
 
 export default class Groups extends React.Component {
   static propTypes = {
-    groups: pt.arrayOf(pt.object).isRequired
+    groups: pt.arrayOf(pt.object).isRequired,
+    goToAddGroup: pt.func.isRequired,
   }
 
   noClosies() {
+    const { goToAddGroup } = this.props
+
     return <Centered>
       <Text>You don't have closies yet.</Text>
       <View style={{height: 15}} />
-      <TouchableOpacity onPress={console.log}>
+      <TouchableOpacity onPress={goToAddGroup}>
         <AccentText>Add new group of closies now!</AccentText>
       </TouchableOpacity>
     </Centered>

@@ -7,3 +7,6 @@ export const denormalizedActivities = (ids: Array<any>, data: Object, e: any): A
 export const denormalizedGroups = (ids: Array<any>, data: Object, e: any): Array<Object> => (
   denormalize({groups: ids}, {groups: [e.group]}, data).groups
 )
+export const denormalizedUsers = (ids: Array<any>, data: Object, e: any): Array<Object> => (
+  denormalize({users: ids}, {users: [e.user]}, data).users
+)

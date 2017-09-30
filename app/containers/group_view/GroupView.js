@@ -1,10 +1,10 @@
 //@flow
 import { connect } from 'react-redux'
 import GroupView from 'Closies/app/components/group_view/GroupView'
-import { getSelectedGroup } from 'Closies/app/reducers/selectors/App'
+import { getSelectedGroupDenormalized } from 'Closies/app/reducers/selectors/App'
 
 export const mapStateToProps = (state: Object): Object => ({
-  group: getSelectedGroup(state)
+  group: getSelectedGroupDenormalized(state)
 })
 
 export const mapDispatchToProps = (_dispatch: Function): Object => ({

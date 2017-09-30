@@ -9,9 +9,9 @@ export const mapStateToProps = (_state: Object): Object => ({
 })
 
 export const mapDispatchToProps = (dispatch: Function): Object => ({
-  goToGroupView: (id: number) => {
-    dispatch(setSelectedGroupId(id))
-    dispatch(NavigationActions.navigate({routeName: 'GroupView'}))
+  goToGroupView: (group: Object) => {
+    dispatch(setSelectedGroupId(group.id))
+    dispatch(NavigationActions.navigate({routeName: 'GroupView', params: {title: group.name}}))
   }
 })
 

@@ -26,6 +26,9 @@ export const routes = {
     create: () => 'v1/groups',
     index: () => 'v1/groups',
   },
+  invites: {
+    create: () => 'v1/invites',
+  },
 }
 
 const config = { api, routes }

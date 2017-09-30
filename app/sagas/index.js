@@ -8,6 +8,7 @@ import watchLogout from 'Closies/app/sagas/Logout'
 import watchAuthenticate from 'Closies/app/sagas/Authenticate'
 import watchFetchCurrentLocation from 'Closies/app/sagas/FetchCurrentLocation'
 import watchUpdateProfile from 'Closies/app/sagas/UpdateProfile'
+import watchCreateInvite from 'Closies/app/sagas/CreateInvite'
 
 const rootSaga = function* rootSaga(): Generator<any,any,any> {
   yield all([
@@ -19,6 +20,7 @@ const rootSaga = function* rootSaga(): Generator<any,any,any> {
     fork(watchAuthenticate),
     fork(watchFetchCurrentLocation),
     fork(watchUpdateProfile),
+    fork(watchCreateInvite),
   ])
 }
 

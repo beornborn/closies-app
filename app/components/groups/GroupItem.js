@@ -14,7 +14,7 @@ export default class GroupItem extends React.Component {
   render() {
     const { group, goToGroupView } = this.props
 
-    return <TouchableOpacity onPress={() => goToGroupView(group.id)}>
+    return <TouchableOpacity onPress={() => goToGroupView(group)}>
       <Container>
         <Text>{group.name}</Text>
         <View style={{flex: 1}} />

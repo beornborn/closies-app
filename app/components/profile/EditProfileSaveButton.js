@@ -15,7 +15,7 @@ export default class EditProfileSaveButton extends React.Component {
     const { submit, valid } = this.props
 
     return <Container>
-      <TouchableOpacity onPress={valid ? submit : () => {}}>
+      <TouchableOpacity disabled={!valid} onPress={submit}>
         <Icon name='check' style={getIconStyle(valid)} />
       </TouchableOpacity>
     </Container>

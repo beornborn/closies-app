@@ -10,6 +10,7 @@ const SET_SELECTED_ACTIVITIES_FILTER = 'ui/SET_SELECTED_ACTIVITIES_FILTER'
 const SET_SELECTED_USER_ID = 'ui/SET_SELECTED_USER_ID'
 const SET_SELECTED_GROUP_ID = 'ui/SET_SELECTED_GROUP_ID'
 const SET_CURRENT_USER_ID = 'app/SET_CURRENT_USER_ID'
+const SET_CURRENT_INVITE = 'app/SET_CURRENT_INVITE'
 
 export const initializeApp = () => ca(INITIALIZE_APP)()
 export const setAuthToken = (token: ?string) => ca(SET_AUTH_TOKEN)({token})
@@ -19,6 +20,7 @@ export const setSelectedGroupId = (groupId: string | number) => ca(SET_SELECTED_
 export const setCurrentLocation = (location: Object) => ca(SET_CURRENT_LOCATION)({location})
 export const setSelectedActivitiesFilter = (selectedActivityIds: Array<number>) => ca(SET_SELECTED_ACTIVITIES_FILTER)({selectedActivityIds})
 export const setCurrentUserId = (userId: ?number) => ca(SET_CURRENT_USER_ID)({userId})
+export const setCurrentInvite = (invite: Object) => ca(SET_CURRENT_INVITE)({invite})
 
 const initialState = {
   initialized: false,
@@ -27,6 +29,7 @@ const initialState = {
   selectedUserId: null,
   selectedGroupId: null,
   currentUserId: null,
+  currentInvite: {},
   currentLocation: {
     coords: {
       latitude: 0,
@@ -55,6 +58,8 @@ export default function reducer(state: Object = initialState, action: Action) {
       return u(state, {selectedGroupId: {$set: p.groupId}})
     case SET_CURRENT_USER_ID:
       return u(state, {currentUserId: {$set: p.userId}})
+    case SET_CURRENT_INVITE:
+      return u(state, {currentInvite: {$set: p.invite}})
     case SET_CURRENT_LOCATION:
       return u(state, {currentLocation: {$set: p.location}})
     case SET_SELECTED_ACTIVITIES_FILTER:

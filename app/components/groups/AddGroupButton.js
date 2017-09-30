@@ -15,7 +15,7 @@ export default class AddGroupButton extends React.Component {
     const { goToAddGroup, canAddGroup } = this.props
 
     return <Container>
-      <TouchableOpacity onPress={canAddGroup ? goToAddGroup : () => {}}>
+      <TouchableOpacity disabled={!canAddGroup} onPress={goToAddGroup}>
         <Icon name='plus' style={getIconStyle(canAddGroup)} />
       </TouchableOpacity>
     </Container>
