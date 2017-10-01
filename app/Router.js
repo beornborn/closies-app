@@ -15,7 +15,7 @@ import AddGroupButton from 'Closies/app/containers/groups/AddGroupButton'
 import SaveNewGroupButton from 'Closies/app/containers/add_group/SaveNewGroupButton'
 import Groups from 'Closies/app/containers/groups/Groups'
 import GroupView from 'Closies/app/containers/group_view/GroupView'
-import InviteButton from 'Closies/app/containers/group_view/InviteButton'
+import GroupViewToolbar from 'Closies/app/containers/group_view/GroupViewToolbar'
 import AddGroup from 'Closies/app/containers/add_group/AddGroup'
 import CurrentInvite from 'Closies/app/containers/group_view/CurrentInvite'
 import { palette } from 'Closies/app/__config/Theme'
@@ -86,7 +86,7 @@ const ClosiesNavigator = StackNavigator({
   GroupView: {
     screen: GroupView,
     navigationOptions: {
-      headerRight: <InviteButton />
+      headerRight: <GroupViewToolbar />
     }
   },
   AddGroup: {

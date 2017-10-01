@@ -1,5 +1,6 @@
 //@flow
 import { connect } from 'react-redux'
+import { Keyboard } from 'react-native'
 import AddGroup from 'Closies/app/components/add_group/AddGroup'
 import { reduxForm } from 'redux-form'
 import { createGroup } from 'Closies/app/reducers/Saga'
@@ -34,10 +35,12 @@ export const mapStateToProps = (state: Object): Object => {
 }
 
 export const mapDispatchToProps = (dispatch: Function): Object => ({
-  onSubmit: (formData: Object) =>
-    new Promise((resolve, reject) => {
+  onSubmit: (formData: Object) => {
+    Keyboard.dismiss()
+    return new Promise((resolve, reject) => {
       dispatch(createGroup(formData, resolve, reject))
-    }),
+    })
+  },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(form)(AddGroup))

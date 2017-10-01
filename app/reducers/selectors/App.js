@@ -31,7 +31,7 @@ export const getSelectedGroup = (state: Object) => {
   return getGroups(state)[getSelectedGroupId(state)] || {}
 }
 export const getSelectedGroupDenormalized = (state: Object) => {
-  return denormalizedGroups([getSelectedGroupId(state)], state.data, groupsSchema)[0]
+  return denormalizedGroups([getSelectedGroupId(state)], state.data, groupsSchema)[0] || {}
 }
 export const getCurrentUserId = (state: Object) => state.app.currentUserId
 export const getCurrentUser = (state: Object): Object => {
@@ -40,6 +40,7 @@ export const getCurrentUser = (state: Object): Object => {
 export const getIsCurrentUserGroupOwner = (state: Object) => {
   const currentUserId = getCurrentUserId(state)
   const selectedGroupId = getSelectedGroupId(state)
+  if (!currentUserId || !selectedGroupId) return false
   const userInGroups = getUserInGroupsValues(state)
   const currentUserInSelectedGroup = userInGroups.find(x => x.user_id === currentUserId && x.group_id === selectedGroupId)
   return (currentUserInSelectedGroup || {}).owner

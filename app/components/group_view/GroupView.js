@@ -21,7 +21,7 @@ export default class GroupView extends React.Component {
 
     return <Container>
       <ScrollView>
-        {group.user_in_groups.map(uig =>
+        {group.id && group.user_in_groups.map(uig =>
           <UserItem userInGroup={uig} key={uig.id} />
         )}
       </ScrollView>

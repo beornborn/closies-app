@@ -24,6 +24,7 @@ export const routes = {
   },
   groups: {
     create: () => 'v1/groups',
+    delete: (id: number) => `v1/groups/${id}`,
     index: () => 'v1/groups',
   },
   invites: {

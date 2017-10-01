@@ -39,6 +39,7 @@ export const getCanAddGroup = (state: Object) => {
 }
 export const getCanInviteUser = (state: Object) => {
   const group = getSelectedGroupDenormalized(state)
+  if (!group.id) return false
   const config = getConfig(state)
   const limit = config.size_limits[group.size_type]
   return group.user_in_groups.length < limit
