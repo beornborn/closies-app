@@ -1,7 +1,7 @@
 //@flow
 import React from 'react'
 import pt from 'prop-types'
-import { TouchableOpacity, View } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 import { Container, Toolbar, Invite, DeleteIcon } from './GroupViewToolbar.style'
 
 export default class GroupViewToolbar extends React.Component {
@@ -17,15 +17,17 @@ export default class GroupViewToolbar extends React.Component {
     const { createInvite, canInviteUser, isCurrentUserGroupOwner, deleteGroup, group } = this.props
 
     return <Container>
-      {isCurrentUserGroupOwner && <Toolbar>
+      <Toolbar>
         <TouchableOpacity onPress={() => deleteGroup(group.id)}>
           <DeleteIcon name='delete' />
         </TouchableOpacity>
-        <View style={{width: 20}} />
-        <TouchableOpacity disabled={!canInviteUser} onPress={createInvite}>
+        {isCurrentUserGroupOwner && <TouchableOpacity
+          disabled={!canInviteUser}
+          onPress={createInvite}
+          style={{marginLeft: 20}}>
           <Invite disabled={!canInviteUser}>Invite</Invite>
-        </TouchableOpacity>
-      </Toolbar>}
+        </TouchableOpacity>}
+      </Toolbar>
     </Container>
   }
 }

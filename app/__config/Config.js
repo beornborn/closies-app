@@ -29,6 +29,7 @@ export const routes = {
   },
   invites: {
     create: () => 'v1/invites',
+    accept: () => 'v1/invites/accept',
   },
 }
 

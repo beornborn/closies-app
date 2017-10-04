@@ -10,6 +10,7 @@ import watchFetchCurrentLocation from 'Closies/app/sagas/FetchCurrentLocation'
 import watchUpdateProfile from 'Closies/app/sagas/UpdateProfile'
 import watchCreateInvite from 'Closies/app/sagas/CreateInvite'
 import watchDeleteGroup from 'Closies/app/sagas/DeleteGroup'
+import watchJoinGroup from 'Closies/app/sagas/JoinGroup'
 
 const rootSaga = function* rootSaga(): Generator<any,any,any> {
   yield all([
@@ -23,6 +24,7 @@ const rootSaga = function* rootSaga(): Generator<any,any,any> {
     fork(watchUpdateProfile),
     fork(watchCreateInvite),
     fork(watchDeleteGroup),
+    fork(watchJoinGroup),
   ])
 }
 

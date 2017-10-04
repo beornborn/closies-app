@@ -17,6 +17,7 @@ import Groups from 'Closies/app/containers/groups/Groups'
 import GroupView from 'Closies/app/containers/group_view/GroupView'
 import GroupViewToolbar from 'Closies/app/containers/group_view/GroupViewToolbar'
 import AddGroup from 'Closies/app/containers/add_group/AddGroup'
+import JoinGroup from 'Closies/app/containers/group_view/JoinGroup'
 import CurrentInvite from 'Closies/app/containers/group_view/CurrentInvite'
 import { palette } from 'Closies/app/__config/Theme'
 
@@ -102,6 +103,12 @@ const ClosiesNavigator = StackNavigator({
       title: 'Invite',
     }
   },
+  JoinGroup: {
+    screen: JoinGroup,
+    navigationOptions: {
+      title: 'Join Group',
+    }
+  },
 })
 
 const UserNavigator = TabNavigator({
@@ -155,6 +162,6 @@ export const AllNavigators = StackNavigator({
   User: {screen: UserNavigator},
 }, {headerMode: 'none'})
 
-const InitialAction = ClosiesNavigator.router.getActionForPathAndParams('Groups')
+const InitialAction = AreaNavigator.router.getActionForPathAndParams('NewActivity')
 const initialState = AllNavigators.router.getStateForAction(InitialAction)
 export const navReducer = (state: Object = initialState, action: Action) => AllNavigators.router.getStateForAction(action, state)

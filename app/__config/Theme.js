@@ -11,6 +11,7 @@ export const palette = {
   boulder: '#757575',    // secondary text
   silver: '#bdbdbd',     // divider
   alto: '#dadada',     // divider
+  red: '#ff0000',     // error
   facebook: '#3b5998',
 }
 

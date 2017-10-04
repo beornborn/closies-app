@@ -11,6 +11,7 @@ export const SAGA_FETCH_CURRENT_LOCATION = 'SAGA_FETCH_CURRENT_LOCATION'
 export const SAGA_CREATE_INVITE = 'SAGA_CREATE_INVITE'
 export const SAGA_UPDATE_PROFILE = 'SAGA_UPDATE_PROFILE'
 export const SAGA_DELETE_GROUP = 'SAGA_DELETE_GROUP'
+export const SAGA_JOIN_GROUP = 'SAGA_JOIN_GROUP'
 
 export const createActivity = (formData: Object, resolve: Function, reject: Function) =>
   createAction(SAGA_CREATE_ACTIVITY)({formData, resolve, reject})
@@ -25,3 +26,5 @@ export const doAuthenticate = () => createAction(SAGA_AUTHENTICATE)()
 export const fetchCurrentLocation = () => createAction(SAGA_FETCH_CURRENT_LOCATION)()
 export const createInvite = () => createAction(SAGA_CREATE_INVITE)()
 export const deleteGroup = (groupId: number) => createAction(SAGA_DELETE_GROUP)({groupId})
+export const joinGroup = (formData: Object, resolve: Function, reject: Function) =>
+  createAction(SAGA_JOIN_GROUP)({formData, resolve, reject})

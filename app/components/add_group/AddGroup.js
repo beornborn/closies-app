@@ -1,11 +1,11 @@
 //@flow
 import React from 'react'
 import pt from 'prop-types'
-import { View, TouchableWithoutFeedback, Keyboard, Picker as NativePicker } from 'react-native'
+import { View, TouchableWithoutFeedback, Keyboard, Picker as NativePicker, Button } from 'react-native'
 import { Field } from 'redux-form'
 import _ from 'lodash'
 import { TextInput, Picker } from 'Closies/app/components/shared'
-import { Container, InputStyle, Label } from './AddGroup.style'
+import { Container, InputStyle, Label, Or } from './AddGroup.style'
 
 export default class AddGroup extends React.Component {
   static propTypes = {
@@ -15,10 +15,11 @@ export default class AddGroup extends React.Component {
       special: pt.number.isRequired,
     }).isRequired,
     config: pt.object.isRequired,
+    goToJoinGroup: pt.func.isRequired,
   }
 
   render() {
-    const { groupsCounts, config } = this.props
+    const { groupsCounts, config, goToJoinGroup } = this.props
     const canAddFamily = groupsCounts.family < config.size_type_counts.family
     const canAddClosies = groupsCounts.closies < config.size_type_counts.closies
     const canAddSpecial = groupsCounts.special < config.size_type_counts.special
@@ -41,6 +42,8 @@ export default class AddGroup extends React.Component {
         {canAddGroup && <Field name='size_type' component={Picker}>
           {options}
         </Field>}
+        <Or>OR</Or>
+        <Button title={'Join Your Closie\'s Group'} onPress={goToJoinGroup} />
       </Container>
     </TouchableWithoutFeedback>
   }

@@ -6,6 +6,7 @@ import { reduxForm } from 'redux-form'
 import { createGroup } from 'Closies/app/reducers/Saga'
 import { getConfig, getGroupsCounts } from 'Closies/app/reducers/selectors/Data'
 import _ from 'lodash'
+import { NavigationActions } from 'react-navigation'
 
 export const form = {
   form: 'groups/new',
@@ -35,6 +36,7 @@ export const mapStateToProps = (state: Object): Object => {
 }
 
 export const mapDispatchToProps = (dispatch: Function): Object => ({
+  goToJoinGroup: () => dispatch(NavigationActions.navigate({routeName: 'JoinGroup'})),
   onSubmit: (formData: Object) => {
     Keyboard.dismiss()
     return new Promise((resolve, reject) => {
