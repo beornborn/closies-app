@@ -1,11 +1,11 @@
 //@flow
 import { connect } from 'react-redux'
 import Groups from 'Closies/app/components/groups/Groups'
-import { getGroupsDenormalized } from 'Closies/app/reducers/selectors/Data'
+import { getAllGroupsDenormalized } from 'Closies/app/reducers/selectors/Data'
 import { NavigationActions } from 'react-navigation'
 
 export const mapStateToProps = (state: Object): Object => ({
-  groups: getGroupsDenormalized(state)
+  groups: getAllGroupsDenormalized(state)
 })
 
 export const mapDispatchToProps = (dispatch: Function): Object => ({

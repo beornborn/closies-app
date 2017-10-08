@@ -19,7 +19,6 @@ const prepareParams = function* prepareParams(formData: Object): Generator<*,*,*
   return { full_name, phone_number, messengers }
 }
 
-
 const perform = function* perform(a) {
   try {
     const { resolve, reject, formData } = a.payload
