@@ -1,8 +1,8 @@
 //@flow
 import { StackNavigator } from 'react-navigation'
 import Login from 'Closies/app/containers/Login'
-import AreaNavigator from 'Closies/app/routes/AreaNavigator'
-import UserNavigator from 'Closies/app/routes/UserNavigator'
+import AreaNavigator from 'Closies/app/__config/routes/AreaNavigator'
+import UserNavigator from 'Closies/app/__config/routes/UserNavigator'
 
 const GuestNavigator = StackNavigator({
   Login: {
