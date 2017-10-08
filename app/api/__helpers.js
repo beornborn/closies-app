@@ -56,7 +56,15 @@ export async function apiPostFormData(path: string, params: Object) {
   const authToken = await AsyncStorage.getAuthToken()
   const formData = new FormData()
   // files.map((file) => formData.append('files[]', file))
-  _.keys(params).forEach(key => formData.append(key, params[key]))
+  _.keys(params).forEach(key => {
+    if (_.isArray(params[key])) {
+      params[key].forEach(value => {
+        formData.append(`${key}[]`, value)
+      })
+    } else {
+      formData.append(key, params[key])
+    }
+  })
 
   const settings: Object = {
     method: 'POST',
@@ -65,7 +73,8 @@ export async function apiPostFormData(path: string, params: Object) {
     body: formData
   }
 
-  return handleResponse(fetch(`${api.url}${path}`, settings))
+  const response = handleResponse(fetch(`${api.url}${path}`, settings))
+  return response
 }
 
 async function request(path: string, payload: Object, method: MethodType) {
@@ -79,8 +88,8 @@ async function request(path: string, payload: Object, method: MethodType) {
   }
 
   if (method !== 'GET') { settings.body = JSON.stringify(payload) }
-
-  return handleResponse(fetch(`${api.url}${path}`, settings))
+  const response = handleResponse(fetch(`${api.url}${path}`, settings))
+  return response
 }
 
 export function apiGet(path: string, payload: Object = {}) {

@@ -9,7 +9,7 @@ export const mapStateToProps = (_state: Object): Object => ({
 })
 
 export const mapDispatchToProps = (dispatch: Function): Object => ({
-  goToGroupView: (group: Object) => {
+  onPress: (group: Object) => {
     dispatch(setSelectedGroupId(group.id))
     dispatch(NavigationActions.navigate({routeName: 'GroupView', params: {title: group.name}}))
   }

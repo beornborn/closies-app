@@ -10,10 +10,7 @@ import { AbsoluteContainer, InputStyle } from './NewActivity.style'
 
 export default class NewActivity extends React.Component {
   static propTypes = {
-    location: pt.object.isRequired,
     fetchCurrentLocation: pt.func.isRequired,
-    createActivity: pt.func.isRequired,
-    handleSubmit: pt.func.isRequired,
     image: pt.object,
   }
 
@@ -23,14 +20,8 @@ export default class NewActivity extends React.Component {
     this.props.fetchCurrentLocation()
   }
 
-  submit = (formData: Object) => {
-    const { createActivity, location: { coords: { longitude, latitude } } } = this.props
-    Keyboard.dismiss()
-    return createActivity({...formData, longitude, latitude})
-  }
-
   render() {
-    const { image, handleSubmit } = this.props
+    const { image } = this.props
 
     return <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <AbsoluteContainer>
@@ -45,7 +36,7 @@ export default class NewActivity extends React.Component {
           {image && image.uri && <AttachedImage />}
           <View style={{height: 50}} />
         </ScrollView>
-        <Toolbar submit={handleSubmit(this.submit)} />
+        <Toolbar />
       </AbsoluteContainer>
     </TouchableWithoutFeedback>
   }

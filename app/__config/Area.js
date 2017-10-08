@@ -13,7 +13,7 @@ const config = {
     totalDiameter: 0
   },
   EXPAND_VISIBLE_AREA_COEFF: 1.1,
-  POLL_INTERVAL: 30000,
+  POLL_INTERVAL: 300000,
 }
 
 config.CIRCLE.totalDiameter = config.CIRCLE.diameter +

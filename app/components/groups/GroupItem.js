@@ -2,25 +2,27 @@
 import React from 'react'
 import pt from 'prop-types'
 import { View, TouchableOpacity } from 'react-native'
-import { Text } from 'Closies/app/components/shared/Common.style'
-import { Container, Type } from './GroupItem.style'
+import { Container, Type, Text } from './GroupItem.style'
 
 export default class GroupItem extends React.Component {
   static propTypes = {
     group: pt.object.isRequired,
-    goToGroupView: pt.func.isRequired,
+    onPress: pt.func.isRequired,
+    selected: pt.bool,
   }
 
-  render() {
-    const { group, goToGroupView } = this.props
+  static defaultProps = {selected: false}
 
-    return <TouchableOpacity onPress={() => goToGroupView(group)}>
-      <Container>
-        <Text>{group.name}</Text>
+  render() {
+    const { group, onPress, selected } = this.props
+
+    return <TouchableOpacity onPress={() => onPress(group)}>
+      <Container selected={selected}>
+        <Text selected={selected}>{group.name}</Text>
         <View style={{flex: 1}} />
-        <Text>{group.user_in_groups.length}</Text>
+        <Text selected={selected}>{group.user_in_groups.length}</Text>
         <View style={{width: 20}} />
-        <Type>{group.size_type}</Type>
+        <Type selected={selected}>{group.size_type}</Type>
       </Container>
     </TouchableOpacity>
   }

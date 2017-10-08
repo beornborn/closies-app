@@ -5,6 +5,9 @@ import Login from 'Closies/app/containers/Login'
 import Area from 'Closies/app/containers/area/Area'
 import Activity from 'Closies/app/containers/Activity'
 import NewActivity from 'Closies/app/containers/new_activity/NewActivity'
+import NewActivityToolbar from 'Closies/app/containers/new_activity/NavigationToolbar'
+import SelectGroups from 'Closies/app/containers/new_activity/SelectGroups'
+import SelectGroupsToolbar from 'Closies/app/containers/new_activity/SelectGroupsToolbar'
 import ActivityList from 'Closies/app/containers/activity_list/ActivityList'
 import Settings from 'Closies/app/containers/Settings'
 import EditProfile from 'Closies/app/containers/profile/EditProfile'
@@ -37,8 +40,17 @@ const AreaNavigator = StackNavigator({
   NewActivity: {
     screen: NewActivity,
     navigationOptions: {
-      header: null,
-      tabBarVisible: false
+      tabBarVisible: false,
+      title: 'New Activity',
+      headerRight: <NewActivityToolbar />
+    }
+  },
+  SelectGroups: {
+    screen: SelectGroups,
+    navigationOptions: {
+      tabBarVisible: false,
+      title: 'Select Groups',
+      headerRight: <SelectGroupsToolbar />,
     }
   },
   ActivityList: {

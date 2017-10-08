@@ -1,19 +1,21 @@
 //@flow
-import { takeEvery, put, call } from 'redux-saga/effects'
+import { takeEvery, put, call, select } from 'redux-saga/effects'
 import { SAGA_CREATE_ACTIVITY } from 'Closies/app/reducers/Saga'
+import { getCurrentLocation } from 'Closies/app/reducers/selectors/App'
+import { Keyboard } from 'react-native'
 import * as api from 'Closies/app/api'
 import { perform as fetchActivities } from 'Closies/app/sagas/FetchActivities'
 import { apiCallWrapper } from 'Closies/app/utils/ApiHandlers'
 import { NavigationActions } from 'react-navigation'
 import { reset } from 'redux-form'
 
-const prepareParams = function* prepareParams(formData: Object): Generator<*,*,*> {
-  const { description, image, longitude, latitude } = formData
+const prepareParams = function* prepareParams(formData: Object, location: Object): Generator<*,*,*> {
+  const { description, image, group_ids } = formData
 
   let params = {
-    latitude,//: 50.4414 + Math.random() * (50.4995 - 50.4014),
-    longitude,//: 30.493 + Math.random() * (30.6920 - 30.5030),
-    user_in_group_id: 34, // TODO
+    latitude: location.coords.latitude,//: 50.4414 + Math.random() * (50.4995 - 50.4014),
+    longitude: location.coords.longitude,//: 30.493 + Math.random() * (30.6920 - 30.5030),
+    group_ids,
   }
   if (description && description.value) {
     params = {...params, description: description.value}
@@ -34,8 +36,10 @@ const prepareParams = function* prepareParams(formData: Object): Generator<*,*,*
 const perform = function* perform(a) {
   try {
     const { resolve, reject, formData } = a.payload
+    yield call(Keyboard.dismiss)
+    const location = yield select(getCurrentLocation)
+    const params = yield prepareParams(formData, location)
 
-    const params = yield prepareParams(formData)
     const response = yield apiCallWrapper(() => api.createActivity(params))
     if (response.status === 'Success') {
       yield fetchActivities()

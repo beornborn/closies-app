@@ -11,6 +11,7 @@ const Acl = {
   AddGroup: authenticated_only,
   Activity: authenticated_only,
   NewActivity: authenticated_only,
+  SelectGroups: authenticated_only,
   ActivityList: authenticated_only,
   EditProfile: authenticated_only,
   ViewProfile: authenticated_only,

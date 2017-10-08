@@ -2,14 +2,13 @@
 import { connect } from 'react-redux'
 import { reduxForm, formValueSelector } from 'redux-form'
 import NewActivity from 'Closies/app/components/new_activity/NewActivity'
-import { getCurrentLocation } from 'Closies/app/reducers/selectors/App'
 import { fetchCurrentLocation, createActivity } from 'Closies/app/reducers/Saga'
 import { bindActionCreators } from 'redux'
 
 export const form = {
   form: 'area/activity/new',
-  fields: ['description', 'image'],
-  registeredFields: ['description', 'image'],
+  destroyOnUnmount: false,
+  forceUnregisterOnUnmount: true,
   validate: (values: Object) => {
     const errors = {}
     const imageAbsent = !values.image || !values.image.uri
@@ -22,14 +21,13 @@ export const form = {
 }
 
 export const mapStateToProps = (state: Object): Object => ({
-  location: getCurrentLocation(state),
   image: formValueSelector(form.form)(state, 'image'),
 })
 
 export const mapDispatchToProps = (dispatch: Function): Object => {
   return {
     ...bindActionCreators({fetchCurrentLocation}, dispatch),
-    createActivity: (formData: Object) =>
+    onSubmit: (formData: Object) =>
       new Promise((resolve, reject) => {
         dispatch(createActivity(formData, resolve, reject))
       }),
