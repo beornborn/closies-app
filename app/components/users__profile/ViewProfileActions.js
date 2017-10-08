@@ -3,7 +3,7 @@ import React from 'react'
 import pt from 'prop-types'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { TouchableOpacity } from 'react-native'
-import { Container, IconStyle } from './ViewProfileActions.style'
+import { Container, MUIIcon } from 'Closies/app/components/__shared/Actions.style'
 
 export default class ViewProfileActions extends React.Component {
   static propTypes = {
@@ -16,7 +16,7 @@ export default class ViewProfileActions extends React.Component {
 
     return <Container>
       {isCurrentUser && <TouchableOpacity onPress={goToEditProfile}>
-        <Icon name='pencil' style={IconStyle} />
+        <MUIIcon name='pencil' />
       </TouchableOpacity>}
     </Container>
   }

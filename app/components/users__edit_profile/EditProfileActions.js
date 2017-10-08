@@ -3,7 +3,7 @@ import React from 'react'
 import pt from 'prop-types'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { TouchableOpacity } from 'react-native'
-import { Container, getIconStyle } from './EditProfileActions.style'
+import { Container, MUIIcon } from 'Closies/app/components/__shared/Actions.style'
 
 export default class EditProfileActions extends React.Component {
   static propTypes = {
@@ -16,7 +16,7 @@ export default class EditProfileActions extends React.Component {
 
     return <Container>
       <TouchableOpacity disabled={!valid} onPress={submit}>
-        <Icon name='check' style={getIconStyle(valid)} />
+        <MUIIcon name='check' disabled={!valid} />
       </TouchableOpacity>
     </Container>
   }

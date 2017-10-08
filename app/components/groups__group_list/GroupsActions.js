@@ -1,9 +1,8 @@
 //@flow
 import React from 'react'
 import pt from 'prop-types'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { TouchableOpacity } from 'react-native'
-import { Container, getIconStyle } from './GroupsActions.style'
+import { Container, MUIIcon } from 'Closies/app/components/__shared/Actions.style'
 
 export default class GroupsActions extends React.Component {
   static propTypes = {
@@ -16,7 +15,7 @@ export default class GroupsActions extends React.Component {
 
     return <Container>
       <TouchableOpacity disabled={!canAddGroup} onPress={goToAddGroup}>
-        <Icon name='plus' style={getIconStyle(canAddGroup)} />
+        <MUIIcon name='plus' disabled={!canAddGroup} />
       </TouchableOpacity>
     </Container>
   }

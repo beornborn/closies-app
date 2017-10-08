@@ -2,7 +2,7 @@
 import React from 'react'
 import pt from 'prop-types'
 import { TouchableOpacity } from 'react-native'
-import { Container, Invite, DeleteIcon } from './GroupViewActions.style'
+import { Container, MUIIcon, TextButton } from 'Closies/app/components/__shared/Actions.style'
 
 export default class GroupViewActions extends React.Component {
   static propTypes = {
@@ -18,13 +18,13 @@ export default class GroupViewActions extends React.Component {
 
     return <Container>
       <TouchableOpacity onPress={() => deleteGroup(group.id)}>
-        <DeleteIcon name='delete' />
+        <MUIIcon name='delete' style={{fontSize: 25}} />
       </TouchableOpacity>
       {isCurrentUserGroupOwner && <TouchableOpacity
         disabled={!canInviteUser}
         onPress={createInvite}
         style={{marginLeft: 20}}>
-        <Invite disabled={!canInviteUser}>Invite</Invite>
+        <TextButton disabled={!canInviteUser}>Invite</TextButton>
       </TouchableOpacity>}
     </Container>
   }

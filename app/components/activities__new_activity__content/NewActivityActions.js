@@ -2,7 +2,7 @@
 import React from 'react'
 import pt from 'prop-types'
 import { TouchableOpacity } from 'react-native'
-import { Container, Next } from './NewActivityActions.style'
+import { Container, TextButton } from 'Closies/app/components/__shared/Actions.style'
 
 export default class NewActivityActions extends React.Component {
   static propTypes = {
@@ -15,7 +15,7 @@ export default class NewActivityActions extends React.Component {
 
     return <Container>
       <TouchableOpacity disabled={!valid} onPress={next}>
-        <Next disabled={!valid}>Next</Next>
+        <TextButton disabled={!valid}>Next</TextButton>
       </TouchableOpacity>
     </Container>
   }
