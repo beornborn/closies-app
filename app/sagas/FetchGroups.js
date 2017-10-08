@@ -4,7 +4,7 @@ import * as api from 'Closies/app/api'
 import { apiCallWrapper } from 'Closies/app/utils/ApiHandlers'
 import { normalize } from 'normalizr'
 import { setEntities } from 'Closies/app/reducers/Data'
-import schemas from 'Closies/app/schemas/Normalizers'
+import schemas from 'Closies/app/reducers/schemas/Normalizers'
 
 export const perform = function* perform(_a?: Object): Generator<*,*,*> {
   try {

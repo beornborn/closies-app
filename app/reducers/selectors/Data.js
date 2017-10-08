@@ -1,8 +1,8 @@
 //@flow
 import _ from 'lodash'
-import { denormalizedActivities, denormalizedGroups } from 'Closies/app/schemas/Denormalizers'
-import { activitiesSchema } from 'Closies/app/schemas/relations/Activity'
-import { groupsSchema } from 'Closies/app/schemas/relations/Group'
+import { denormalizedActivities, denormalizedGroups } from 'Closies/app/reducers/schemas/Denormalizers'
+import { activitiesSchema } from 'Closies/app/reducers/schemas/relations/Activity'
+import { groupsSchema } from 'Closies/app/reducers/schemas/relations/Group'
 import { getSelectedGroupDenormalized } from 'Closies/app/reducers/selectors/App'
 
 export const getActivities = (state: Object) => state.data.activities

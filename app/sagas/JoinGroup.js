@@ -8,7 +8,7 @@ import { setSelectedGroupId } from 'Closies/app/reducers/App'
 import { reset, SubmissionError } from 'redux-form'
 import { normalize } from 'normalizr'
 import { setEntities } from 'Closies/app/reducers/Data'
-import schemas from 'Closies/app/schemas/Normalizers'
+import schemas from 'Closies/app/reducers/schemas/Normalizers'
 
 const prepareParams = function* prepareParams(formData: Object): Generator<*,*,*> {
   const { token: t } = formData

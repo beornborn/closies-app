@@ -1,9 +1,9 @@
 //@flow
-const serverUrl = process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:3000' : 'http://api.closies.co'
+const url = process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:3000' : 'http://api.closies.co'
 
-export const api = {
-  serverUrl,
-  url: `${serverUrl}/api/`,
+export const server = {
+  url,
+  apiUrl: `${url}/api/`,
 }
 
 export const routes = {
@@ -33,5 +33,5 @@ export const routes = {
   },
 }
 
-const config = { api, routes }
+const config = { server, routes }
 export default config

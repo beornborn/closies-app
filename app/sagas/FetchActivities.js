@@ -8,7 +8,7 @@ import { apiCallWrapper } from 'Closies/app/utils/ApiHandlers'
 import { normalize } from 'normalizr'
 import { sleep } from 'Closies/app/utils/Common'
 import { getActivitiesValues } from 'Closies/app/reducers/selectors/Data'
-import schemas from 'Closies/app/schemas/Normalizers'
+import schemas from 'Closies/app/reducers/schemas/Normalizers'
 
 export const perform = function* perform(_a?: Object): Generator<*,*,*> {
   try {

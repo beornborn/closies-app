@@ -1,5 +1,5 @@
 //@flow
-import { routes } from 'Closies/app/__config/Config'
+import { routes } from 'Closies/app/__config/Api'
 import { apiPost } from 'Closies/app/api/__helpers'
 
 export function createInvite(groupId: number) {

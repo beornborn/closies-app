@@ -1,6 +1,6 @@
 //@flow
 import _ from 'lodash'
-import { api } from 'Closies/app/__config/Config'
+import { server } from 'Closies/app/__config/Api'
 import AsyncStorage from 'Closies/app/utils/AsyncStorage'
 
 export function checkStatus(response: Object) {
@@ -73,7 +73,7 @@ export async function apiPostFormData(path: string, params: Object) {
     body: formData
   }
 
-  const response = handleResponse(fetch(`${api.url}${path}`, settings))
+  const response = handleResponse(fetch(`${server.apiUrl}${path}`, settings))
   return response
 }
 
@@ -88,7 +88,7 @@ async function request(path: string, payload: Object, method: MethodType) {
   }
 
   if (method !== 'GET') { settings.body = JSON.stringify(payload) }
-  const response = handleResponse(fetch(`${api.url}${path}`, settings))
+  const response = handleResponse(fetch(`${server.apiUrl}${path}`, settings))
   return response
 }
 

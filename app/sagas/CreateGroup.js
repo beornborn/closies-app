@@ -7,7 +7,7 @@ import { NavigationActions } from 'react-navigation'
 import { reset } from 'redux-form'
 import { normalize } from 'normalizr'
 import { setEntities } from 'Closies/app/reducers/Data'
-import schemas from 'Closies/app/schemas/Normalizers'
+import schemas from 'Closies/app/reducers/schemas/Normalizers'
 
 const prepareParams = function* prepareParams(formData: Object): Generator<*,*,*> {
   const { size_type: st, name: n } = formData

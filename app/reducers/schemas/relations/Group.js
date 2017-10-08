@@ -1,5 +1,5 @@
 //@flow
-import * as entities from 'Closies/app/schemas/Entities'
+import * as entities from 'Closies/app/reducers/schemas/Entities'
 import _ from 'lodash'
 
 export const groupsSchema = (function groupsSchema() {

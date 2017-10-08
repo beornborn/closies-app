@@ -5,7 +5,7 @@ import { setCurrentUserId } from 'Closies/app/reducers/App'
 import { setEntities } from 'Closies/app/reducers/Data'
 import { apiCallWrapper } from 'Closies/app/utils/ApiHandlers'
 import { normalize } from 'normalizr'
-import schemas from 'Closies/app/schemas/Normalizers'
+import schemas from 'Closies/app/reducers/schemas/Normalizers'
 
 export const perform = function* perform(_a?: Object): Generator<*,*,*> {
   try {

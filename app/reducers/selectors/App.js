@@ -1,8 +1,8 @@
 //@flow
 import { getActivities, getUsers, getGroups, getActivitiesValues, getActivitiesDenormalized, getUserInGroupsValues } from 'Closies/app/reducers/selectors/Data'
-import { denormalizedActivities, denormalizedGroups } from 'Closies/app/schemas/Denormalizers'
-import { activitiesSchema } from 'Closies/app/schemas/relations/Activity'
-import { groupsSchema } from 'Closies/app/schemas/relations/Group'
+import { denormalizedActivities, denormalizedGroups } from 'Closies/app/reducers/schemas/Denormalizers'
+import { activitiesSchema } from 'Closies/app/reducers/schemas/relations/Activity'
+import { groupsSchema } from 'Closies/app/reducers/schemas/relations/Group'
 import { calculateAreaData } from 'Closies/app/utils/area'
 import _ from 'lodash'
 
