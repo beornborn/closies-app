@@ -1,6 +1,6 @@
 //@flow
 import { connect } from 'react-redux'
-import GroupViewToolbar from 'Closies/app/components/groups__group/GroupViewToolbar'
+import GroupViewActions from 'Closies/app/components/groups__group/GroupViewActions'
 import { getCanInviteUser } from 'Closies/app/reducers/selectors/Data'
 import { getIsCurrentUserGroupOwner, getSelectedGroup } from 'Closies/app/reducers/selectors/App'
 import { createInvite, deleteGroup } from 'Closies/app/reducers/Saga'
@@ -16,4 +16,4 @@ export const mapDispatchToProps = (dispatch: Function): Object => ({
   deleteGroup: (id: number) => dispatch(deleteGroup(id)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(GroupViewToolbar)
+export default connect(mapStateToProps, mapDispatchToProps)(GroupViewActions)

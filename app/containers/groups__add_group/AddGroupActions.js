@@ -1,6 +1,6 @@
 //@flow
 import { connect } from 'react-redux'
-import EditProfileSaveButton from 'Closies/app/components/users__edit_profile/EditProfileSaveButton'
+import AddGroupActions from 'Closies/app/components/users__edit_profile/EditProfileActions'
 import { submit, isValid } from 'redux-form'
 import { form } from 'Closies/app/containers/groups__add_group/AddGroup'
 
@@ -13,4 +13,4 @@ export const mapDispatchToProps = (dispatch: Function): Object => ({
   submit: () => dispatch(submit(form.form))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditProfileSaveButton)
+export default connect(mapStateToProps, mapDispatchToProps)(AddGroupActions)

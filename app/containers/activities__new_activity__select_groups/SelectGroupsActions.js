@@ -1,6 +1,6 @@
 //@flow
 import { connect } from 'react-redux'
-import SelectGroupsToolbar from 'Closies/app/components/activities__new_activity__select_groups/SelectGroupsToolbar'
+import SelectGroupsActions from 'Closies/app/components/activities__new_activity__select_groups/SelectGroupsActions'
 import { form } from 'Closies/app/containers/activities__new_activity__content/NewActivity'
 import { isValid, isSubmitting, submit } from 'redux-form'
 
@@ -16,4 +16,4 @@ export const mapDispatchToProps = (dispatch: Function): Object => ({
   post: () => dispatch(submit(form.form))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SelectGroupsToolbar)
+export default connect(mapStateToProps, mapDispatchToProps)(SelectGroupsActions)

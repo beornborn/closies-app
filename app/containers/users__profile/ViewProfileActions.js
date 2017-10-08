@@ -1,6 +1,6 @@
 //@flow
 import { connect } from 'react-redux'
-import ViewProfileEditButton from 'Closies/app/components/users__profile/ViewProfileEditButton'
+import ViewProfileEditButton from 'Closies/app/components/users__profile/ViewProfileActions'
 import { getCurrentUserId, getSelectedUserId } from 'Closies/app/reducers/selectors/App'
 import { NavigationActions } from 'react-navigation'
 

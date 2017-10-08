@@ -2,9 +2,9 @@
 import React from 'react'
 import pt from 'prop-types'
 import { TouchableOpacity } from 'react-native'
-import { Container, Toolbar, Post } from './SelectGroupsToolbar.style'
+import { Container, Post } from './SelectGroupsActions.style'
 
-export default class SelectGroupsToolbar extends React.Component {
+export default class SelectGroupsActions extends React.Component {
   static propTypes = {
     valid: pt.bool.isRequired,
     submitting: pt.bool.isRequired,
@@ -15,11 +15,9 @@ export default class SelectGroupsToolbar extends React.Component {
     const { valid, submitting, post } = this.props
 
     return <Container>
-      <Toolbar>
-        <TouchableOpacity disabled={!valid || submitting} onPress={post}>
-          <Post disabled={!valid || submitting}>Post</Post>
-        </TouchableOpacity>
-      </Toolbar>
+      <TouchableOpacity disabled={!valid || submitting} onPress={post}>
+        <Post disabled={!valid || submitting}>Post</Post>
+      </TouchableOpacity>
     </Container>
   }
 }

@@ -3,9 +3,9 @@ import React from 'react'
 import pt from 'prop-types'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { TouchableOpacity } from 'react-native'
-import { Container, getIconStyle } from './AddGroupButton.style'
+import { Container, getIconStyle } from './GroupsActions.style'
 
-export default class AddGroupButton extends React.Component {
+export default class GroupsActions extends React.Component {
   static propTypes = {
     goToAddGroup: pt.func.isRequired,
     canAddGroup: pt.bool.isRequired,

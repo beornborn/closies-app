@@ -1,6 +1,6 @@
 //@flow
 import { connect } from 'react-redux'
-import EditProfileSaveButton from 'Closies/app/components/users__edit_profile/EditProfileSaveButton'
+import EditProfileActions from 'Closies/app/components/users__edit_profile/EditProfileActions'
 import { submit, isValid } from 'redux-form'
 
 export const mapStateToProps = (state: Object): Object => ({
@@ -12,4 +12,4 @@ export const mapDispatchToProps = (dispatch: Function): Object => ({
   submit: () => dispatch(submit('profile/edit'))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditProfileSaveButton)
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfileActions)

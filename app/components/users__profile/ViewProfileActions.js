@@ -3,9 +3,9 @@ import React from 'react'
 import pt from 'prop-types'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { TouchableOpacity } from 'react-native'
-import { Container, IconStyle } from './ViewProfileEditButton.style'
+import { Container, IconStyle } from './ViewProfileActions.style'
 
-export default class ViewProfileEditButton extends React.Component {
+export default class ViewProfileActions extends React.Component {
   static propTypes = {
     isCurrentUser: pt.bool.isRequired,
     goToEditProfile: pt.func.isRequired,

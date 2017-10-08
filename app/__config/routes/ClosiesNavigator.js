@@ -1,11 +1,11 @@
 //@flow
 import React from 'react'
 import { StackNavigator } from 'react-navigation'
-import AddGroupButton from 'Closies/app/containers/groups__group_list/AddGroupButton'
-import SaveNewGroupButton from 'Closies/app/containers/groups__add_group/SaveNewGroupButton'
+import GroupsActions from 'Closies/app/containers/groups__group_list/GroupsActions'
+import AddGroupActions from 'Closies/app/containers/groups__add_group/AddGroupActions'
 import Groups from 'Closies/app/containers/groups__group_list/Groups'
 import GroupView from 'Closies/app/containers/groups__group/GroupView'
-import GroupViewToolbar from 'Closies/app/containers/groups__group/GroupViewToolbar'
+import GroupViewActions from 'Closies/app/containers/groups__group/GroupViewActions'
 import AddGroup from 'Closies/app/containers/groups__add_group/AddGroup'
 import JoinGroup from 'Closies/app/containers/groups__join_group/JoinGroup'
 import CurrentInvite from 'Closies/app/containers/groups__current_invite/CurrentInvite'
@@ -16,20 +16,20 @@ const ClosiesNavigator = StackNavigator({
     navigationOptions: {
       headerLeft: null,
       title: 'Closies',
-      headerRight: <AddGroupButton />,
+      headerRight: <GroupsActions />,
     }
   },
   GroupView: {
     screen: GroupView,
     navigationOptions: {
-      headerRight: <GroupViewToolbar />
+      headerRight: <GroupViewActions />
     }
   },
   AddGroup: {
     screen: AddGroup,
     navigationOptions: {
       title: 'Add Group',
-      headerRight: <SaveNewGroupButton />,
+      headerRight: <AddGroupActions />,
     }
   },
   CurrentInvite: {
