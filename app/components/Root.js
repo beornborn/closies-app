@@ -2,7 +2,7 @@
 import React from 'react'
 import pt from 'prop-types'
 import { addNavigationHelpers } from 'react-navigation'
-import { AllNavigators } from 'Closies/app/Router'
+import { AllNavigators } from 'Closies/app/routes'
 import BackButton from 'Closies/app/containers/BackButton'
 import Authorizer from 'Closies/app/containers/auth/Authorizer'
 import { Container } from './Root.style'
