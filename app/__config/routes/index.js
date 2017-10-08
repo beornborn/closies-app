@@ -1,6 +1,6 @@
 //@flow
 import { StackNavigator } from 'react-navigation'
-import Login from 'Closies/app/containers/Login'
+import Login from 'Closies/app/containers/auth__login/Login'
 import AreaNavigator from 'Closies/app/__config/routes/AreaNavigator'
 import UserNavigator from 'Closies/app/__config/routes/UserNavigator'
 

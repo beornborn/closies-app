@@ -1,6 +1,6 @@
 //@flow
 import { StackNavigator, TabNavigator } from 'react-navigation'
-import Settings from 'Closies/app/containers/Settings'
+import Settings from 'Closies/app/containers/misc__settings/Settings'
 import AreaNavigator from 'Closies/app/__config/routes/AreaNavigator'
 import ClosiesNavigator from 'Closies/app/__config/routes/ClosiesNavigator'
 import { palette } from 'Closies/app/__config/Theme'

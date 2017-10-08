@@ -1,13 +1,15 @@
 //@flow
 import { connect } from 'react-redux'
 import Login from 'Closies/app/components/auth__login/Login'
+import { doLogin } from 'Closies/app/reducers/Saga'
+import { bindActionCreators } from 'redux'
 
 export const mapStateToProps = (_state: Object): Object => ({
 
 })
 
-export const mapDispatchToProps = (_dispatch: Function): Object => ({
-
-})
+export const mapDispatchToProps = (dispatch: Function): Object => (
+  bindActionCreators({ doLogin }, dispatch)
+)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
