@@ -1,6 +1,6 @@
 //@flow
 import _ from 'lodash'
-import { clearAuthData } from 'Closies/app/sagas/Logout'
+import { clearAuthData } from 'Closies/app/sagas/auth/Logout'
 import { call } from 'redux-saga/effects'
 
 export const handleActivity = (activity: Object) => {

@@ -4,7 +4,7 @@ import { SAGA_FACEBOOK_LOGIN } from 'Closies/app/reducers/Saga'
 import * as api from 'Closies/app/api'
 import FBSDK from 'react-native-fbsdk'
 import AsyncStorage from 'Closies/app/utils/AsyncStorage'
-import { perform as authenticate } from 'Closies/app/sagas/Authenticate'
+import { perform as authenticate } from 'Closies/app/sagas/auth/Authenticate'
 import { apiCallWrapper } from 'Closies/app/utils/ApiHandlers'
 
 const getFacebookToken = () => {

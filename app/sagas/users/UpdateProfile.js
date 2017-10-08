@@ -2,7 +2,7 @@
 import { takeEvery, put, call } from 'redux-saga/effects'
 import { SAGA_UPDATE_PROFILE } from 'Closies/app/reducers/Saga'
 import * as api from 'Closies/app/api'
-import { perform as fetchCurrentUser } from 'Closies/app/sagas/FetchCurrentUser'
+import { perform as fetchCurrentUser } from 'Closies/app/sagas/users/FetchCurrentUser'
 import { apiCallWrapper } from 'Closies/app/utils/ApiHandlers'
 import { NavigationActions } from 'react-navigation'
 import { Keyboard } from 'react-native'
