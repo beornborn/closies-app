@@ -13,6 +13,7 @@ export const routes = {
   activities: {
     index: () => 'v1/activities',
     create: () => 'v1/activities',
+    check: (id: number) => `v1/activities/${id}/check`,
   },
   auth: {
     login: () => 'v1/auth/login',

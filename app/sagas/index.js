@@ -6,6 +6,7 @@ import watchLogout from 'Closies/app/sagas/auth/Logout'
 import watchUpdateProfile from 'Closies/app/sagas/users/UpdateProfile'
 import watchFetchActivities from 'Closies/app/sagas/activities/FetchActivities'
 import watchCreateActivity from 'Closies/app/sagas/activities/CreateActivity'
+import watchCheckActivity from 'Closies/app/sagas/activities/CheckActivity'
 import watchCreateGroup from 'Closies/app/sagas/groups/CreateGroup'
 import watchCreateInvite from 'Closies/app/sagas/groups/CreateInvite'
 import watchJoinGroup from 'Closies/app/sagas/groups/JoinGroup'
@@ -20,6 +21,7 @@ const rootSaga = function* rootSaga(): Generator<any,any,any> {
     fork(watchUpdateProfile),
     fork(watchFetchActivities),
     fork(watchCreateActivity),
+    fork(watchCheckActivity),
     fork(watchCreateGroup),
     fork(watchJoinGroup),
     fork(watchCreateInvite),

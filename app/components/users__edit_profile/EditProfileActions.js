@@ -1,7 +1,6 @@
 //@flow
 import React from 'react'
 import pt from 'prop-types'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { TouchableOpacity } from 'react-native'
 import { Container, MUIIcon } from 'Closies/app/components/__shared/Actions.style'
 

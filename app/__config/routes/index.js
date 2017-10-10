@@ -17,6 +17,6 @@ export const AllNavigators = StackNavigator({
   User: {screen: UserNavigator},
 }, {headerMode: 'none'})
 
-const InitialAction = AreaNavigator.router.getActionForPathAndParams('NewActivity')
+const InitialAction = AreaNavigator.router.getActionForPathAndParams('Area')
 const initialState = AllNavigators.router.getStateForAction(InitialAction)
 export const navReducer = (state: Object = initialState, action: Action) => AllNavigators.router.getStateForAction(action, state)

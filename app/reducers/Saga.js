@@ -14,10 +14,12 @@ export const doLogout = () => createAction(SAGA_LOGOUT)()
 // ---------- activities ----------------
 export const SAGA_FETCH_ACTIVITIES = 'SAGA_FETCH_ACTIVITIES'
 export const SAGA_CREATE_ACTIVITY = 'SAGA_CREATE_ACTIVITY'
+export const SAGA_CHECK_ACTIVITY = 'SAGA_CHECK_ACTIVITY'
 
 export const fetchActivities = () => createAction(SAGA_FETCH_ACTIVITIES)()
 export const createActivity = (formData: Object, resolve: Function, reject: Function) =>
   createAction(SAGA_CREATE_ACTIVITY)({formData, resolve, reject})
+export const checkActivity = (activity: Object) => createAction(SAGA_CHECK_ACTIVITY)({activity})
 
 
 // ---------- groups ----------------
