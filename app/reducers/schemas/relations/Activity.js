@@ -6,6 +6,9 @@ export const activitiesSchema = (function activitiesSchema() {
   const e = _.cloneDeep(entities)
   e.activity.define({user_in_group: e.user_in_group})
   e.activity.define({checked: [e.user]})
+  e.activity.define({comments: [e.comment]})
+  e.comment.define({checked: [e.user]})
+  e.comment.define({user: e.user})
   e.user_in_group.define({user: e.user})
   return e
 }())

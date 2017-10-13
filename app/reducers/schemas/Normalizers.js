@@ -5,7 +5,8 @@ import _ from 'lodash'
 const e: Object = _.cloneDeep(entities)
 
 e.activity.define({
-  user_in_group: e.user_in_group
+  user_in_group: e.user_in_group,
+  comments: [e.comment],
 })
 e.user_in_group.define({
   user: e.user,

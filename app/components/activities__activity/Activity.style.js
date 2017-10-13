@@ -6,12 +6,11 @@ import { Text } from 'Closies/app/components/__shared/Common.style'
 export const Container = styled.View`
   flex: 1;
   background-color: ${palette.white};
-  padding: 20px;
 `
 export const HeaderContainer = styled.View`
   flex-direction: row;
   justify-content: flex-start;
-  margin-bottom: 10px;
+  padding: 20px 20px 10px 20px;
 `
 export const Header = styled.View`
   flex-direction: column;
@@ -36,8 +35,8 @@ export const Avatar = styled.Image`
   borderRadius: 30px;
 `
 export const Content = styled(Text)`
-  margin-top: 10px;
   font-size: 18px;
+  padding: 10px 20px 20px 20px;
 `
 export const CheckedBy = styled.View`
   flex-direction: row;
@@ -52,4 +51,5 @@ export const CheckedAvatar = styled.Image`
   width: 20px;
   height: 20px;
   borderRadius: 10px;
+  border: 0.2px ${palette.boulder};
 `
