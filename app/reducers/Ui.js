@@ -1,5 +1,5 @@
 //@flow
-import u from 'immutability-helper'
+import u from 'Closies/app/utils/ImmutabilityHelper'
 import { createAction as ca } from 'redux-actions'
 
 const DO_FORCE_RERENDER = 'ui/DO_FORCE_RERENDER'

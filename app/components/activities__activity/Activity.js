@@ -5,6 +5,7 @@ import pt from 'prop-types'
 import { humanDate } from 'Closies/app/utils/ViewDecorators'
 import { FullWidthImage } from 'Closies/app/components/__shared'
 import Comment from 'Closies/app/containers/activities__activity/Comment'
+import NewComment from 'Closies/app/containers/activities__activity/NewComment'
 import { Container, Avatar, HeaderContainer, Header, Name, Created,
   Content, CheckedBy, CheckedByTitle, CheckedAvatar, CheckedAvatarContainer } from './Activity.style'
 
@@ -49,6 +50,7 @@ export default class Activity extends React.Component {
           <Comment comment={comment} key={comment.id} />
         )}
       </ScrollView>
+      <NewComment />
     </Container>
   }
 }

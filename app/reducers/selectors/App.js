@@ -20,9 +20,8 @@ export const getCurrentRoute = (state: Object) => {
 export const getCurrentLocation = (state: Object) => state.app.currentLocation
 export const getAreaData = (state: Object) => {
   const activities = getFilteredActivities(state)
-  const denormActivities = getActivitiesDenormalized(state, activities.map(x => x.id))
   const currentLocation = getCurrentLocation(state)
-  return calculateAreaData(denormActivities, currentLocation)
+  return calculateAreaData(activities, currentLocation)
 }
 
 
@@ -37,10 +36,15 @@ export const getSelectedActivityDenormalized = (state: Object) => {
 export const getFilteredActivities = (state: Object) => {
   const activities = getActivitiesValues(state)
   const sortedActivities = _.orderBy(activities, ['created_at'], ['desc'])
-  const selectedActivityIds = getFilterSelectedActivityIds(state)
-  return !_.isEmpty(selectedActivityIds) ? sortedActivities.filter(a => _.includes(selectedActivityIds, a.id)) : sortedActivities
+  const { selectedActivityIds, groupIds } = getActivitiesFilter(state)
+  let filteredActivities = !_.isEmpty(selectedActivityIds) ? sortedActivities.filter(a => _.includes(selectedActivityIds, a.id)) : sortedActivities
+  filteredActivities = getActivitiesDenormalized(state, filteredActivities.map(x => x.id))
+  filteredActivities = !_.isEmpty(groupIds) ? filteredActivities.filter(a => _.includes(groupIds, a.user_in_group.group_id)) : filteredActivities
+  return filteredActivities
 }
-export const getFilterSelectedActivityIds = (state: Object) => state.app.area.filter.selectedActivityIds
+export const getActivitiesFilter = (state: Object) => {
+  return state.app.area.filter
+}
 
 
 // -------------------- users ----------------

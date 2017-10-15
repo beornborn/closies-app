@@ -11,7 +11,7 @@ export const absoluteFill = css`
   left: 0;
 `
 export const debug = css`
-  border: 1px solid #000;
+  border: 1px #000;
 `
 export const Container = styled.View`
   ${absoluteFill}

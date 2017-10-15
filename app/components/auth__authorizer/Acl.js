@@ -10,6 +10,7 @@ const Acl = {
   CurrentInvite: authenticated_only,
   AddGroup: authenticated_only,
   Activity: authenticated_only,
+  Filter: authenticated_only,
   NewActivity: authenticated_only,
   SelectGroups: authenticated_only,
   ActivityList: authenticated_only,

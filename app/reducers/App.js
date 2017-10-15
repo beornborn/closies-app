@@ -1,12 +1,12 @@
 //@flow
-import u from 'immutability-helper'
+import u from 'Closies/app/utils/ImmutabilityHelper'
 import { createAction as ca } from 'redux-actions'
 
 const INITIALIZE_APP = 'app/INITIALIZE_APP'
 const SET_AUTH_TOKEN = 'app/SET_AUTH_TOKEN'
 const SET_SELECTED_ACTIVITY_ID = 'app/SET_SELECTED_ACTIVITY_ID'
 const SET_CURRENT_LOCATION = 'app/SET_CURRENT_LOCATION'
-const SET_SELECTED_ACTIVITIES_FILTER = 'ui/SET_SELECTED_ACTIVITIES_FILTER'
+const SET_ACTIVITIES_FILTER = 'ui/SET_ACTIVITIES_FILTER'
 const SET_SELECTED_USER_ID = 'ui/SET_SELECTED_USER_ID'
 const SET_SELECTED_GROUP_ID = 'ui/SET_SELECTED_GROUP_ID'
 const SET_CURRENT_USER_ID = 'app/SET_CURRENT_USER_ID'
@@ -18,7 +18,7 @@ export const setSelectedActivityId = (activityId: string | number) => ca(SET_SEL
 export const setSelectedUserId = (userId: string | number) => ca(SET_SELECTED_USER_ID)({userId})
 export const setSelectedGroupId = (groupId: ?string | number) => ca(SET_SELECTED_GROUP_ID)({groupId})
 export const setCurrentLocation = (location: Object) => ca(SET_CURRENT_LOCATION)({location})
-export const setSelectedActivitiesFilter = (selectedActivityIds: Array<number>) => ca(SET_SELECTED_ACTIVITIES_FILTER)({selectedActivityIds})
+export const setActivitiesFilter = (filter: Object) => ca(SET_ACTIVITIES_FILTER)(filter)
 export const setCurrentUserId = (userId: ?number) => ca(SET_CURRENT_USER_ID)({userId})
 export const setCurrentInvite = (invite: Object) => ca(SET_CURRENT_INVITE)({invite})
 
@@ -39,6 +39,7 @@ const initialState = {
   area: {
     filter: {
       selectedActivityIds: [],
+      groupIds: [],
     }
   },
 }
@@ -62,8 +63,8 @@ export default function reducer(state: Object = initialState, action: Action) {
       return u(state, {currentInvite: {$set: p.invite}})
     case SET_CURRENT_LOCATION:
       return u(state, {currentLocation: {$set: p.location}})
-    case SET_SELECTED_ACTIVITIES_FILTER:
-      return u(state, {area: {filter: {selectedActivityIds: {$set: p.selectedActivityIds}}}})
+    case SET_ACTIVITIES_FILTER:
+      return u(state, {area: {filter: {$deepMerge: p}}})
     default:
       return state
   }

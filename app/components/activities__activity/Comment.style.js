@@ -43,5 +43,6 @@ export const CheckedAvatar = styled.Image`
   width: 20px;
   height: 20px;
   borderRadius: 10px;
-  border: 0.2px ${palette.boulder};
+  border-width: 0.2px;
+  border-color: ${palette.boulder};
 `

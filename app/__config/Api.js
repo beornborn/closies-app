@@ -32,6 +32,9 @@ export const routes = {
     create: () => 'v1/invites',
     accept: () => 'v1/invites/accept',
   },
+  comments: {
+    create: () => 'v1/comments',
+  },
 }
 
 const config = { server, routes }

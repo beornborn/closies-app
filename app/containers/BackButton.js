@@ -2,13 +2,13 @@
 import { connect } from 'react-redux'
 import BackButton from 'Closies/app/components/BackButton'
 import { NavigationActions } from 'react-navigation'
-import { getFilterSelectedActivityIds, getCurrentRoute } from 'Closies/app/reducers/selectors/App'
-import { setSelectedActivitiesFilter } from 'Closies/app/reducers/App'
+import { getActivitiesFilter, getCurrentRoute } from 'Closies/app/reducers/selectors/App'
+import { setActivitiesFilter } from 'Closies/app/reducers/App'
 import { batchActions } from 'redux-batched-actions'
 
 export const mapStateToProps = (state: Object): Object => ({
   currentRoute: getCurrentRoute(state),
-  activityIds: getFilterSelectedActivityIds(state),
+  activityIds: getActivitiesFilter(state).selectedActivityIds,
 })
 
 export const mapDispatchToProps = (dispatch: Function): Object => ({
@@ -20,7 +20,7 @@ export const mapDispatchToProps = (dispatch: Function): Object => ({
         NavigationActions.navigate({ routeName: 'Area'})
       ]
     })
-    const batchedAction = batchActions([resetAction, setSelectedActivitiesFilter([])])
+    const batchedAction = batchActions([resetAction, setActivitiesFilter({selectedActivityIds: []})])
     dispatch(batchedAction)
   },
 })

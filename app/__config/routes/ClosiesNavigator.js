@@ -22,6 +22,7 @@ const ClosiesNavigator = StackNavigator({
   GroupView: {
     screen: GroupView,
     navigationOptions: {
+      tabBarVisible: false,
       headerRight: <GroupViewActions />
     }
   },
@@ -29,18 +30,21 @@ const ClosiesNavigator = StackNavigator({
     screen: AddGroup,
     navigationOptions: {
       title: 'Add Group',
+      tabBarVisible: false,
       headerRight: <AddGroupActions />,
     }
   },
   CurrentInvite: {
     screen: CurrentInvite,
     navigationOptions: {
+      tabBarVisible: false,
       title: 'Invite',
     }
   },
   JoinGroup: {
     screen: JoinGroup,
     navigationOptions: {
+      tabBarVisible: false,
       title: 'Join Group',
     }
   },

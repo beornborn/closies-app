@@ -1,7 +1,7 @@
 //@flow
 import { connect } from 'react-redux'
 import ClusterMarker from 'Closies/app/components/activities__area/ClusterMarker'
-import { setSelectedActivitiesFilter } from 'Closies/app/reducers/App'
+import { setActivitiesFilter } from 'Closies/app/reducers/App'
 import _ from 'lodash'
 import { NavigationActions } from 'react-navigation'
 import AreaConfig from 'Closies/app/__config/Area'
@@ -19,7 +19,7 @@ export const mapDispatchToProps = (dispatch: Function): Object => {
       const longDiff = _.max(longs) - _.min(longs)
       const minDistance = AreaConfig.MIN_CLOSEST_DISTANCE_BETWEEN_ACTIVITIES
 
-      dispatch(setSelectedActivitiesFilter(activities.map(x => x.id)))
+      dispatch(setActivitiesFilter({selectedActivityIds: activities.map(x => x.id)}))
       if (latDiff <= minDistance && longDiff <= minDistance) {
         dispatch(NavigationActions.navigate({routeName: 'ActivityList'}))
       }

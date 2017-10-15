@@ -9,14 +9,3 @@ export const Container = styled.View`
   align-items: center;
   background-color: ${palette.white};
 `
-
-export const ActionButtonStyle = {
-  container: {
-    backgroundColor: palette.white,
-    borderWidth: 2,
-    borderColor: palette.cerulean,
-  },
-  icon: {
-    color: palette.cerulean,
-  }
-}
