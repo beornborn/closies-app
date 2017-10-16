@@ -1,5 +1,6 @@
 //@flow
-import { getActivities, getUsers, getGroups, getActivitiesValues, getActivitiesDenormalized, getUserInGroupsValues } from 'Closies/app/reducers/selectors/Data'
+import { getActivities, getAllUsers, getGroups, getActivitiesValues, getActivitiesDenormalized,
+  getUserInGroupsValues } from 'Closies/app/reducers/selectors/Data'
 import { denormalizedActivities, denormalizedGroups } from 'Closies/app/reducers/schemas/Denormalizers'
 import { activitiesSchema } from 'Closies/app/reducers/schemas/relations/Activity'
 import { groupsSchema } from 'Closies/app/reducers/schemas/relations/Group'
@@ -51,11 +52,11 @@ export const getActivitiesFilter = (state: Object) => {
 // -------------------- users ----------------
 export const getSelectedUserId = (state: Object) => state.app.selectedUserId
 export const getSelectedUser = (state: Object) => {
-  return getUsers(state)[getSelectedUserId(state)] || {}
+  return getAllUsers(state)[getSelectedUserId(state)] || {}
 }
 export const getCurrentUserId = (state: Object) => state.app.currentUserId
 export const getCurrentUser = (state: Object): Object => {
-  return getUsers(state)[getCurrentUserId(state)] || {}
+  return getAllUsers(state)[getCurrentUserId(state)] || {}
 }
 export const getIsCurrentUserGroupOwner = (state: Object) => {
   const currentUserId = getCurrentUserId(state)

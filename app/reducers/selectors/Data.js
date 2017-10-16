@@ -8,19 +8,27 @@ import { getSelectedGroupDenormalized } from 'Closies/app/reducers/selectors/App
 // ------------ activities ---------------
 export const getActivities = (state: Object) => state.data.activities
 export const getActivitiesValues = (state: Object) => _.values(getActivities(state))
-export const getActivitiesDenormalized = (state: Object, activity_ids: Array<number>) => {
-  return denormalizedActivities(activity_ids, state.data, activitiesSchema)
+export const getActivitiesDenormalized = (state: Object, activityIds: Array<number>) => {
+  return denormalizedActivities(activityIds, state.data, activitiesSchema)
 }
 
 
 // ----------- users -----------------------
-export const getUsers = (state: Object) => state.data.users
-export const getUsersValues = (state: Object) => _.values(state.data.users)
+export const getAllUsers = (state: Object) => state.data.users
+export const getAllUsersValues = (state: Object) => _.values(state.data.users)
+export const getUsersValues = (state: Object, userIds: Array<number>) => {
+  const allUsers = getAllUsers(state)
+  const selectedUsersData = _.pick(allUsers, userIds.map(x => x.toString()))
+  return _.values(selectedUsersData)
+}
 
 
 // ------------ groups --------------
 export const getGroups = (state: Object) => state.data.groups
 export const getGroupsValues = (state: Object) => _.values(getGroups(state))
+export const getGroupsDenormalized = (state: Object, groupIds: Array<number>) => {
+  return denormalizedGroups(groupIds, state.data, groupsSchema)
+}
 export const getAllGroupsDenormalized = (state: Object) => {
   const groups = getGroupsValues(state)
   const group_ids = groups.map(x => x.id)

@@ -2,7 +2,7 @@
 import React from 'react'
 import pt from 'prop-types'
 import { View, TouchableOpacity } from 'react-native'
-import { Container, Avatar, Name, Admin } from 'Closies/app/components/groups__group/UserItem.style'
+import { Container, Avatar, Name } from 'Closies/app/components/groups__group/UserItem.style'
 
 export default class UserItem extends React.Component {
   static propTypes = {
@@ -10,6 +10,8 @@ export default class UserItem extends React.Component {
     onPress: pt.func.isRequired,
     selected: pt.bool,
   }
+
+  static defaultProps = {selected: false}
 
   render() {
     const { user, onPress, selected } = this.props
