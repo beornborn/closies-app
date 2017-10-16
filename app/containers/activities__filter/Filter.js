@@ -1,7 +1,7 @@
 //@flow
 import { connect } from 'react-redux'
 import Filter from 'Closies/app/components/activities__filter/Filter'
-import { getAllGroupsDenormalized } from 'Closies/app/reducers/selectors/Data'
+import { getAllGroupsDenormalized, getUsersValues } from 'Closies/app/reducers/selectors/Data'
 import { reduxForm } from 'redux-form'
 import { applyFilter } from 'Closies/app/reducers/Saga'
 
@@ -12,6 +12,7 @@ export const form = {
 
 export const mapStateToProps = (state: Object): Object => ({
   groups: getAllGroupsDenormalized(state),
+  users: getUsersValues(state),
 })
 
 export const mapDispatchToProps = (dispatch: Function): Object => ({

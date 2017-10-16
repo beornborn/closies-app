@@ -15,6 +15,7 @@ export const getActivitiesDenormalized = (state: Object, activity_ids: Array<num
 
 // ----------- users -----------------------
 export const getUsers = (state: Object) => state.data.users
+export const getUsersValues = (state: Object) => _.values(state.data.users)
 
 
 // ------------ groups --------------

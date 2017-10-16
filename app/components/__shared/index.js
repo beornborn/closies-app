@@ -3,6 +3,6 @@ import TextInput from './TextInput'
 import CheckboxArray from './CheckboxArray'
 import FullWidthImage from './FullWidthImage'
 import Picker from './Picker'
-import GroupsArray from './GroupsArray'
+import SelectArray from './SelectArray'
 
-export { TextInput, FullWidthImage, CheckboxArray, Picker, GroupsArray }
+export { TextInput, FullWidthImage, CheckboxArray, Picker, SelectArray }

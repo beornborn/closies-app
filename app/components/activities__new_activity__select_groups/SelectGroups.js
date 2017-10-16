@@ -3,7 +3,7 @@ import React from 'react'
 import pt from 'prop-types'
 import GroupItem from 'Closies/app/components/groups__group_list/GroupItem'
 import { Field } from 'redux-form'
-import { GroupsArray } from 'Closies/app/components/__shared'
+import { SelectArray } from 'Closies/app/components/__shared'
 import { Container } from './SelectGroups.style'
 
 export default class SelectGroups extends React.Component {
@@ -15,7 +15,7 @@ export default class SelectGroups extends React.Component {
     const { groups } = this.props
 
     return <Container>
-      <Field name='group_ids' component={GroupsArray}>
+      <Field name='group_ids' component={SelectArray} valueExtractor={props => props.group.id}>
         {groups.map(group =>
           <GroupItem
             key={group.id}

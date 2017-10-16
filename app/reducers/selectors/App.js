@@ -36,10 +36,11 @@ export const getSelectedActivityDenormalized = (state: Object) => {
 export const getFilteredActivities = (state: Object) => {
   const activities = getActivitiesValues(state)
   const sortedActivities = _.orderBy(activities, ['created_at'], ['desc'])
-  const { selectedActivityIds, groupIds } = getActivitiesFilter(state)
+  const { selectedActivityIds, groupIds, userIds } = getActivitiesFilter(state)
   let filteredActivities = !_.isEmpty(selectedActivityIds) ? sortedActivities.filter(a => _.includes(selectedActivityIds, a.id)) : sortedActivities
   filteredActivities = getActivitiesDenormalized(state, filteredActivities.map(x => x.id))
   filteredActivities = !_.isEmpty(groupIds) ? filteredActivities.filter(a => _.includes(groupIds, a.user_in_group.group_id)) : filteredActivities
+  filteredActivities = !_.isEmpty(userIds) ? filteredActivities.filter(a => _.includes(userIds, a.user_in_group.user_id)) : filteredActivities
   return filteredActivities
 }
 export const getActivitiesFilter = (state: Object) => {

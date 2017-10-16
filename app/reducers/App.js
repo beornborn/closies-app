@@ -40,6 +40,7 @@ const initialState = {
     filter: {
       selectedActivityIds: [],
       groupIds: [],
+      userIds: [],
     }
   },
 }
