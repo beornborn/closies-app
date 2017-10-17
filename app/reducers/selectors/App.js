@@ -6,6 +6,7 @@ import { activitiesSchema } from 'Closies/app/reducers/schemas/relations/Activit
 import { groupsSchema } from 'Closies/app/reducers/schemas/relations/Group'
 import { calculateAreaData } from 'Closies/app/utils/area'
 import _ from 'lodash'
+import moment from 'moment'
 
 // ----------- misc -----------------
 export const getInitialized = (state: Object) => state.app.initialized
@@ -37,11 +38,18 @@ export const getSelectedActivityDenormalized = (state: Object) => {
 export const getFilteredActivities = (state: Object) => {
   const activities = getActivitiesValues(state)
   const sortedActivities = _.orderBy(activities, ['created_at'], ['desc'])
-  const { selectedActivityIds, groupIds, userIds } = getActivitiesFilter(state)
+  const { selectedActivityIds, groupIds, userIds, startDate, endDate } = getActivitiesFilter(state)
   let filteredActivities = !_.isEmpty(selectedActivityIds) ? sortedActivities.filter(a => _.includes(selectedActivityIds, a.id)) : sortedActivities
   filteredActivities = getActivitiesDenormalized(state, filteredActivities.map(x => x.id))
   filteredActivities = !_.isEmpty(groupIds) ? filteredActivities.filter(a => _.includes(groupIds, a.user_in_group.group_id)) : filteredActivities
   filteredActivities = !_.isEmpty(userIds) ? filteredActivities.filter(a => _.includes(userIds, a.user_in_group.user_id)) : filteredActivities
+  filteredActivities = filteredActivities.filter(a => {
+    const createdAt = moment(a.created_at).unix() * 1000
+    let goodOne = true
+    if (startDate && createdAt < startDate) goodOne = false
+    if (endDate && createdAt > endDate) goodOne = false
+    return goodOne
+  })
   return filteredActivities
 }
 export const getActivitiesFilter = (state: Object) => {

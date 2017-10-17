@@ -18,7 +18,7 @@ export const perform = function* perform(): Generator<*,*,*> {
       yield put(setAuthToken(token))
       const user = yield fetchCurrentUser()
       if (user) {
-        yield fetchCurrentLocation()
+        yield fork(fetchCurrentLocation)
         yield fork(pollActivities)
         yield fork(fetchConfig)
         yield fork(fetchGroups)

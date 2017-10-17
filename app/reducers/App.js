@@ -41,6 +41,8 @@ const initialState = {
       selectedActivityIds: [],
       groupIds: [],
       userIds: [],
+      startDate: null,
+      endDate: null,
     }
   },
 }

@@ -13,3 +13,8 @@ export const Title = styled(Text)`
   font-size: 15px;
   font-weight: bold;
 `
+export const Dates = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`

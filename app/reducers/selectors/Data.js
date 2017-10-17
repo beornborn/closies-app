@@ -4,6 +4,7 @@ import { denormalizedActivities, denormalizedGroups } from 'Closies/app/reducers
 import { activitiesSchema } from 'Closies/app/reducers/schemas/relations/Activity'
 import { groupsSchema } from 'Closies/app/reducers/schemas/relations/Group'
 import { getSelectedGroupDenormalized } from 'Closies/app/reducers/selectors/App'
+import moment from 'moment'
 
 // ------------ activities ---------------
 export const getActivities = (state: Object) => state.data.activities
@@ -66,3 +67,12 @@ export const getUserInGroupsValues = (state: Object) => _.values(state.data.user
 
 // ---------- misc ---------------------
 export const getConfig = (state: Object) => state.data.config
+export const getDateRange = (state: Object) => {
+  const activities = getActivitiesValues(state)
+  const timestamps = activities.map(a => moment(a.created_at).unix() * 1000)
+
+  return {
+    startDate: _.min(timestamps),
+    endDate: _.max(timestamps),
+  }
+}
