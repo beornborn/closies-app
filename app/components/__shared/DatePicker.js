@@ -14,8 +14,8 @@ export default class DatePicker extends React.Component {
   }
 
   static defaultProps = {
-    minDate: 0,
-    maxDate: 0,
+    minDate: undefined,
+    maxDate: undefined,
   }
 
   onDate = async () => {
