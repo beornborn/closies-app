@@ -8,7 +8,6 @@
 
 
 
-Sorry, for some reason github rotated the images.
 
 <img src="/docs/photos/1.JPG" width="500">
 <img src="/docs/photos/2.JPG" width="500">
