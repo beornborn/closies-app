@@ -2,9 +2,9 @@
 
 *Social network for close friends and family. Just for fun.*
 
-**landing**: [closies.co](http://closies.co) [beornborn/closies-web](https://github.com/beornborn/closies-web)
+**landing**: [closies.co](http://www.closies.co) ------------- [beornborn/closies-web](https://github.com/beornborn/closies-web)
 
-**server**: [api.closies.co](https://api.closies.co) [beornborn/closies-server](https://github.com/beornborn/closies-server)
+**server**: [api.closies.co](http://api.closies.co/api/v1/dev/check) --------- [beornborn/closies-server](https://github.com/beornborn/closies-server)
 
 
 
