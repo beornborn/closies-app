@@ -1,5 +1,25 @@
-Closies
+### Closies
 
-![](/docs/photos/1.JPG =250x250)
+*Social network for close friends and family. Just for fun.*
 
-<img src="/docs/photos/1.JPG" width="300">
+**landing**: [closies.co](http://closies.co) [beornborn/closies-web](https://github.com/beornborn/closies-web)
+
+**server**: [api.closies.co](https://api.closies.co) [beornborn/closies-server](https://github.com/beornborn/closies-server)
+
+
+
+Sorry, for some reason github rotated the images.
+
+<img src="/docs/photos/1.JPG" width="500">
+<img src="/docs/photos/2.JPG" width="500">
+<img src="/docs/photos/3.JPG" width="500">
+<img src="/docs/photos/4.JPG" width="500">
+<img src="/docs/photos/5.JPG" width="500">
+<img src="/docs/photos/6.JPG" width="500">
+<img src="/docs/photos/7.JPG" width="500">
+<img src="/docs/photos/8.JPG" width="500">
+<img src="/docs/photos/9.JPG" width="500">
+<img src="/docs/photos/10.JPG" width="500">
+<img src="/docs/photos/11.JPG" width="500">
+<img src="/docs/photos/12.JPG" width="500">
+<img src="/docs/photos/13.JPG" width="500">
