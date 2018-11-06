@@ -7,6 +7,7 @@
 **server**: [api.closies.co](http://api.closies.co/api/v1/dev/check) --------- [beornborn/closies-server](https://github.com/beornborn/closies-server)
 
 ||||
+|--|--|--|
 |<img src="/docs/photos/1.JPG" width="270">|<img src="/docs/photos/2.JPG" width="270">|<img src="/docs/photos/3.JPG" width="270">|
 |<img src="/docs/photos/4.JPG" width="270">|<img src="/docs/photos/5.JPG" width="270">|<img src="/docs/photos/6.JPG" width="270">|
 |<img src="/docs/photos/7.JPG" width="270">|<img src="/docs/photos/8.JPG" width="270">|<img src="/docs/photos/9.JPG" width="270">|
